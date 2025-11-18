@@ -1,0 +1,835 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' ,sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    background-color: #f4f6f9;
+    grid-template-areas:
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer"; 
+    user-select: none;  
+}
+.sidebar_menu-header{
+    border-bottom: 2px solid #ffffff; 
+}
+.school-logo {
+    width: 130px; /* increased size */
+    height: 130px;
+    border-radius: 50%; 
+    object-fit: cover;
+}
+
+.logo-title {
+    display: flex;
+    flex-direction: column; /* stack logo and title vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.school-title {
+    font-size: 18px; /* slightly bigger title */
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.2;
+    max-width: 200px; /* allow a bit wider */
+    text-align: center;
+}
+aside {
+    height: 100vh;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: #2d2d2d; 
+    color: #fff;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2); 
+    padding: 20px 10px;
+}
+
+.sidebar_menu {
+    width: 300px;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 8px; 
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.sidebar_menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px; 
+    font-weight: 600;
+    background-color: #333333;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #640712; 
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    background-color: #333333;
+    color: #fff;
+    font-weight: 500;
+    padding: 12px 20px;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+    text-align: left;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+
+.sidebar_menu ul li a.dailyactive {
+    background-color: #640712;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: inset 4px 0 0 #ffffff;
+    padding-left: 25px;
+}
+
+ul li a.homeactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px; 
+}
+
+ul li a.manageactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.dailyactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.reportsactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.useractive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+ul li a.backupactive:hover{
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.settingsactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.logactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a i {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar_menu-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 94%;
+}
+
+.sidebar_menu-bottom ul li {
+    margin-top: 10px;
+}
+
+ul li a:last-child {
+    border-bottom: none;
+}
+
+ul li a i {
+    margin-right: 15px;
+}
+
+ul li a:hover {
+    padding-left: 30px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+main {
+    grid-area: main;
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    background-color: #f4f6f9;
+    font-size: 16px;
+    color: #333;
+    overflow-y: auto;
+    height: 91.6vh;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/Picture/datamex trans.png');
+    background-size: 28%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+main > * {
+    position: relative;
+    z-index: 1;
+}
+
+main h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #640712;
+    border-bottom: 3px solid #640712;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #640712;
+    box-shadow: 0 0 5px rgba(100, 7, 18, 0.2);
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #640712;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #45050e;
+}
+
+.table-container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ddd;
+    max-height: 420px;  /* Adjust this based on row height (7 rows max height) */
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #640712;
+    color: #640712;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+button:hover{
+    background-color: #640712;
+    color: white;
+}
+
+button.add-transaction {
+    background-color: white;
+    border: 2px solid #053447;
+    color: black;
+}
+
+button.add-transaction:hover {
+    background-color: #053447;
+    color: white;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    max-width: 900px; /* Adjusted to better fit the content */
+    margin: 120px auto 20px auto; /* ADD TOP MARGIN */
+    overflow-y: auto; /* Ensure modal is scrollable if needed */
+}
+
+/* Form Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Force two columns */
+    gap: 20px;
+    width: 100%;
+    align-items: start; /* Ensure the items align at the start of the row */
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Ensure labels are aligned properly */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input fields should span the entire width of the column */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Adjustments for Small Screens */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Stack inputs in one column on smaller screens */
+    }
+}
+
+
+
+footer{
+    grid-area: footer;
+    background: black;
+    color: white;
+    padding: 2m;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .save-button{
+    background-color: white;
+    color: black;
+    border: 2px solid #053447;
+}
+.save-button:hover{
+    background-color:#053447;
+    color: white;
+    border: 2px solid #053447;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+  .modals-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .modals-buttons {
+    margin-top: 20px;
+  }
+  
+  .logout-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .logout-btn.confirm {
+    background-color: white;
+    border: 2px solid #07643d;
+    color: #07643d;
+    transition: 0.3s;
+
+  }
+
+  .logout-btn.confirm:hover{
+    background-color: #07643d;
+    color: white;
+  }
+  
+  .logout-btn.cancel {
+    background-color: white;
+    border: 2px solid #640712;
+    color: #640712;
+    transition: 0.3s;
+  }
+
+  .logout-btn.cancel:hover{
+    background-color: #640712;
+    color: white;
+  }
+.contact-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc; /* Or your input border style */
+    border-radius: 4px; /* Or your input border-radius */
+}
+.contact-prefix {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem; 
+    font-size: inherit;
+    color: #495057;
+    background-color: #e9ecef; 
+    border-right: 1px solid #ced4da; 
+    white-space: nowrap; 
+}
+#transaction-contact-main {
+    border: none; /* Remove individual border */
+    flex-grow: 1;
+    padding: 8px; /* Adjust as needed */
+    outline: none; /* Remove outline on focus if wrapper has it */
+}
+.contact-input-wrapper:focus-within {
+    border-color: 1px #000000; /* Example focus color */
+    box-shadow: 0 0 0 1px black; /* Example focus shadow */
+}
+  /* --- Responsive Design Adjustments --- */
+
+/* Base styles for the toggle button (hidden by default) */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: #f4f6f9;
+    border: 2px solid #f4f6f9;
+    color: #640712;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 15px;
+    margin-right: 10px; /* Space between toggle and logo */
+    order: -1; /* Move it to the start of the flex container */
+    transition: 0.5s;
+}
+.menu-toggle:hover{
+    background: #640712;
+    color:white;
+}
+
+/* --- Tablet and Smaller Screens (e.g., < 992px) --- */
+@media (max-width: 991.98px) {
+    body {
+        /* Keep 2-column layout, but maybe reduce sidebar width */
+        grid-template-columns: 240px 1fr; /* Slightly smaller sidebar */
+    }
+
+    aside {
+        /* Adjust sidebar padding if needed */
+        padding: 15px;
+        /* Ensure sticky positioning works with adjusted nav height */
+         top: 65px; /* Adjust if nav height changes below */
+         height: calc(100vh - 65px);
+    }
+
+    nav {
+        padding: 0.8rem 1.5rem; /* Reduce padding slightly */
+        font-size: 1.8rem; /* Base font size for nav items */
+        height: 65px; /* Adjust height if needed */
+    }
+    .nav-title {
+        font-size: 1.6rem; /* Slightly smaller title */
+    }
+    .logo {
+        height: 45px; /* Slightly smaller logo */
+    }
+
+    main {
+        padding: 30px; /* Reduce padding slightly */
+    }
+
+    main h1 {
+        font-size: 28px; /* Slightly smaller heading */
+    }
+
+    .table-container {
+        max-height: 500px; /* Adjust max height if needed */
+    }
+
+     /* Adjust modal width for tablets */
+    .modal-content {
+        width: 75%;
+    }
+}
+
+
+/* ==========================================================================
+   Mobile Styles (e.g., < 768px)
+   ========================================================================== */
+@media (max-width: 767.98px) {
+    body {
+        /* Change grid layout for mobile */
+        grid-template-columns: 1fr; /* Single column */
+        grid-template-rows: auto 1fr auto; /* Navbar, Main, Footer */
+        grid-template-areas:
+            "navbar"
+            "main"
+            "footer";
+         /* Prevent horizontal scroll caused by off-screen sidebar */
+        overflow-x: hidden;
+        position: relative; /* Needed for overlay positioning */
+    }
+
+     /* Sidebar Styles for Mobile (Hidden by default) */
+    aside {
+        grid-area: unset; /* Remove from grid */
+        position: fixed; /* Take out of grid flow */
+        top: 0;
+        left: -300px; /* Start hidden off-screen (adjust width if changed) */
+        width: 300px; /* Explicit width needed for fixed positioning */
+        height: 100vh; /* Full height */
+        z-index: 1100; /* Ensure it's above overlay and content */
+        transition: left 0.3s ease-in-out; /* Smooth transition */
+        align-self: auto; /* Override grid alignment */
+        overflow-y: auto; /* Allow sidebar scrolling if content is long */
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        padding: 0; /* Remove padding, handled by .sidebar_menu */
+      
+         /* Reset sticky positioning from desktop/tablet */
+        position: fixed;
+        top: 0;
+    }
+
+    /* Make sidebar_menu take full height inside */
+    .sidebar_menu {
+        width: 100%; /* Take full width of aside */
+        height: 100%;
+        border-radius: 0; /* No rounded corners when full height */
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px; /* Add space for a potential close button */
+        box-sizing: border-box; /* Include padding in height/width */
+        position: static; /* Reset relative positioning */
+    }
+
+    .sidebar_menu-bottom {
+        position: static; /* Remove absolute positioning */
+        bottom: auto;
+        width: 100%; /* Take full width */
+        margin-top: auto; /* Push to bottom */
+        padding: 0 15px 20px 15px; /* Add padding */
+        box-sizing: border-box;
+    }
+     .sidebar_menu-bottom ul li {
+        margin-top: 5px; /* Reduce margin */
+    }
+
+    /* Class added by JS to show the sidebar */
+    aside.sidebar-visible {
+        left: 0;
+    }
+
+     /* Navbar adjustments for Mobile */
+    nav {
+        height: 60px; /* Reduce navbar height */
+        padding: 0.5rem 1rem; /* Adjust padding */
+        /* font-size: 1.5rem; // Let children define size */
+        position: sticky; /* Keep navbar sticky */
+        top: 0;
+        z-index: 1050; /* Ensure above main content */
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between; /* Space out items */
+    }
+
+    .menu-toggle {
+        width: 12%;
+        display: block; /* Show hamburger menu */
+        order: 1; /* Place hamburger first */
+        font-size: 1.6rem;
+        margin-right: 30px; /* Space after hamburger */
+    }
+    .logo {
+        order: 2; /* Logo second */
+        height: 40px; /* Significantly smaller logo */
+        margin-left: 0; /* Reset margin */
+    }
+
+    .nav-title {
+        order: 3; /* Title third */
+        flex-grow: 1; /* Let it take remaining space */
+        text-align: left; /* Align left, near logo */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0 10px; /* Space around title */
+        font-size: 1.2rem; /* Adjust size */
+    }
+
+    /* Main content adjustments */
+    main {
+        padding: 20px; /* Further reduce padding */
+        /* Optional: Remove background image on small screens */
+        /* background-image: none; */
+    }
+     main::before {
+        /* Adjust background size/opacity for mobile */
+        background-size: 60%;
+        opacity: 0.03; /* Make it even more subtle */
+        width: 80%;
+        height: 50%;
+    }
+
+    main h1 {
+        font-size: 24px; /* Smaller H1 */
+        margin-bottom: 20px;
+    }
+
+    /* Search bar adjustments */
+    .search-bar {
+        flex-direction: column; /* Stack input and button */
+        align-items: stretch; /* Make items full width */
+        padding: 10px;
+        margin-left: -20px; /* Extend to edges if main padding is 20px */
+        margin-right: -20px;
+        border-radius: 0; /* Remove radius if edge-to-edge */
+        border-left: none;
+        border-right: none;
+    }
+
+    .search-bar input {
+        margin-bottom: 10px; /* Add space below input */
+        width: 100%; /* Explicit full width */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .search-bar button {
+        width: 100%; /* Make button full width */
+    }
+
+    /* Table adjustments */
+    .table-container {
+        max-height: none; /* Remove fixed height, let it grow */
+         /* Enable horizontal scrolling for the table container */
+        overflow-x: auto;
+        overflow-y: hidden; /* Usually disable vertical scroll when horizontal is active */
+        /* Add visual indication for scrolling */
+        -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+        border: 1px solid #ddd; /* Ensure border is visible */
+        box-shadow: none; /* Simplify shadow */
+        /* Extend to edges */
+        margin-left: -20px; /* Extend to edge if main padding is 20px */
+        margin-right: -20px;
+        padding-left: 0;
+        padding-right: 0;
+        border-left: none;
+        border-right: none;
+        border-radius: 0; /* No radius edge-to-edge */
+        background-color: #fff; /* Ensure background */
+    }
+
+     table {
+        /* Ensure table doesn't shrink below its content width */
+        min-width: 600px; /* Adjust as needed based on your columns */
+        font-size: 14px; /* Slightly smaller font in table */
+        width: auto; /* Allow table to be wider than container */
+    }
+
+     table th, table td {
+        padding: 10px 12px; /* Adjust padding */
+        white-space: nowrap; /* Prevent text wrapping in cells */
+        border-bottom: 1px solid #eee; /* Lighter border inside table */
+    }
+    table th {
+        position: sticky; /* Keep headers sticky during horizontal scroll */
+        left: 0; /* Stick to the left edge of the table */
+        background-color: #f2f2f2; /* Ensure background covers content */
+        z-index: 20; /* Above regular cells */
+        /* Optional: Style first column differently if needed */
+    }
+    /* Optional: Sticky first column if important */
+    /*
+    table td:first-child {
+        position: sticky;
+        left: 0;
+        background-color: #fff;
+        z-index: 15;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    table th:first-child {
+         z-index: 25;
+         box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    */
+
+
+    /* Button container adjustments */
+    .button-container {
+        flex-direction: column; /* Stack buttons */
+        gap: 10px; /* Add gap between stacked buttons */
+        align-items: stretch; /* Make buttons full width */
+    }
+
+    .button-container button {
+         width: 100%; /* Make buttons full width */
+         margin: 0; /* Remove horizontal margins */
+         padding: 12px 20px; /* Adjust padding if needed */
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        width: 90%; /* Use percentage width */
+        margin: 15% auto; /* Adjust margin */
+        padding: 20px;
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%; /* Ensure form elements use full width */
+        font-size: 15px; /* Slightly larger for easier tapping */
+    }
+
+    /* Footer adjustments */
+    footer {
+        padding: 1rem; /* Adjust padding */
+        font-size: 0.85rem;
+        text-align: center;
+    }
+}
+
+/* Optional: Dim background when sidebar is open on mobile */
+body.sidebar-active::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+    z-index: 1090; /* Below sidebar, above content */
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 767.98px) {
+    body.sidebar-active::after {
+        display: block; /* Show overlay only on mobile when sidebar is active */
+        opacity: 1;
+    }
+}

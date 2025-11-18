@@ -1,0 +1,1017 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' ,sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    background-color: #f4f6f9;
+    grid-template-areas:
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer";
+    user-select: none;
+}
+
+.sidebar_menu-header{
+    border-bottom: 2px solid #ffffff;
+}
+
+.school-logo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.school-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.2;
+    max-width: 200px;
+}
+
+aside {
+    height: 100vh;
+    position: static;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: #2d2d2d;
+    color: #fff;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 10px;
+}
+
+.sidebar_menu {
+    width: 300px;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.sidebar_menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #333333;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #640712;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    background-color: #333333;
+    color: #fff;
+    font-weight: 500;
+    padding: 12px 20px;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+    text-align: left;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+
+.sidebar_menu ul li a.manageactive {
+    background-color: #640712;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: inset 4px 0 0 #ffffff;
+    padding-left: 25px;
+}
+
+ul li a.homeactive:hover,
+ul li a.manageactive:hover,
+ul li a.dailyactive:hover,
+ul li a.reportsactive:hover,
+ul li a.useractive:hover,
+ul li a.backupactive:hover,
+ul li a.settingsactive:hover,
+ul li a.logactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a i {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.sidebar_menu-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 94%;
+}
+#editRecordModal .form-group .contact-input-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    /* To make the wrapper look like the input border from the image */
+    border: 1px solid #ced4da; /* Or your standard input border color */
+    border-radius: 0.25rem;    /* Or your standard input border-radius */
+    /* Add focus styles to the wrapper to mimic input focus */
+}
+
+#editRecordModal .form-group .contact-input-wrapper:focus-within {
+    border-color: #80bdff; /* Highlight color */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Focus glow */
+}
+
+
+#editRecordModal .form-group .contact-input-wrapper .contact-prefix-display {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem; 
+    font-size: inherit;
+    color: #495057;
+    background-color: #e9ecef; 
+    border-right: 1px solid #ced4da; 
+    white-space: nowrap; 
+}
+
+#editRecordModal #editContact {
+    /* Remove individual border and background if wrapper handles it */
+    border: none !important;
+    background-color: transparent !important; /* Make input background transparent */
+    border-radius: 0 !important; /* No individual radius */
+    box-shadow: none !important; /* No individual shadow */
+
+    /* Adjust padding to align text correctly */
+    padding: 0.375rem 0.75rem; /* Match prefix padding for consistency */
+    flex-grow: 1; /* Allow input to take remaining space */
+    width: auto; /* Let flex-grow handle width */
+
+    /* Standard text input styles */
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    outline: none; /* Remove outline as wrapper will show focus */
+}
+.sidebar_menu-bottom ul li {
+    margin-top: 10px;
+}
+
+ul li a:last-child {
+    border-bottom: none;
+}
+
+ul li a:hover {
+    padding-left: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    grid-area: main;
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    background-color: #f4f6f9;
+    font-size: 16px;
+    color: #333;
+    overflow-y: auto;
+    height: 91.6vh;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/Picture/datamex trans.png');
+    background-size: 28%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+main > * {
+    position: relative;
+    z-index: 1;
+}
+
+main h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #640712;
+    border-bottom: 3px solid #640712;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #640712;
+    box-shadow: 0 0 5px rgba(100, 7, 18, 0.2);
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #640712;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #45050e;
+}
+
+.record-controls { /* Added from original image inspection */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.record-controls label {
+    font-weight: 500;
+}
+.record-controls input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+.table-container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ddd;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: white; /* Default maroon background */
+    color: black;  
+    border: 2px solid #054b2c; 
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease, border-color 0.3s ease; /* Added color and border-color transitions */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+button:hover {
+    background-color: #054b2c;
+    color:white;
+    transform: translateY(-1px);
+}
+button:active {
+    background-color: #320309;
+    transform: translateY(1px);
+}
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+table td button {
+    margin-right: 5px;
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+.button-view {
+    background-color: white;
+    border: 2px solid #07643d;
+    color: black;
+}
+.button-view:hover {
+    background-color: #054b2c;
+    color: #fff;
+}
+.button-edit {
+    background-color: #fff;
+    border: 2px solid #074764;
+    color: black;
+}
+.button-edit:hover {
+    background-color: #053448;
+    color: #fff;
+}
+.button-delete { /* This class was not in the original CSS, but useful for consistency */
+    border: 2px solid #640712;
+    background-color: white;
+    color: black;
+}
+.button-delete:hover {
+    background-color: #45050e;
+    color: white;
+}
+button.add-record {
+    background-color: white;
+    border: 2px solid #053447;
+    color: black;
+}
+button.add-record:hover {
+    background-color: #053447;
+    color: white;
+}
+button.export-records { /* General export records button, not the modal one */
+    background-color: white;
+    border: 2px solid #054b2c;
+    color: black;
+}
+button.export-records:hover {
+    background-color: #054b2c;
+    color: white;
+}
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+footer{
+    grid-area: footer;
+    background: black;
+    color: white;
+    padding: 2em;
+    text-align: center;
+}
+
+/* ===== MODAL STYLES - UPDATED ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 40px; /* Provides space from top, adjust as needed */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20px auto; /* Adjust top/bottom margin if padding-top on .modal is used */
+    padding: 25px 30px;
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 800px; /* Default max-width for all modals */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-content h2 {
+    color: #333;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+
+
+.close-button {
+    color: #888;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* General form styling within modals */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label and Input styling for .form-group based layouts */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+    text-align: left; /* Ensure labels are left-aligned */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #495057;
+    margin-bottom: 0; /* Remove default margin, gap handled by grid */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #640712;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(100, 7, 18, 0.25);
+}
+
+.form-group input[readonly],
+.form-group textarea[readonly],
+.form-group select:disabled { /* Combined readonly and disabled states for inputs/selects */
+    background-color: #e9ecef;
+    color: #495057;
+    cursor: default;
+    border: 1px solid #ced4da;
+}
+.form-group select:disabled {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Grid layout for View and Edit Modals */
+.view-form-grid,
+#editForm { /* Apply grid to both View and Edit forms */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 25px; /* row-gap column-gap */
+    width: 100%;
+    align-items: start; /* Align items to the start of their grid cell */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0; /* Handled by grid gap */
+    /* text-align: left; Already handled by label and input block display */
+}
+
+.view-form-grid .full-width,
+#editForm .full-width { /* Target full-width groups in both forms */
+    grid-column: span 2;
+}
+
+
+/* Styles for full-width action buttons in modals (Export PDF, Save Changes) */
+.button-export-pdf,
+.button-save-changes {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 30px; /* Space above the button - IMPORTANT for positioning below fields */
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.button-export-pdf { /* Specific style for Export PDF button */
+    background-color: white;
+    color: #054b2c;
+    border: 2px solid #054b2c;
+}
+.button-export-pdf:hover {
+    background-color: #054b2c;
+    color: white;
+}
+
+.button-save-changes { /* Specific style for Save Changes button */
+    background-color: white;
+    color: #053447;
+    border: 2px solid #053447;
+}
+.button-save-changes:hover {
+    background-color: #053447;
+    color: white;
+}
+
+/* Fallback general submit button style (e.g., for an "Add Record" modal if not using specific class) */
+button[type="submit"] {
+    background-color: white;
+    color: black;
+    border: 2px solid #053447; /* Default to a blueish theme */
+    border-radius: 6px;
+    padding: 10px 15px; /* Default padding */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Default margin */
+
+}
+button[type="submit"]:hover {
+    background-color: #053447;
+    color: white;
+}
+
+
+
+
+#deleteNoBtn{
+    background-color: transparent;
+    color:#640712;
+    border: 2px solid #640712;
+    transition: 0.3s;
+}
+#deleteNoBtn:hover{
+    background-color: #640712;
+    color: white;
+}
+#deleteYesBtn{
+    background-color: transparent;
+    color:#07643d;
+    border: 2px solid #07643d;
+    transition: 0.3s;
+}
+#deleteYesBtn:hover{
+    background-color: #07643d;
+    color: white;
+}
+#deleteSelectedBtn{ /* Button from record-controls */
+    background-color: #ffffff;
+    border: 2px solid #45050e;
+    color:#45050e;
+}
+#deleteSelectedBtn:hover{
+    background-color: #45050e;
+    color: #ffffff;
+}
+
+/* Logout Modal */
+.modal-overlay { /* This is for the logout modal, might be different from .modal */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Ensure it's on top */
+}
+  .modals-content { /* Content for the logout modal specifically */
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+  .modals-buttons {
+    margin-top: 20px;
+}
+  .logout-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+  .logout-btn.confirm {
+    background-color: white;
+    border: 2px solid #07643d;
+    color: #07643d;
+    transition: 0.3s;
+}
+  .logout-btn.confirm:hover{
+    background-color: #07643d;
+    color: white;
+}
+  .logout-btn.cancel {
+    background-color: white;
+    border: 2px solid #640712;
+    color: #640712;
+    transition: 0.3s;
+}
+  .logout-btn.cancel:hover{
+    background-color: #640712;
+    color: white;
+}
+
+/* Menu Toggle for Mobile */
+.menu-toggle {
+    display: none; /* Hidden by default, shown in @media query */
+    background: #f4f6f9;
+    border:2px solid #f4f6f9;
+    color: #640712;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 15px;
+    margin-right: 2px;
+    order: -1; /* If used in a flex container for navbar */
+    transition: 0.5s;
+}
+.menu-toggle:hover{
+    background: #640712;
+    color:white;
+}
+
+/* Checkbox Styling */
+th:first-child, /* Select All checkbox cell */
+td:first-child { /* Individual row checkbox cell */
+  text-align: center;
+  vertical-align: middle;
+  width: 40px; /* Adjust width as needed */
+  padding: 8px;
+}
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  margin: 0 auto; /* Center checkbox if cell is wider */
+}
+input[type="checkbox"]:hover {
+  border-color: #007BFF; /* Example hover color */
+}
+input[type="checkbox"]:checked {
+  background-color: #007BFF; /* Example checked color */
+  border-color: #007BFF;
+}
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+/* CSS for Delete Confirmation Modal Content (Optional: adjust width/padding if different) */
+.delete-confirm-content {
+    max-width: 450px; /* Example: Make confirmation modal slightly smaller */
+    padding: 25px 30px;
+    text-align: center; /* Center the h2 title */
+}
+
+.delete-confirm-content h2 {
+    margin-bottom: 25px; /* Space below the title */
+    font-size: 20px;   /* Adjust title font size if needed */
+}
+
+/* NEW CSS for centering the buttons */
+.modal-buttons-centered {
+    display: flex;
+    justify-content: center; /* Horizontally center the buttons */
+    align-items: center;     /* Vertically align buttons if they have different heights (optional) */
+    gap: 15px;               /* Space between the buttons */
+    margin-top: 20px;        /* Space above the button group */
+}
+
+/* Ensure buttons in this modal have appropriate padding and style */
+#deleteNoBtn,
+#deleteYesBtn {
+    padding: 10px 25px; /* Adjust padding to make buttons a bit wider if needed */
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+    min-width: 100px; /* Ensure a minimum width for better appearance */
+    /* Other styles like border, color, background are already defined */
+}
+
+/* Existing styles for #deleteNoBtn and #deleteYesBtn - ensure they are present */
+#deleteNoBtn {
+    background-color: white; /* Explicitly white background */
+    color: #640712;
+    border: 2px solid #640712;
+    transition: background-color 0.3s, color 0.3s;
+}
+#deleteNoBtn:hover {
+    background-color: #640712;
+    color: white;
+}
+
+#deleteYesBtn {
+    background-color: white; /* Explicitly white background */
+    color: #07643d;
+    border: 2px solid #07643d;
+    transition: background-color 0.3s, color 0.3s;
+}
+#deleteYesBtn:hover {
+    background-color: #07643d;
+    color: white;
+}
+/* ===== RESPONSIVE STYLES ===== */
+
+/* === Tablet & Smaller Desktop (max-width: 1024px) === */
+@media (max-width: 1024px) {
+    .sidebar_menu {
+        width: 100%;
+    }
+    main {
+        padding: 30px;
+        height: auto; /* Allow height to adjust */
+    }
+    main h1 {
+        font-size: 28px;
+    }
+    .table-container {
+        max-height: 400px;
+    }
+    table th, table td {
+        padding: 10px 14px;
+    }
+    .modal-content {
+        width: 85%;
+        margin: 5% auto; /* Adjust vertical margin for smaller screens */
+    }
+}
+
+
+/* === Tablet & Mobile (max-width: 768px) === */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto; /* Navbar, Sidebar (when visible), Main, Footer */
+        grid-template-areas:
+            "navbar"
+            /* Sidebar will be positioned fixed, not in grid flow when active */
+            "main"
+            "footer";
+        overflow-x: hidden;
+        position: relative;
+    }
+
+      .menu-toggle {
+        width: 12%;
+        display: block; /* Show hamburger menu */
+        order: 1; /* Place hamburger first */
+        font-size: 1.6rem;
+        margin-right: 30px; /* Space after hamburger */
+    }
+
+    aside {
+        position: fixed;
+        top: 0;
+        left: -300px; /* Start hidden (adjust if sidebar width changes) */
+        width: 300px; /* Fixed width for the sliding sidebar */
+        height: 100vh;
+        z-index: 1100; /* Above overlay and main content */
+        transition: left 0.3s ease-in-out;
+        padding: 0; /* Padding handled by .sidebar_menu */
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        overflow-y: auto; /* Scroll if content exceeds height */
+        grid-area: unset; /* Remove from CSS Grid flow */
+        align-self: auto;
+    }
+    aside.sidebar-visible {
+        left: 0; /* Slide in */
+    }
+
+    .sidebar_menu {
+        width: 100%;
+        height: 100%; /* Fill the aside */
+        border-radius: 0;
+        padding-top: 20px; /* Add some padding at the top */
+        box-sizing: border-box;
+    }
+    .sidebar_menu-header { /* Adjust for mobile */
+        padding-top: 40px; /* Space if menu toggle is inside sidebar */
+    }
+    .sidebar_menu-bottom {
+        position: static; /* Remove absolute positioning */
+        margin-top: auto; /* Push to bottom of flex container */
+        padding: 0 15px 20px 15px;
+    }
+     .school-logo {
+        width: 100px; height: 100px;
+    }
+
+
+    /* Main content adjustments */
+    main {
+        padding: 20px;
+        height: auto; /* Let content define height */
+        /* Consider min-height if footer issues: calc(100vh - nav_height - footer_height) */
+    }
+    main h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+    .search-bar input{
+        margin-bottom: 10px;
+    }
+    .record-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .record-controls input[type="date"] {
+        width: 100%;
+    }
+    .record-controls button {
+        margin-left: 0;
+        width: 100%;
+    }
+
+
+    .table-container {
+        max-height: none;
+        overflow-x: auto; /* Enable horizontal scroll for table */
+        margin-top: 15px;
+        padding: 10px;
+        border: none;
+        box-shadow: none;
+    }
+    table {
+        font-size: 14px;
+    }
+    table th, table td {
+        padding: 8px 10px;
+        white-space: nowrap; /* Prevent wrapping, force scroll */
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    .button-container button {
+        width: 100%;
+    }
+    table td button {
+        padding: 6px 10px;
+        font-size: 13px;
+        margin-bottom: 5px;
+        margin-right: 3px;
+    }
+
+    /* Modal adjustments for mobile */
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+        padding: 20px 15px;
+    }
+    .modal-content h2 {
+        font-size: 20px;
+    }
+
+    /* Form grid in modals to single column */
+    .view-form-grid,
+    #editForm {
+        grid-template-columns: 1fr; /* Stack to single column */
+        gap: 15px 0; /* Only row gap needed */
+    }
+    .view-form-grid .full-width,
+    #editForm .full-width {
+        grid-column: span 1; /* Span 1 in a single column layout */
+    }
+    .form-group label {
+        font-size: 13px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    .button-export-pdf,
+    .button-save-changes {
+        padding: 10px 15px;
+        font-size: 15px;
+        margin-top: 20px; /* Adjust margin for mobile */
+    }
+
+    footer {
+        padding: 1.5rem;
+    }
+}
+
+/* === Optional: Very Small Mobile (max-width: 480px) === */
+@media (max-width: 480px) {
+    main h1 {
+        font-size: 20px;
+    }
+    table {
+        font-size: 13px;
+    }
+    table th, table td {
+        padding: 6px 8px;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 15px 10px;
+    }
+     .modal-content h2 {
+        font-size: 18px;
+    }
+    footer {
+        padding: 1rem;
+    }
+}

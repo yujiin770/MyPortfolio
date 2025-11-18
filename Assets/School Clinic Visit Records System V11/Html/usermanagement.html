@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Clinic Management System</title>
+    <link rel="stylesheet" href="../Css/usermanagement.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../Picture/datamex trans.png">
+</head>
+<body>
+    <button class="menu-toggle" aria-label="Open Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+    <aside>
+        <div class="sidebar_menu-header">
+            <div class="logo-title">
+                <img src="../Picture/datamex trans.png" alt="School Logo" class="school-logo">
+                <h2>Log in History</h2>
+            </div>
+        </div>
+    <div class="sidebar_menu">
+        <ul>
+            <li><a href="../HTML/Dashboard.html" class="homeactive"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="../Html/managerecord.html"class="manageactive"><i class="fas fa-folder"></i> Manage Records</a></li>
+            <li><a href="../Html/dailytransaction.html" class="dailyactive"><i class="fas fa-exchange-alt"></i> Daily Visits</a></li>
+            <li><a href="../Html/reports.html" class="reportsactive"><i class="fas fa-file-alt"></i> Reports</a></li>
+            <li><a href="../Html/usermanagement.html" class="useractive"><i class="fas fa-history"></i> Log in History</a></li>
+            <li><a href="../Html/backuprestore.html" class="backupactive"><i class="fas fa-cloud-upload-alt "></i> Archive Records</a></li>
+            <li><a href="../Html/settings.html" class="settingsactive"><i class="fas fa-cog"></i> Account Settings</a></li>
+            <li><a href="#" id="logoutBtn" class="logactive"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+        </ul>
+
+    </div>
+</aside>
+
+
+<main>
+    <div class="main-content">
+        <h1>School Clinic Visit Records System</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search by name or time...">
+
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Log In Time</th>
+                        <th>Log Out Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <div id="logoutModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <h3>Are you sure you want to log out?</h3>
+                <div class="modal-buttons">
+                    <button id="cancelLogout" class="logout-btn cancel">Cancel</button>
+                    <button id="confirmLogout" class="logout-btn confirm">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<script src="../Js/usermanagement.js"></script>
+
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('aside');
+    const body = document.body; // Or a main content wrapper
+
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-visible');
+            body.classList.toggle('sidebar-active'); // Optional: to prevent body scroll or dim background
+            const isExpanded = sidebar.classList.contains('sidebar-visible');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+    }
+
+    // Optional: Close sidebar if clicking outside of it
+    document.addEventListener('click', (event) => {
+        if (sidebar.classList.contains('sidebar-visible') &&
+            !sidebar.contains(event.target) &&
+            !menuToggle.contains(event.target)) {
+            sidebar.classList.remove('sidebar-visible');
+            body.classList.remove('sidebar-active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+</script>
+</body>
+</html>

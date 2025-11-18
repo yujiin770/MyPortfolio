@@ -1,0 +1,485 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins" , sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(161, 156, 156);
+    user-select: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+.wrapper{
+    width: 600px;
+    background: #fff;
+    color: #521119;
+    border-radius: 40px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#logo img {
+    width: 125px;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper h1{
+    font-size: 38px;
+    text-align: center;
+    font-weight:bolder;
+    margin-bottom: 20px;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    margin: 20px 0px; /* Controls vertical spacing BETWEEN the "Enter Username" box and "Enter Password" box */
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px; /* Space between the label text (e.g., "Enter Username") and the input field below it */
+    color: #521119;
+    font-size: 16px;
+}
+.input-box .input-field-container {
+    position: relative;
+    width: 100%;
+    height: 50px;
+
+}
+.input-box input{
+    width: 100%;
+    height: 100%; 
+    background: transparent;
+    border: 3px solid #521119; 
+    outline: none;
+    
+    border-radius: 10px; /* e.g., half of the height for a perfect pill shape, or adjust as desired */
+    font-size: 15px;   /* Font size of text inside input */
+    color: #521119;
+
+    padding: 0 55px 0 25px; /* Example: right padding increased slightly for icon with taller field */
+    /* --- THIS MUST MATCH THE HEIGHT OF .input-field-container --- */
+    line-height: 70px; /* << MAKE THIS EQUAL TO THE 'height' OF .input-field-container */
+    box-sizing: border-box;
+}
+.input-box input::placeholder {
+    color: #521119;
+    opacity: 0.7;
+    font-size: 15px; /* Match the input's font-size */
+}
+
+.input-box i{ /* The icon (user, lock) */
+    position: absolute;
+    right: 20px; /* Adjust if needed */
+    top: 50%;
+    transform: translateY(-50%); /* This keeps it vertically centered relative to .input-field-container */
+    font-size: 22px; /* You might want to increase icon size if input is much taller */
+    color: #521119;
+    pointer-events: none;
+}
+.input-box i#togglePassword {
+    pointer-events: auto;
+    cursor: pointer;
+}
+.input-box i:hover{
+    font-size: 26px;
+    transition: 0.2s;
+}
+#securityQuestionConfirm{
+    background-color: #ffffff;
+    color:#521119;
+    border: 2px solid #521119; 
+    border-radius: 10px;
+}
+#securityQuestionConfirm:hover{
+    background-color: #521119;
+    color: white;
+
+}
+
+.btn{
+    background-color: #ffffff;
+}
+
+.wrapper .remember-forgot{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input{
+    accent-color:#521119;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+.remember-forgot a{
+    color: #521119;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 3px solid #521119;
+    color: #521119;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.wrapper .btn:hover{
+    background: #721823;
+    color:#fff;
+}
+
+/* ------------- MODAL STYLES (CRITICAL CHANGES HERE) ------------- */
+
+/* Modal backdrop - This is the overlay for the whole screen */
+.modal {
+    display: none; /* Default hidden */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Semi-transparent black backdrop - THIS IS WHAT YOU WANT */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Modal content box - The actual dialog */
+.modal-content {
+    background-color: #fff; /* White background for the modal box itself */
+    color: #333; /* Default text color inside this white box */
+    padding: 25px 30px;
+    width: 90%;
+    max-width: 400px; /* Max width for the feedback modal */
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: center; /* Center text within the modal content */
+}
+.modal-content #modalMessage { /* Or just .modal-content p */
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px; /* Space before a potential button */
+    color: #333; /* Ensure text is dark on white background */
+}
+/* Close (X) button inside the modal */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+.close:hover,
+.close:focus {
+    color: #333; /* Darker on hover/focus */
+    text-decoration: none;
+}
+
+/* Headings within modal */
+.modal-content h2 {
+    margin-top: 0; /* Remove default top margin from h2 */
+    margin-bottom: 25px;
+    font-size: 22px; /* Adjusted font size for modal title */
+    color: #521119; /* Theme color for modal title */
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Styling for form groups within modals */
+.modal-content .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-content .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #444;
+}
+
+/* Input fields and select within modals */
+.modal-content input[type="password"],
+.modal-content input[type="text"],
+.modal-content select {
+    width: 100%;
+    padding: 10px 12px; /* Slightly reduced padding for a tighter look if needed */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.modal-content input[type="password"]:focus,
+.modal-content input[type="text"]:focus,
+.modal-content select:focus {
+    border-color: #521119;
+    box-shadow: 0 0 0 0.2rem rgba(82, 17, 25, 0.25);
+    outline: none;
+}
+
+.modal-content input[type="password"]::placeholder,
+.modal-content input[type="text"]::placeholder {
+    color: #999;
+}
+
+.modal-content select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Cpath%20fill%3D%22%23521119%22%20d%3D%22M0%202.5L5%207.5L10%202.5z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* Buttons within modal (like "Verify Answer" or "Save") */
+.modal-content button { /* This targets the <button> element directly */
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #ffffff; /* Main theme color */
+    color: #521119;
+    border: 2px solid #521119;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s ease;
+}
+.modal-content button:hover {
+    background-color: #521119; /* Darker shade on hover */
+    color: white;
+}
+/* Styles for password strength indicator in modal */
+#passwordStrengthIndicator {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    margin-top: 5px; /* Adjusted from -5px */
+}
+
+#passwordStrengthIndicator p {
+    margin-bottom: 3px;
+    font-weight: normal;
+    color: #555;
+}
+
+#passwordCriteria {
+    list-style: none;
+    padding-left: 5px;
+    margin-top: 0;
+}
+
+#passwordCriteria li {
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+}
+
+#passwordCriteria li i {
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+#passwordCriteria li.invalid {
+    color: red;
+}
+
+#passwordCriteria li.valid {
+    color: green;
+}
+
+/* Styling for input boxes within modals (if different from main form) */
+.modal-content .input-box.modal-input-box {
+    margin-bottom: 5px; /* Reduced margin for tighter layout */
+}
+
+.modal-content .input-box.modal-input-box label {
+    display: block;
+    margin-bottom: 3px; /* Reduced margin */
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-content .input-field-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8px; /* Space below each input field container */
+}
+
+.modal-content .input-field-container input[type="password"],
+.modal-content .input-field-container input[type="text"] {
+    width: 100%; /* Full width of container */
+    padding: 10px;
+    padding-right: 40px; /* Make space for the icon on the right */
+    box-sizing: border-box; /* Important for width calculation with padding */
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 4px; /* Example border radius */
+}
+
+.modal-content .input-field-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+}
+
+/* Ensure the last input field container has more margin before the button */
+#newPasswordModal .modal-content .input-field-container:has(#confirmPasswordInput) {
+    margin-bottom: 15px;
+}
+/* ------------- END OF MODAL STYLES ------------- */
+/* Styles for the confirmation modal buttons */
+#confirmPasswordChangeModal .modal-content button {
+    width: 100px; /* Adjust width as needed */
+    padding: 10px 15px;
+    font-size: 15px;
+    /* Remove margin-top from general button style if you want specific spacing */
+    margin-top: 0; 
+}
+
+#executePasswordChangeButton {
+    background-color: #28a745; /* Green for Yes */
+    border-color: #28a745;
+    color: white;
+    margin-right: 10px; /* Space between buttons */
+}
+#executePasswordChangeButton:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+#cancelPasswordChangeButton {
+    background-color: #dc3545; /* Red for Cancel */
+    border-color: #dc3545;
+    color: white;
+}
+#cancelPasswordChangeButton:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+#confirmPasswordChangeModal .modal-content h3 {
+    font-size: 20px; /* Adjust size if needed */
+    color: #521119;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .wrapper {
+        width: 90%;
+        padding: 25px 30px;
+    }
+    .wrapper h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+    }
+    .wrapper h1 {
+        font-size: 28px;
+    }
+    .input-box { margin: 20px 0; }
+    .input-box label { font-size: 15px; }
+    .input-box input { font-size: 15px; }
+    .remember-forgot { font-size: 14px; }
+    .wrapper .btn { font-size: 18px; }
+
+    .modal-content {
+        padding: 20px 25px;
+        max-width: 90%; /* Allow modal to take more width on small screens */
+    }
+    .modal-content h2 { font-size: 20px; }
+    .modal-content input[type="password"],
+    .modal-content input[type="text"],
+    .modal-content select,
+    .modal-content button {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+    .modal-content .form-group label { font-size: 14px; }
+    .modal-content select {
+        padding-right: 35px;
+        background-position: right 12px center;
+    }
+}
+
+@media (max-width: 400px) {
+    .wrapper h1 { font-size: 24px; }
+    .input-box label { font-size: 14px; }
+    .input-box input { font-size: 14px; }
+    .remember-forgot { font-size: 12px; }
+    .wrapper .btn { font-size: 16px; }
+
+    .modal-content h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .modal-content .form-group { margin-bottom: 15px; }
+}

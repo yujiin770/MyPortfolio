@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourista Trails</title>
+
+    <!-- Leaflet CSS for the Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="../Assets/6cd2b5ec-1f77-4b58-bdd8-e81f716264a2.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+</head>
+<body class="no-scroll">
+
+   <!-- === NEW TYPING SPLASH SCREEN === -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="loader-container">
+                <!-- First line of text -->
+                <h2 class="loader-text">
+                    <span style="--i:1;">E</span>
+                    <span style="--i:2;">L</span>
+                    <span style="--i:3;"> </span> <!-- This creates the space -->
+                    <span style="--i:4;">N</span>
+                    <span style="--i:5;">I</span>
+                    <span style="--i:6;">D</span>
+                    <span style="--i:7;">O</span>
+                </h2>
+                <!-- Second line of text, with delayed animation -->
+                <h2 class="loader-text">
+                    <span style="--i:9;">P</span>
+                    <span style="--i:10;">A</span>
+                    <span style="--i:11;">L</span>
+                    <span style="--i:12;">A</span>
+                    <span style="--i:13;">W</span>
+                    <span style="--i:14;">A</span>
+                    <span style="--i:15;">N</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <header>
+        <a href="#" class="brand">Tourista <span> Trails</span></a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#explore">Explore</a>
+                <a href="#book">Book</a>
+                <a href="#contact">Contacts</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <video class="video-slide active" src="../Assets/4k aerial drone view of dilumacad or helicopter tropical island el nido palawan phi SBV 337807154 HD.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="../Assets/Aerial view of barracuda lake in coron palawan.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="../Assets/Philippines _ Epic 4K Aerial Footage of El Nido.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="../Assets/El-nido video.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="../Assets/Barracuda Lake, Coron Palawan 🧜_♀️.mp4" autoplay muted loop></video>
+
+        <div class="content active">
+            <h1 class="multicolor-heading">
+                <span>E</span><span>L</span><span> </span><span>N</span><span>I</span><span>D</span><span>O</span>
+                <br>
+                <span>P</span><span>A</span><span>L</span><span>A</span><span>W</span><span>A</span><span>N</span>
+            </h1>
+            <p>Discover the pristine beauty of El Nido, Palawan. Famous for its white-sand beaches, coral reefs, and towering limestone cliffs, it's an adventure waiting to happen.</p>
+            <a href="#book">Book Now</a>
+        </div>
+
+        <div class="content">
+            <h1>Barracuda<br><span>Lake</span></h1>
+            <p>Named for its natural S-shaped sandbar that emerges during low tide, Snake Island connects the mainland to a nearby islet. Visitors can walk along the sandbar, enjoying panoramic views of the surrounding seascape.</p>
+            <a href="#book">Book Now</a>
+        </div>
+
+        <div class="content">
+            <h1>Big<br><span>Lagoon</span></h1>
+            <p>A signature destination in El Nido, the Big Lagoon is renowned for its towering limestone cliffs and crystal-clear turquoise waters. It's a popular spot for kayaking and swimming, offering visitors a chance to immerse themselves in its serene beauty.</p>
+            <a href="#book">Book Now</a>
+        </div>
+
+        <div class="content">
+            <h1>Nacpan<br><span>Beach</span></h1>
+            <p>Stretching over four kilometers, Nacpan Beach boasts golden sands and gentle waves. It's an ideal spot for sunbathing, swimming, and enjoying the tranquil ambiance away from the more crowded areas.</p>
+            <a href="#book">Book Now</a>
+        </div>
+
+        <div class="content">
+            <h1>Shimuzu<br><span>Island</span></h1>
+            <p>A stop on Tour A, Shimizu Island is known for its towering black limestone formations, white-sand beaches, and crystal-clear waters. It's a premier spot for snorkeling and diving, offering vibrant marine life and underwater exploration opportunities.</p>
+            <a href="#book">Book Now</a>
+        </div>
+
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+    <!-- === ABOUT SECTION === -->
+
+    <section class="info-section animate-on-scroll" id="about">
+        <div class="section-title">
+            <h2>About Tourista Trails</h2>
+        </div>
+        <div class="section-content about-content">
+            <div class="about-text">
+                <h3>Your Gateway to Paradise</h3>
+                <p>     Tourista Trails specializes in crafting unforgettable travel experiences in the breathtaking archipelago of Palawan. We believe in responsible tourism that showcases the natural wonders while supporting local communities.</p>
+                <p>From the stunning lagoons of El Nido to the underwater gardens of Coron, our curated tours offer adventure, relaxation, and authentic cultural immersion. Let us guide you through paradise.</p>
+            </div>
+            <div class="about-image">
+                <img src="../Assets/Elnido-About.jpg">
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- === EXPLORE SECTION === -->
+
+    <section class="info-section alternate-bg" id="explore">
+        <div class="section-title animate-on-scroll">
+            <h2>Explore Our Destinations</h2>
+        </div>
+
+        <!-- === MAP INTRODUCTION === -->
+        <div class="map-intro animate-on-scroll">
+            <h3>An Interactive Glimpse into Paradise</h3>
+            <p>
+                Palawan is a jewel of the Philippines, and our tours cover its most breathtaking spots. Use our interactive map to begin your virtual journey. <strong>Click on our logo markers below</strong> to get a sneak peek of the adventure that awaits!
+            </p>
+        </div>
+        <!-- ============================ -->
+
+        <!-- === MAP CONTAINER === -->
+        <div id="map" class="map-container animate-on-scroll"></div>
+        <!-- ===================== -->
+
+        <div class="section-content explore-grid">
+            <div id="card-el-nido-lagoons" class="destination-card animate-on-scroll" style="--delay-order: 1;">
+                <div class="card-image">
+                    <img src="../Assets/El Nido Lagoon.jpg">
+                    <span></span>
+                </div>
+                <div class="card-text-content">
+                    <h3>El Nido Lagoons</h3>
+                    <p>Kayak through crystal-clear waters surrounded by majestic limestone cliffs in the Big and Small Lagoons.</p>
+                    <div class="card-price"></div> <!-- Price will be inserted here -->
+                </div>
+            </div>
+            <div id="card-snake-island" class="destination-card animate-on-scroll" style="--delay-order: 2;">
+                <div class="card-image">
+                    <img src="../Assets/SnakeIslandElNido.jpg">
+                    <span></span>
+                </div>
+                <div class="card-text-content">
+                    <h3>Snake Island</h3>
+                    <p>Philippines, is famous for its distinctive S-shaped sandbar, which connects the island to the mainland.</p>
+                    <div class="card-price"></div> <!-- Price will be inserted here -->
+                </div>
+            </div>
+            <div id="card-port-barton" class="destination-card animate-on-scroll" style="--delay-order: 3;">
+                <div class="card-image">
+                    <img src="../Assets/PortBartonElNido.png">
+                   <span></span>
+                </div>
+                <div class="card-text-content">
+                    <h3>Port Barton Serenity</h3>
+                    <p>Relax on untouched beaches and snorkel in vibrant reefs in the tranquil village of Port Barton.</p>
+                    <div class="card-price"></div> <!-- Price will be inserted here -->
+                </div>
+            </div>
+            <div id="card-underground-river" class="destination-card animate-on-scroll" style="--delay-order: 4;">
+                <div class="card-image">
+                   <img src="../Assets/UndergroundRiverElnido.jpg">
+                   <span></span>
+                </div>
+                <div class="card-text-content">
+                    <h3>Underground River</h3>
+                    <p>Witness one of the New 7 Wonders of Nature, a subterranean river flowing through stunning caves.</p>
+                    <div class="card-price"></div> <!-- Price will be inserted here -->
+                </div>
+            </div>
+            <div id="card-nacpan-beach" class="destination-card animate-on-scroll" style="--delay-order: 5;">
+                <div class="card-image">
+                   <img src="../Assets/nacpanbeachElNido.jpeg">
+                   <span></span>
+                </div>
+                <div class="card-text-content">
+                    <h3>Nacpan Beach</h3>
+                    <p>Nacpan Beach is renowned for its 4-kilometer long stretch of pristine, powdery white sand.</p>
+                    <div class="card-price"></div> <!-- Price will be inserted here -->
+                </div>
+            </div>
+            <div id="card-shimizu-island" class="destination-card animate-on-scroll" style="--delay-order: 6;">
+                <div class="card-image">
+                   <img src="../Assets/shimizuElnido.jpg">
+                   <span></span>
+                </div>
+                <div class="card-text-content">
+                    <h3>Shimizu Island</h3>
+                    <p>The deceased diver's last name was Shimizu, and the island was later named after him.</p>
+                    <div class="card-price"></div> <!-- Price will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === BOOKING SECTION === -->
+
+    <section class="info-section animate-on-scroll" id="book">
+        <div class="section-title">
+            <h2>Book Your Adventure</h2>
+        </div>
+        <div class="section-content booking-form-container">
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                  <div class="form-group">
+                    <label for="phone">Phone Number :</label>
+                    <input type="number" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Choose Destination:</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">-- Select --</option>
+                        <option value="El Nido Tour A">El Nido Tour A</option>
+                        <option value="El Nido Tour C">El Nido Tour C</option>
+                        <option value="Underground River Tour">Underground River Tour</option>
+                        <option value="Custom Package">Custom Package</option>
+                    </select>
+                </div>
+
+                <!-- === NEW PRICE DISPLAY FOR BOOKING FORM === -->
+                <div id="tour-price-display" class="tour-price">
+                    <!-- This part shows for standard tours -->
+                    <div id="price-breakdown" class="price-breakdown">
+                        <span class="price-label">Total Price</span>
+                        <div class="price-details">
+                            <span id="price-value" class="price-amount">₱0</span>
+                            <span class="price-note"><i class='bx bx-user'></i> per person</span>
+                        </div>
+                    </div>
+                    <!-- This part shows for custom packages -->
+                    <div id="custom-quote-message" class="custom-quote-message">
+                        We will contact you with a custom quote.
+                    </div>
+                </div>
+                <!-- ========================================== -->
+
+                <div class="form-group">
+                    <label for="travel-date">Preferred Travel Date:</label>
+                    <input type="date" id="travel-date" name="travel-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="num-guests">Number of Guests:</label>
+                    <input type="number" id="num-guests" name="num-guests" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-message">Additional Notes (optional):</label>
+                    <textarea id="booking-message" name="booking-message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Booking Inquiry</button>
+                <p id="booking-success-message" class="success-message" style="display: none;">Booking inquiry submitted! We'll contact you soon.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- === CONTACTS SECTION === -->
+
+    <section class="info-section alternate-bg animate-on-scroll" id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+        </div>
+        <div class="section-content contact-content">
+            <div class="contact-details">
+                <h3>Contact Information</h3>
+                <p><i class='bx bx-map'></i> 123 Paradise Lane, El Nido, Palawan, Philippines</p>
+                <p><i class='bx bx-phone'></i> +63 938 098 5104 | Almira Eugene</p>
+                <p><i class='bx bx-envelope'></i> eujinjae@gmail.com</p>
+                <div class="contact-social-media">
+                    <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" title="Facebook"><img src="../Assets/Facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/yujiiiiiiiin_/" target="_blank" title="Instagram"><img src="../Assets/Instagram.png" alt="Instagram"></a>
+                    <a href="https://www.tiktok.com/@eujinjae" target="_blank" title="TikTok"><img src="../Assets/tiktok.png" alt="TikTok"></a>
+                </div>
+            </div>
+            <div class="contact-form-container">
+                <h3>Reach Out Directly</h3>
+                <p>Have a question or ready to plan your trip? Contact us through your preferred method below. We're here to help you craft the perfect Palawan adventure.</p>
+
+                <div class="contact-cta-container">
+                    <a href="mailto:info@touristatrails.com" class="contact-cta-btn">
+                        <i class='bx bx-envelope'></i> Email Us Directly
+                    </a>
+                    <a href="tel:+639380985104" class="contact-cta-btn">
+                        <i class='bx bx-phone'></i> Call Our Office
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=123+Paradise+Lane,+El+Nido,+Palawan,+Philippines" target="_blank" class="contact-cta-btn">
+                        <i class='bx bx-map-pin'></i> Find Us On Map
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <!-- === VIDEO MODAL === -->
+    <div id="video-modal" class="video-modal-overlay">
+        <div class="video-modal-content">
+            <span class="close-modal">×</span>
+            <div id="video-container">
+                <!-- YouTube Iframe will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+    <!-- =================== -->
+
+    <footer>
+        <div class="footer-container">
+            <span class="copyright">© 2025 Tourista Trails | All rights reserved.</span>
+            <div class="legal-links">
+                 <a href="privacypolicy.html" target="_blank">Privacy Policy</a>
+                 <a href="TermsandCondition.html" target="_blank">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JavaScript for the Interactive Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="../Js/script.js"></script>
+
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>```

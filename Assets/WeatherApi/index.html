@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <!-- ADD LEAFLET CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    
+    <!-- ADD LEAFLET JAVASCRIPT -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="app-title">Weather App</h1>
+
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter Country and city name...">
+            <button id="search-btn"><i class='bx bx-search'></i></button>
+        </div>
+
+        <div class="error-display">
+            <p>City not found. Please try again.</p>
+        </div>
+
+        <!-- This is the updated weather-display section -->
+<div class="weather-display">
+    <!-- New grid for current weather and map -->
+    <div class="weather-details-grid">
+        <div class="current-weather">
+            <h2 id="city-name"></h2>
+            <p id="local-time-date"></p> 
+            <img id="weather-icon" src="" alt="Weather Icon">
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+        <!-- The map container -->
+        <div id="map"></div>
+    </div>
+    
+    <div class="forecast">
+        <h3>5-Day Forecast</h3>
+        <div class="forecast-container" id="forecast-container">
+            <!-- Forecast cards will be injected here by JavaScript -->
+        </div>
+    </div>
+    <div class="back-btn-container">
+    <a href="../../index.html" class="back-btn"><i class='bx bx-arrow-back'></i> Back to Portfolio</a>
+</div>
+</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

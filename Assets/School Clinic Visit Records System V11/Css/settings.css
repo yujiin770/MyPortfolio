@@ -1,0 +1,860 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' ,sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    background-color: #f4f6f9;
+    grid-template-areas:
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer"; 
+    user-select: none;  
+}
+.sidebar_menu-header{
+    border-bottom: 2px solid #ffffff; 
+}
+.school-logo {
+    width: 130px; /* increased size */
+    height: 130px;
+    border-radius: 50%; 
+    object-fit: cover;
+}
+
+.logo-title {
+    display: flex;
+    flex-direction: column; /* stack logo and title vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.school-title {
+    font-size: 18px; /* slightly bigger title */
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.2;
+    max-width: 200px; /* allow a bit wider */
+}
+aside {
+    height: 100vh;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: #2d2d2d; 
+    color: #fff;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2); 
+    padding: 20px 10px;
+}
+
+.sidebar_menu {
+    width: 300px;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 8px; 
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.sidebar_menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px; 
+    font-weight: 600;
+    background-color: #333333;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #640712; 
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    background-color: #333333;
+    color: #fff;
+    font-weight: 500;
+    padding: 12px 20px;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+    text-align: left;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+
+
+.sidebar_menu ul li a.settingsactive{
+    background-color: #640712;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: inset 4px 0 0 #ffffff;
+    padding-left: 25px;
+}
+
+ul li a.homeactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px; 
+}
+
+ul li a.manageactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.dailyactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.reportsactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.useractive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+ul li a.backupactive:hover{
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.settingsactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a.logactive:hover {
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a i {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar_menu-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 94%;
+}
+
+.sidebar_menu-bottom ul li {
+    margin-top: 10px;
+}
+
+ul li a:last-child {
+    border-bottom: none;
+}
+
+ul li a i {
+    margin-right: 15px;
+}
+
+ul li a:hover {
+    padding-left: 30px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+main {
+    grid-area: main;
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    background-color: #f4f6f9;
+    font-size: 16px;
+    color: #333;
+    overflow-y: auto;
+    height: 91.6vh;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/Picture/datamex trans.png');
+    background-size: 28%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+main > * {
+    position: relative;
+    z-index: 1;
+}
+
+main h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #640712;
+    border-bottom: 3px solid #640712;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.settings-option {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.settings-option h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #640712;
+    border-left: 5px solid #640712;
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #640712;
+    outline: none;
+}
+
+.save-button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background-color: white;
+    color: #053447;
+    border: 2px solid #074764;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+    background-color: #053447;
+    color: #ffffff;
+}
+footer{
+    grid-area: footer;
+    background: black;
+    color: white;
+    padding: 2m;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .modal-buttons {
+    margin-top: 20px;
+  }
+  
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .modal-buttons {
+    margin-top: 20px;
+  }
+  
+  .logout-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .logout-btn.confirm {
+    background-color: white;
+    border: 2px solid #07643d;
+    color: #07643d;
+    transition: 0.3s;
+
+  }
+
+  .logout-btn.confirm:hover{
+    background-color: #07643d;
+    color: white;
+  }
+  
+  .logout-btn.cancel {
+    background-color: white;
+    border: 2px solid #640712;
+    color: #640712;
+    transition: 0.3s;
+  }
+
+  .logout-btn.cancel:hover{
+    background-color: #640712;
+    color: white;
+  }
+
+  .menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: #f4f6f9;
+    border:2px solid #f4f6f9;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 15px;
+    margin-right: 10px; /* Space between toggle and logo */
+    order: -1; /* Move it to the start of the flex container */
+    transition: 0.5s;
+}
+.menu-toggle:hover{
+    background: #640712;
+    color:white;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-buttons {
+    margin-top: 15px;
+}
+
+.logout-btn.confirm {
+    background-color: white;
+    border: 2px solid #07643d;
+    color: #07643d;
+    transition: 0.3s;
+
+  }
+
+  .logout-btn.confirm:hover{
+    background-color: #07643d;
+    color: white;
+  }
+  
+  .logout-btn.cancel {
+    background-color: white;
+    border: 2px solid #640712;
+    color: #640712;
+    transition: 0.3s;
+  }
+
+  .logout-btn.cancel:hover{
+    background-color: #640712;
+    color: white;
+  }
+#security-questions-container .form-group {
+    margin-bottom: 20px;
+}
+#security-questions-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#security-questions-container .form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.password-requirements {
+    font-size: 0.85em;
+    margin-top: 8px;
+    padding-left: 5px; /* Align with input text a bit */
+    color: #555;
+}
+.password-requirements ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+.password-requirements li {
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+.password-requirements li i {
+    margin-right: 8px;
+    width: 16px; /* Ensure consistent icon spacing */
+    text-align: center;
+}
+.password-requirements li.valid i {
+    color: green;
+}
+.password-requirements li.invalid i {
+color: red;
+}
+#password-strength-text.weak { color: red; font-weight: bold;}
+#password-strength-text.medium { color: orange; font-weight: bold;}
+#password-strength-text.strong { color: green; font-weight: bold;}
+  /* Styles for password strength indicator */
+        .password-requirements {
+            font-size: 0.85em;
+            margin-top: 8px;
+            padding-left: 5px;
+            color: #555;
+        }
+        .password-requirements ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0 0;
+        }
+        .password-requirements li {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+        }
+        .password-requirements li i {
+            margin-right: 8px;
+            width: 16px;
+            text-align: center;
+        }
+        .password-requirements li.valid i { color: green; }
+        .password-requirements li.invalid i { color: red; }
+
+        #password-strength-text.weak { color: red; font-weight: bold; }
+        #password-strength-text.medium { color: orange; font-weight: bold; }
+        #password-strength-text.strong { color: green; font-weight: bold; }
+
+        /* Styles for password toggle icon */
+        .password-input-container {
+            position: relative;
+            display: flex; /* Aligns input and icon */
+            align-items: center; /* Vertically aligns icon with input */
+        }
+        .password-input-container input[type="password"],
+        .password-input-container input[type="text"] {
+            flex-grow: 1; /* Makes input take available space */
+            padding-right: 30px; /* Space for the icon */
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px; /* Position icon inside the input area */
+            cursor: pointer;
+            color: #777;
+            font-size: 0.9em; /* Adjust size as needed */
+        }
+        /* Ensure the input fields in the .form-group take full width */
+        /* This might need adjustment based on your existing settings.css */
+        .form-group input[type="password"],
+        .form-group input[type="text"] {
+             width: calc(100% - 30px); /* Adjust if padding/border are part of the calculation */
+        }
+        .password-input-container input[type="password"],
+        .password-input-container input[type="text"] {
+             width: 100%; /* Override if the above is too specific */
+        }
+
+  @media (max-width: 1024px) {
+    body {
+        /* Change grid layout for single column */
+        grid-template-columns: 1fr; /* Only one column */
+        grid-template-rows: auto 1fr auto; /* Navbar, Main, Footer */
+        grid-template-areas:
+            "navbar"
+            "main"
+            "footer";
+        /* Allow text selection on mobile if needed, or keep user-select: none */
+    }
+
+    nav {
+        height: 60px; /* Slightly reduce navbar height */
+        padding: 0.5rem 1rem; /* Adjust padding */
+        font-size: 1.5rem; /* Reduce font size */
+        position: sticky; /* Make navbar sticky on mobile */
+        top: 0; /* Stick to the top */
+        z-index: 100; /* Ensure it's above other content */
+    }
+
+    .nav-container {
+        padding: 0 10px; /* Reduce padding */
+        justify-content: space-between; /* Space out items */
+    }
+
+    .logo {
+        height: 45px; /* Adjust logo size to fit smaller navbar */
+        margin-left: 0; /* Remove left margin */
+    }
+
+    .nav-title {
+        /* Allow title to shrink, prevent overflow */
+        flex-grow: 0; /* Don't force it to fill space */
+        margin: 0 10px; /* Add some margin */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Add ... if text is too long */
+        white-space: nowrap;
+        text-align: center; /* Align left, next to potential menu icon */
+        font-size: 25px;
+    }
+
+    /* --- Sidebar Handling --- */
+    /* Option 1: Hide sidebar and use a toggle button (Recommended) */
+    /* You'll need JavaScript to toggle the 'sidebar-visible' class */
+    aside {
+        position: fixed; /* Take out of flow, position relative to viewport */
+        left: -320px; /* Hide off-screen (adjust based on width + padding) */
+        top: 0;
+        height: 100vh; /* Full viewport height */
+        z-index: 1000; /* High z-index to appear above overlay/content */
+        transition: left 0.3s ease-in-out; /* Smooth transition for toggle */
+        width: 300px; /* Keep its width when visible */
+        overflow-y: auto; /* Allow scrolling within sidebar if content overflows */
+        background-color: #2d2d2d; /* Ensure background is solid */
+    }
+
+    aside.sidebar-visible { /* Add this class with JS to show sidebar */
+        left: 0;
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5); /* Stronger shadow when overlayed */
+    }
+
+    .sidebar_menu {
+        width: 100%; /* Menu takes full width of the aside */
+        border-radius: 0; /* Remove radius if it looks odd when fixed */
+    }
+
+    .sidebar_menu-bottom {
+        /* Adjust positioning if needed when sidebar is fixed/toggled */
+        position: sticky; /* Stick to bottom of the 'aside' viewport */
+        bottom: 0;
+        background-color: #2d2d2d; /* Match aside background */
+        padding-bottom: 10px; /* Add some padding */
+        width: calc(100% - 20px); /* Adjust width considering padding */
+        margin: 0 10px; /* Center it based on aside padding */
+    }
+
+    /* Placeholder for a menu toggle button (Hamburger Icon) */
+    /* Add a <button class="menu-toggle">☰</button> in your nav HTML */
+   .menu-toggle {
+        width: 12%;
+        display: block; /* Show hamburger menu */
+        order: 1; /* Place hamburger first */
+        font-size: 1.6rem;
+        margin-right: 30px; /* Space after hamburger */
+    }
+
+    main {
+        padding: 20px; /* Reduce padding */
+        height: auto; /* Let height be determined by content */
+        min-height: calc(100vh - 60px - 50px); /* Approx: vh - nav height - footer height */
+        overflow-y: visible; /* Allow normal page scrolling */
+    }
+
+    main::before {
+        background-size: 50%; /* Make background image smaller */
+        opacity: 0.08; /* Adjust opacity if needed */
+    }
+
+    main h1 {
+        font-size: 26px; /* Reduce heading size */
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+    }
+
+    .settings-option {
+        padding: 20px; /* Adjust padding */
+    }
+
+    .settings-option h2 {
+        font-size: 18px; /* Reduce subheading size */
+        padding-left: 10px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px; /* Adjust form element padding */
+    }
+
+    footer {
+        padding: 1rem; /* Adjust footer padding */
+    }
+
+    /* Adjust modal if necessary, though fixed positioning usually works fine */
+    .modal-content {
+       width: 85%; /* Make modal wider on small screens */
+       max-width: 300px; /* But not too wide */
+       padding: 15px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        /* Change grid layout for mobile */
+        grid-template-columns: 1fr; /* Single column */
+        grid-template-rows: auto 1fr auto; /* Navbar, Main, Footer */
+        grid-template-areas:
+            "navbar"
+            "main"
+            "footer";
+         /* Prevent horizontal scroll caused by off-screen sidebar */
+        overflow-x: hidden;
+        position: relative; /* Needed for overlay positioning */
+    }
+
+     /* Sidebar Styles for Mobile (Hidden by default) */
+    aside {
+        grid-area: unset; /* Remove from grid */
+        position: fixed; /* Take out of grid flow */
+        top: 0;
+        left: -300px; /* Start hidden off-screen (adjust width if changed) */
+        width: 300px; /* Explicit width needed for fixed positioning */
+        height: 100vh; /* Full height */
+        z-index: 1100; /* Ensure it's above overlay and content */
+        transition: left 0.3s ease-in-out; /* Smooth transition */
+        align-self: auto; /* Override grid alignment */
+        overflow-y: auto; 
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        padding: 0; /* Remove padding, handled by .sidebar_menu */
+       
+         /* Reset sticky positioning from desktop/tablet */
+        position: fixed;
+        top: 0;
+    }
+
+    /* Make sidebar_menu take full height inside */
+    .sidebar_menu {
+        width: 100%; /* Take full width of aside */
+        height: 100%;
+        border-radius: 0; /* No rounded corners when full height */
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px; /* Add space for a potential close button */
+        box-sizing: border-box; /* Include padding in height/width */
+        position: static; /* Reset relative positioning */
+    }
+
+    .sidebar_menu-bottom {
+        position: static; /* Remove absolute positioning */
+        bottom: auto;
+        width: 100%; /* Take full width */
+        margin-top: auto; /* Push to bottom */
+        padding: 0 15px 20px 15px; /* Add padding */
+        box-sizing: border-box;
+    }
+     .sidebar_menu-bottom ul li {
+        margin-top: 5px; /* Reduce margin */
+    }
+
+    /* Class added by JS to show the sidebar */
+    aside.sidebar-visible {
+        left: 0;
+    }
+
+     /* Navbar adjustments for Mobile */
+    nav {
+        height: 60px; /* Reduce navbar height */
+        padding: 0.5rem 1rem; /* Adjust padding */
+        /* font-size: 1.5rem; // Let children define size */
+        position: sticky; /* Keep navbar sticky */
+        top: 0;
+        z-index: 1050; /* Ensure above main content */
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between; /* Space out items */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+        order: 1; /* Place hamburger first */
+        font-size: 1.6rem;
+        margin-right: 10px; /* Space after hamburger */
+    }
+    .logo {
+        order: 2; /* Logo second */
+        height: 40px; /* Significantly smaller logo */
+        margin-left: 0; /* Reset margin */
+    }
+
+    .nav-title {
+        order: 3; /* Title third */
+        flex-grow: 1; /* Let it take remaining space */
+        text-align: left; /* Align left, near logo */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0 10px; /* Space around title */
+        font-size: 1.2rem; /* Adjust size */
+    }
+
+    main {
+        padding: 20px; /* Reduce padding */
+        height: auto; /* Let height be determined by content */
+        min-height: calc(100vh - 60px - 50px); /* Approx: vh - nav height - footer height */
+        overflow-y: visible; /* Allow normal page scrolling */
+    }
+
+    main::before {
+        background-size: 50%; /* Make background image smaller */
+        opacity: 0.08; /* Adjust opacity if needed */
+    }
+
+    main h1 {
+        font-size: 26px; /* Reduce heading size */
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+    }
+
+    .settings-option {
+        padding: 20px; /* Adjust padding */
+    }
+
+    .settings-option h2 {
+        font-size: 18px; /* Reduce subheading size */
+        padding-left: 10px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px; /* Adjust form element padding */
+    }
+
+    footer {
+        padding: 1rem; /* Adjust footer padding */
+    }
+
+    /* Adjust modal if necessary, though fixed positioning usually works fine */
+    .modal-content {
+       width: 85%; /* Make modal wider on small screens */
+       max-width: 300px; /* But not too wide */
+       padding: 15px 20px;
+    }
+}
+
+/* --- Styles for very small screens (e.g., max-width: 480px) --- */
+@media (max-width: 480px) {
+    nav {
+        font-size: 1.3rem; /* Further reduce nav font size */
+    }
+
+    .logo {
+        height: 35px; /* Make logo even smaller */
+        /* Consider hiding the logo if space is extremely tight */
+        /* display: none; */
+    }
+
+  
+    .nav-title{
+        text-align: left; /* Align left, next to potential menu icon */
+        font-size: 13px;
+    }
+    main {
+        padding: 15px; /* Further reduce main padding */
+        height: 120vh;
+    }
+
+    main h1 {
+        font-size: 22px; /* Further reduce heading size */
+    }
+
+    main::before {
+        background-size: 60%; /* Adjust background image size */
+    }
+
+    .settings-option {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .settings-option h2 {
+        font-size: 16px; /* Further reduce subheading size */
+    }
+}
+
+/* --- Hide menu toggle button on larger screens --- */

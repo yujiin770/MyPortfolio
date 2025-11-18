@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Clinic Management System</title>
+    <link rel="stylesheet" href="../Css/backuprestore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../Picture/datamex trans.png">
+</head>
+<body>
+    <button class="menu-toggle" aria-label="Open Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+    <aside>
+        <div class="sidebar_menu-header">  
+            <div class="logo-title">
+                <img src="../Picture/datamex trans.png" alt="School Logo" class="school-logo">
+                <h2>Archive Records</h2>
+            </div>     
+        </div> 
+    <div class="sidebar_menu">        
+        <ul>
+            <li><a href="../HTML/Dashboard.html" class="homeactive"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="../Html/managerecord.html"class="manageactive"><i class="fas fa-folder"></i> Manage Records</a></li>
+            <li><a href="../Html/dailytransaction.html" class="dailyactive"><i class="fas fa-exchange-alt"></i> Daily Visits</a></li>
+            <li><a href="../Html/reports.html" class="reportsactive"><i class="fas fa-file-alt"></i> Reports</a></li>
+            <li><a href="../Html/usermanagement.html" class="useractive"><i class="fas fa-history"></i> Log in History</a></li>
+            <li><a href="../Html/backuprestore.html" class="backupactive"><i class="fas fa-cloud-upload-alt "></i> Archive Records</a></li>
+            <li><a href="../Html/settings.html" class="settingsactive"><i class="fas fa-cog"></i> Account Settings</a></li>
+            <li><a href="#" id="logoutBtn" class="logactive"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+        </ul>
+        
+    </div>
+</aside>
+
+<main>
+    <div class="main-content">
+        <h1>School Clinic Visit Records System</h1>
+
+
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by Name or Date" oninput="applyFiltersAndRenderRecords()">
+        </div>
+        <div class="filter-controls" style="margin-bottom: 15px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+            <label for="startDate">From:</label>
+            <input type="date" id="startDate">
+            <label for="endDate">To:</label>
+            <input type="date" id="endDate">
+            <button id="restoreSelectedBtn" class="button-action" disabled style="margin-left: 10px;">Restore Selected</button>
+            <button id="deleteSelectedBtn" class="button-action" disabled style="margin-left: 10px;">Delete Selected</button>
+        </div>
+<div class="table-container">
+            <table id="archivedRecordsTable">
+                <thead>
+                    <tr>
+                        <th>Select All<br><input type="checkbox" class="recordCheckbox" id="selectAllCheckbox"></th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Action Taken</th>
+                        <th>Date Visit</th> 
+                        <th>Date Removed</th> 
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="archivedRecordsTableBody"> 
+                </tbody>
+            </table>
+        </div>
+        <div id="logoutModal" class="modal-overlay" style="display: none;">
+            <div class="modals-content">
+                <h3>Are you sure you want to log out?</h3>
+                <div class="modals-buttons">                 
+                    <button id="cancelLogout" class="logout-btn cancel">Cancel</button>
+                    <button id="confirmLogout" class="logout-btn confirm">Yes</button>
+                </div>
+            </div>
+        </div>
+        <div id="deleteConfirmModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-button" id="closeDeleteConfirmModal"></span>
+                <h2>Are you sure you want to remove this record?</h2>
+       
+                <button id="deleteNoBtn">No</button>
+                <button id="deleteYesBtn">Yes</button>
+            </div>
+        </div>
+
+       <div id="viewArchivedRecordModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close-btn" id="closeViewArchivedModalBtn">×</span>
+    <h2>Archived Record Details</h2>
+
+    <div class="modal-form-columns"> 
+        <div>
+            <label for="archivedViewName">Name:</label>
+            <input type="text" id="archivedViewName" readonly>
+        </div>
+        <div>
+            <label for="archivedViewRole">Role:</label>
+            <input type="text" id="archivedViewRole" readonly>
+        </div>
+        <div>
+            <label for="archivedViewCourse">Course/Department:</label>
+            <input type="text" id="archivedViewCourse" readonly>
+        </div>
+        <div>
+            <label for="archivedViewSchoolid">School ID/Employee ID:</label>
+            <input type="text" id="archivedViewSchoolid" readonly>
+        </div>
+        <div>
+            <label for="archivedViewContact">Contact:</label>
+            <input type="text" id="archivedViewContact" readonly>
+        </div>
+        <div>
+            <label for="archivedViewAge">Age:</label>
+            <input type="text" id="archivedViewAge" readonly>
+        </div>
+        <div>
+            <label for="archivedViewSex">Sex:</label>
+            <input type="text" id="archivedViewSex" readonly>
+        </div>
+        <div>
+            <label for="archivedViewTimeIn">Time In:</label>
+            <input type="text" id="archivedViewTimeIn" readonly>
+        </div>
+        <div>
+            <label for="archivedViewTimeOut">Time Out:</label>
+            <input type="text" id="archivedViewTimeOut" readonly>
+        </div>
+        <div>
+            <label for="archivedViewReason">Reason for Visit:</label>
+            <input type="text" id="archivedViewReason" readonly>
+        </div>
+        <div>
+            <label for="archivedViewActionTaken">Action Taken:</label>
+            <input type="text" id="archivedViewActionTaken" readonly>
+        </div>
+        <div>
+            <label for="archivedViewHandledBy">Handled By:</label>
+            <input type="text" id="archivedViewHandledBy" readonly>
+        </div>
+        <div>
+            <label for="archivedViewDateArchived">Date Visit:</label>
+            <input type="text" id="archivedViewDateArchived" readonly>
+        </div>
+        <div>
+            <label for="archivedViewDateRemoved">Date Removed:</label>
+            <input type="text" id="archivedViewDateRemoved" readonly>
+        </div>
+       
+    </div> 
+
+  </div>
+</div>
+    </form>
+  </div>
+</div>
+</div>
+
+</div>
+    </div>
+       <div id="restoreConfirmModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-btn" id="closeRestoreConfirmModalBtn">×</span>
+                <h2>Are you sure you want to restore the selected record(s)?</h2>
+                <div class="modal-buttons-container"> <!-- Optional: for button layout -->
+                    <button id="restoreNoBtn">No</button>
+                    <button id="restoreYesBtn">Yes</button>
+                </div>
+            </div>
+        </div>
+
+
+</main>
+
+
+<script src="../Js/backuprestore.js"></script>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('aside');
+    const body = document.body; // Or a main content wrapper
+
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-visible');
+            body.classList.toggle('sidebar-active'); // Optional: to prevent body scroll or dim background
+            const isExpanded = sidebar.classList.contains('sidebar-visible');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+    }
+
+    // Optional: Close sidebar if clicking outside of it
+    document.addEventListener('click', (event) => {
+        if (sidebar.classList.contains('sidebar-visible') &&
+            !sidebar.contains(event.target) &&
+            !menuToggle.contains(event.target)) {
+            sidebar.classList.remove('sidebar-visible');
+            body.classList.remove('sidebar-active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+</script>
+</body>
+</html>

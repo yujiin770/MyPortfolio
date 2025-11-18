@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../Css/Loginform.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="../Picture/datamex trans.png">
+</head>
+<body>
+    <!-- Terms and Conditions Modal -->
+<div id="termsModal" class="modal" style="display: block;">
+    <div class="modal-content">
+        <h2>Terms and Conditions</h2>
+        <p style="text-align: justify;">
+            By using the School Clinic Visit Records System, you agree to the following terms:
+        </p>
+        <ul style="margin-left: 20px; text-align: justify;">
+           <li>Only authorized clinic staff are allowed to log in and use this system.</li>
+      <li>All data accessed through this system is confidential and must not be shared or distributed.</li>
+      <li>Do not share your login credentials with others.</li>
+     <li>If you forget your password or are unable to access the system, please contact the designated system administrator or IT support for assistance. As this is a standalone system, no password reset function is available for multiple users.</li>
+      <li>All user actions are logged and monitored for security purposes.</li>
+      <li>Misuse of this system may result in disciplinary and/or legal action.</li>
+      <li>This system depends on the desktop’s current date and time settings. Incorrect system time may result in delays or missing data during display or reporting. Always ensure your computer's date and time are set accurately.</li>
+        </ul>
+        <br>
+       
+
+        
+       <div style="margin-top: 20px;">
+                <label style="display: flex; align-items: center; gap: 3px;">
+        <input type="checkbox" id="agreeCheckbox">
+        <p>I have read and agree to the Terms and Conditions.</p>
+    </label>
+</div>
+<div style="text-align: right; margin-top: 5px;">
+    <button id="agreeBtn" class="btn" disabled>I Agree</button>
+        </div>
+    </div>
+</div>
+    <div class="wrapper">
+        <div id="logo">
+            <img src="../Picture/datamex trans.png" alt="Logo">
+        </div>
+        <form id="loginForm" autocomplete="off">
+            <h1>School Clinic Visit Records System</h1>
+
+            <div class="input-box">
+                <label for="username">Enter Username</label>
+                <div class="input-field-container">
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="password">Enter Password</label>
+                <div class="input-field-container">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <i class='bx bxs-hide' id="togglePassword" style="cursor: pointer;" title="Show Password"></i>
+                </div>
+            </div>
+            <div class="remember-forgot">
+                <a href="#" id="forgotPasswordLink">Forgot Password</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <p id="cooldownMessage" style="color: red; text-align: center; margin-top: 10px;"></p>
+        </form>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="modalClose" class="close">×</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <!-- Modal for Security Question Verification -->
+    <div id="forgotPasswordSecurityModal" class="modal">
+        <div class="modal-content">
+            <span id="modalCloseSecurity" class="close">×</span>
+            <h2>Forgot Password - Security Question</h2>
+            <div class="form-group">
+                <label for="forgot-security-question-select">Select Your Security Question:</label>
+                <select id="forgot-security-question-select" required>
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="forgot-security-answer-input">Your Answer:</label>
+                <input type="text" id="forgot-security-answer-input" placeholder="Answer" required>
+            </div>
+            <button id="securityQuestionConfirm">Verify Answer</button>
+        </div>
+    </div>
+
+    <!-- Modal for Entering New Password (WITH STRENGTH INDICATOR AND TOGGLES) -->
+    <div id="newPasswordModal" class="modal">
+        <div class="modal-content">
+            <span id="modalCloseNew" class="close">×</span>
+            <h2>Enter New Password</h2>
+
+            <div class="input-box modal-input-box">
+                <label for="newPasswordInput">New Password:</label>
+                <div class="input-field-container">
+                    <input type="password" id="newPasswordInput" placeholder="New Password" maxlength="16">
+                    <i  id="toggleNewPassword" title="Show Password"style="cursor: pointer;"></i>
+                </div>
+            </div>
+
+            <div id="passwordStrengthIndicator">
+                <p style="margin-bottom: 3px; font-weight: normal; color: #555;">Password strength:</p>
+                <ul id="passwordCriteria">
+                    <li id="lengthCriterion" class="invalid"><i class='bx bx-x'></i> 6 to 16 characters</li>
+                    <li id="uppercaseCriterion" class="invalid"><i class='bx bx-x'></i> One uppercase letter (A-Z)</li>
+                    <li id="lowercaseCriterion" class="invalid"><i class='bx bx-x'></i> One lowercase letter (a-z)</li>
+                    <li id="numberCriterion" class="invalid"><i class='bx bx-x'></i> One number (0-9)</li>
+                    <li id="specialCriterion" class="invalid"><i class='bx bx-x'></i> One special character (e.g., !@#$)</li>
+                </ul>
+            </div>
+
+            <div class="input-box modal-input-box">
+                <label for="confirmPasswordInput">Confirm New Password:</label>
+                <div class="input-field-container">
+                    <input type="password" id="confirmPasswordInput" placeholder="Confirm New Password" maxlength="16">
+                    <i  id="toggleConfirmPassword" title="Show Password" style="cursor: pointer"></i>
+                </div>
+            </div>
+
+            <button id="newPasswordConfirm" class="btn" style="width: 100%;" disabled>Save</button>
+        </div>
+    </div>
+
+
+<script src="../Js/login.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const termsModal = document.getElementById("termsModal");
+    const agreeBtn = document.getElementById("agreeBtn");
+    const loginForm = document.getElementById("loginForm");
+    const checkbox = document.getElementById("agreeCheckbox");
+
+     termsModal.style.display = "block";
+    loginForm.style.display = "none";
+
+    // Enable button only if checkbox is checked
+    checkbox.addEventListener("change", function () {
+        agreeBtn.disabled = !checkbox.checked;
+    });
+
+    // Validate again on click
+    agreeBtn.addEventListener("click", function () {
+        if (!checkbox.checked) {
+            alert("You must agree to the Terms and Conditions before proceeding.");
+            return;
+        }
+
+        // Hide modal and show login form
+        termsModal.style.display = "none";
+        loginForm.style.display = "block";
+    });
+});
+</script>
+</body>
+</html>

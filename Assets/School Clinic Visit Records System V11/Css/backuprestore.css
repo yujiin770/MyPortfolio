@@ -1,0 +1,1210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' ,sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    background-color: #f4f6f9;
+    grid-template-areas:
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer";
+    user-select: none;
+}
+.sidebar_menu-header{
+    border-bottom: 2px solid white;
+}
+.school-logo {
+    width: 130px; /* increased size */
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-title {
+    display: flex;
+    flex-direction: column; /* stack logo and title vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.school-title {
+    font-size: 18px; /* slightly bigger title */
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.2;
+    max-width: 200px; /* allow a bit wider */
+}
+aside {
+    height: 100vh;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: #2d2d2d;
+    color: #fff;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 10px;
+}
+
+.sidebar_menu {
+    width: 300px;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.sidebar_menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #333333;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #640712;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    background-color: #333333;
+    color: #fff;
+    font-weight: 500;
+    padding: 12px 20px;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+    text-align: left;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+.sidebar_menu ul li a.backupactive {
+    background-color: #640712;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: inset 4px 0 0 #ffffff;
+    padding-left: 25px;
+}
+
+ul li a.homeactive:hover,
+ul li a.manageactive:hover,
+ul li a.dailyactive:hover,
+ul li a.reportsactive:hover,
+ul li a.useractive:hover,
+ul li a.settingsactive:hover,
+ul li a.logactive:hover { /* Combined hover states */
+    background-color: #640712;
+    color: white;
+    padding-left: 25px;
+}
+
+ul li a i {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 15px; /* Moved from individual :hover */
+}
+
+.sidebar_menu-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 94%; /* Consider calc(100% - 2 * padding_of_aside) if more precision needed */
+}
+
+.sidebar_menu-bottom ul li {
+    margin-top: 10px;
+}
+
+ul li a:last-child {
+    border-bottom: none;
+}
+
+ul li a:hover { /* General hover for all sidebar links */
+    background-color: #555; /* A slightly different hover color for non-active items */
+    padding-left: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    grid-area: main;
+    position: relative;
+    z-index: 1; /* Ensure content is above pseudo-element */
+    padding: 40px;
+    background-color: #f4f6f9;
+    font-size: 16px;
+    color: #333;
+    overflow-y: auto;
+    /* height: 91.6vh; Consider using 100% or let grid handle it */
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/Picture/datamex trans.png');
+    background-size: 28%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 0; /* Behind the main content */
+}
+
+main > * { /* Ensure direct children of main are above the background image */
+    position: relative;
+    z-index: 1;
+}
+
+main h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #640712;
+    border-bottom: 3px solid #640712;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #640712;
+    box-shadow: 0 0 5px rgba(100, 7, 18, 0.2);
+}
+
+.search-bar button { /* This button is specific to the search bar */
+    padding: 10px 20px;
+    background-color: #640712;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #45050e;
+}
+
+.table-container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ddd;
+    max-height: 420px; /* Adjust as needed */
+    overflow-y: auto;  /* Changed from overflow: auto; to match managerecord */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background-color: #fff;
+    /* border-radius: 8px; */ /* Radius often applied to container, not table itself if container has padding */
+    /* overflow: hidden; */ /* Can cause issues with sticky headers if you use them */
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky; /* For sticky table headers */
+    top: 0;           /* For sticky table headers */
+    z-index: 10;      /* Ensure header is above table content when scrolling */
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+table td button { /* Buttons inside table cells */
+    margin-right: 5px;
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    /* Specific styles for these buttons are below (button-view, button-edit, etc.) */
+}
+#archivedRecordsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background-color: #fff;
+    border-radius: 8px; /* Often applied to container, but can be here too */
+    overflow: hidden; /* Clips content to the border-radius */
+}
+
+#archivedRecordsTable th,
+#archivedRecordsTable td {
+    border: 1px solid #ccc;
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#archivedRecordsTable th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky; /* Make header sticky */
+    top: 0;           /* Stick to the top of the container */
+    z-index: 10;      /* Ensure header is above scrolling content */
+}
+
+#archivedRecordsTable tbody tr:hover { /* Use tbody to be more specific */
+    background-color: #f9f9f9;
+}
+
+/* == Checkbox Styling (Copied from managerecord.css) == */
+#archivedRecordsTable th:first-child, /* Select All checkbox cell */
+#archivedRecordsTable td:first-child { /* Individual row checkbox cell */
+  text-align: center;
+  vertical-align: middle;
+  width: 40px; /* Adjust width as needed */
+  padding: 8px;
+}
+
+#archivedRecordsTable input[type="checkbox"] { /* Target checkboxes within the table */
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  width: 18px; /* Size from managerecord.css */
+  height: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  margin: 0 auto; /* Center checkbox if cell is wider */
+}
+#archivedRecordsTable input[type="checkbox"]:hover {
+  border-color: #007BFF; /* Example hover color */
+}
+#archivedRecordsTable input[type="checkbox"]:checked {
+  background-color: #007BFF; /* Example checked color */
+  border-color: #007BFF;
+}
+#archivedRecordsTable input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px; /* Positioning from managerecord.css */
+  top: 2px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* == Action Button Styling in Table (Adapted from managerecord.css) == */
+#archivedRecordsTable td button { /* Base style for buttons in table cells */
+    margin-right: 5px;
+    font-size: 14px;
+    padding: 5px 12px; /* Padding from managerecord.css */
+    border-radius: 5px; /* Radius from managerecord.css */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid transparent; /* Start with transparent border */
+    background-color: white; /* Default white background */
+    color: black; /* Default black text */
+    font-weight: 500;
+}
+#archivedRecordsTable td button:hover {
+     transform: translateY(-1px); /* Add subtle hover effect */
+}
+#archivedRecordsTable td button:last-child {
+    margin-right: 0;
+}
+
+/* Specific button styles - matching managerecord where applicable */
+#archivedRecordsTable .button-view {
+    border-color: #07643d; /* Green border */
+    color: black;
+}
+#archivedRecordsTable .button-view:hover {
+    background-color: #054b2c; /* Darker green background on hover */
+    border-color: #054b2c;
+    color: #fff;
+}
+
+/* Style for Restore button (making it look like Edit button from managerecord) */
+#archivedRecordsTable .button-restore {
+    border-color: #074764; /* Blue border like managerecord edit */
+    color: black;
+}
+#archivedRecordsTable .button-restore:hover {
+    background-color: #053448; /* Darker blue background on hover */
+    border-color: #053448;
+    color: #fff;
+}
+
+/* Style for Delete button (matching managerecord) */
+#archivedRecordsTable .button-delete {
+    border-color: #640712; /* Maroon border */
+    color: black;
+}
+#archivedRecordsTable .button-delete:hover {
+    background-color: #45050e; /* Darker maroon background on hover */
+    border-color: #45050e;
+    color: white;
+}
+.button-view {
+    background-color: white;
+    color: black;
+    border: 2px solid #054b2c;
+}
+
+.button-view:hover {
+    background-color: #054b2c;
+    color: white;
+}
+
+.button-edit {
+    background-color: #074764;
+    color: white;
+    border: none;
+}
+
+.button-edit:hover {
+    background-color: #053448;
+}
+
+.button-container { /* General container for buttons outside the table */
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+/* General button style (applies to most buttons unless overridden) */
+button {
+    padding: 10px 20px;
+    background-color: #640712;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #45050e;
+    transform: translateY(-1px);
+}
+
+button:active {
+    background-color: #320309;
+    transform: translateY(1px);
+}
+
+button:disabled {
+    background-color: #aaa;
+    color: #666; /* Darker text on disabled for better contrast */
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none; /* No transform on disabled */
+    box-shadow: none; /* No shadow on disabled */
+}
+
+button.add-user {
+    background-color: #074764;
+}
+
+button.add-user:hover {
+    background-color: #053447;
+}
+
+button.export-user-list {
+    background-color: #07643d;
+}
+
+button.export-user-list:hover {
+    background-color: #054b2c;
+}
+
+
+/* --- General Modal Styles (for deleteConfirmModal, restoreConfirmModal, viewArchivedRecordModal etc.) --- */
+.modal {
+    display: none; /* JS will change this to 'flex' */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow modal itself to scroll if content is very tall */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 25px 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Default for simple confirm modals */
+    width: 90%;
+    max-width: 450px; /* Default max-width for simple confirm modals */
+    position: relative;
+    box-sizing: border-box;
+    margin: 0; /* Reset margin for flex centering */
+    /* For modals with more content like viewArchivedRecordModal, we can override width/max-width below */
+}
+
+/* Styling for the <h2> title within the modal */
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: #333;
+}
+
+/* Modal Buttons (Yes/No in confirm modals) */
+.modal-content .modal-buttons-container { /* A container for buttons if you need specific layout */
+    display: flex;
+    justify-content: center; /* Or space-around, space-between */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-content button#deleteYesBtn,
+.modal-content button#restoreYesBtn {
+    background-color: #ffffff;
+    color: #054b2c;
+    border: 2px solid #054b2c;
+    margin: 0; /* Reset margin if using .modal-buttons-container */
+}
+.modal-content button#deleteYesBtn:hover,
+.modal-content button#restoreYesBtn:hover {
+    background-color: #054b2c;
+    color: white;
+}
+
+.modal-content button#deleteNoBtn,
+.modal-content button#restoreNoBtn {
+    background-color: #ffffff;
+    color: #640712;
+    border: 2px solid #640712;
+    margin: 0; /* Reset margin if using .modal-buttons-container */
+}
+.modal-content button#deleteNoBtn:hover,
+.modal-content button#restoreNoBtn:hover {
+    background-color: #640712;
+    color: white;
+}
+
+/* General Close button (the 'X') styling for modals */
+.modal-content .close-btn { /* Renamed from .close-button for consistency */
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-content .close-btn:hover {
+    color: #333;
+}
+
+
+#viewArchivedRecordModal .modal-content { 
+    max-width: 700px; 
+    text-align: left; 
+}
+
+/* This is the container for the two-column layout */
+.modal-form-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 20px;  /* row-gap column-gap */
+    margin-top: 15px; /* Space below the modal title */
+}
+
+.modal-form-columns > div { /* Each direct child div is a form field group */
+    flex: 1 1 calc(50% - 10px); /* (50% minus half of column-gap: 20px/2 = 10px) */
+    box-sizing: border-box;
+}
+
+.modal-form-columns label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #555; /* Slightly softer color for labels */
+}
+
+.modal-form-columns input[type="text"] { /* Targets only text inputs within this structure */
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8; /* Light background for readonly inputs */
+    font-size: 0.95em;
+    color: #333;
+}
+
+
+
+
+@media (max-width: 650px) { /* Adjusted breakpoint */
+    #viewArchivedRecordModal .modal-content {
+        max-width: 90%; /* More fluid on smaller screens */
+    }
+    .modal-form-columns > div {
+        flex: 1 1 100%; /* Stack to single column */
+    }
+}
+
+
+.modal-content label.general-modal-label { /* Add a class to distinguish from .modal-form-columns label */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.modal-content select.general-modal-input,
+.modal-content input[type="text"].general-modal-input,
+.modal-content input[type="password"].general-modal-input,
+.modal-content input[type="email"].general-modal-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.save-button { /* If you have a specific save button in a modal */
+    margin-top: 10px;
+    width: 100%; /* Or make it auto width and center it */
+    padding: 10px;
+    background-color: #640712;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.save-button:hover {
+    background-color: #45050e;
+}
+
+
+footer{
+    grid-area: footer;
+    background: black;
+    color: white;
+    padding: 2em;
+}
+
+/* Styles for Logout Modal */
+.modal-overlay { /* This is for your logoutModal container */
+    /* Reuses .modal styles if HTML structure is the same, otherwise define here */
+    /* e.g., if logoutModal uses <div class="modal-overlay" id="logoutModal"> */
+    display: none; /* JS will change this */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050; /* Potentially higher if it can appear over other modals */
+}
+
+.modals-content { /* This is for your logoutModal's content box */
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.modals-content h2, .modals-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modals-buttons { /* Container for logout buttons */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logout-btn { /* General style for both logout buttons */
+    padding: 10px 20px;
+    /* margin: 0 5px; Removed due to gap in .modals-buttons */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    flex-grow: 1; /* Make buttons take equal space if desired */
+    max-width: 150px; /* Optional max width for buttons */
+  }
+
+.logout-btn.confirm {
+    background-color: white;
+    border: 2px solid #07643d;
+    color: #07643d;
+    transition: background-color 0.3s, color 0.3s;
+}
+.logout-btn.confirm:hover{
+    background-color: #07643d;
+    color: white;
+}
+
+.logout-btn.cancel {
+    background-color: white;
+    border: 2px solid #640712;
+    color: #640712;
+    transition: background-color 0.3s, color 0.3s;
+}
+.logout-btn.cancel:hover{
+    background-color: #640712;
+    color: white;
+}
+
+/* Close button for logout modal (if it has one with this class) */
+.modals-content .close-btn { /* Reuses general .close-btn if HTML structure is same */
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding:0;
+}
+.modals-content .close-btn:hover {
+    color: #777;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: #f4f6f9;
+    border: 2px solid #f4f6f9;
+    color: #640712;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 15px;
+    margin-right: 10px;
+    order: -1;
+    transition: background-color 0.5s, color 0.5s; /* Added color transition */
+}
+.menu-toggle:hover{
+    background: #640712;
+    color:white;
+}
+
+.button-delete { /* Row action delete button */
+    border: 2px solid #640712;
+    background-color: white;
+    color: black; /* Ensure text is visible on white background */
+}
+.button-delete:hover {
+    background-color: #640712; /* Consistent with theme */
+    color: white;
+}
+
+.button-restore { /* Row action restore button */
+    border: 2px solid #053448;
+    background-color: white;
+    color: black; /* Ensure text is visible */
+}
+.button-restore:hover {
+    background-color: #053448;
+    color: white;
+}
+
+/* .delete-content - This class was in your original CSS but didn't seem to be used by */
+/* the modals you showed (deleteConfirmModal, etc.). Remove if not used. */
+
+/* Table header and cell alignment for the first column (checkbox) */
+th:first-child,
+td:first-child {
+  text-align: center;
+  vertical-align: middle;
+  width: 40px; /* Or use auto/fit-content */
+  padding: 8px;
+}
+
+/* Custom Checkbox Styling */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  width: 20px; /* Slightly smaller for better fit */
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block; /* Or block if you want it on its own line with margin auto */
+  vertical-align: middle;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  /* margin: 0 auto; Only if display is block and you want to center it in its container */
+}
+
+input[type="checkbox"]:hover {
+  border-color: #007BFF; /* Example hover color */
+}
+
+input[type="checkbox"]:checked {
+  background-color: #007BFF; /* Example checked color */
+  border-color: #007BFF;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px; /* Adjusted for smaller checkbox */
+  top: 2px;  /* Adjusted for smaller checkbox */
+  width: 4px;  /* Checkmark size */
+  height: 9px; /* Checkmark size */
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Controls for records (e.g., date filters, action buttons below table) */
+.record-controls { /* A container for these elements if needed */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px; /* Space below controls */
+}
+
+.record-controls label {
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+/* This was combined into .filter-controls input[type="date"] */
+/* .record-controls input[type="date"] {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} */
+
+.filter-controls {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-controls label {
+    font-weight: 500;
+}
+
+.filter-controls input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 38px; /* Match button height */
+    box-sizing: border-box;
+}
+
+
+.filter-controls input[type="date"]::placeholder { /* Combined placeholder selectors */
+   color: #757575;
+   opacity: 1; /* Ensure opacity for Firefox */
+}
+.filter-controls input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.7;
+    cursor: pointer;
+    padding-left: 5px;
+}
+.filter-controls input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Action buttons like Restore Selected, Delete Selected */
+#restoreSelectedBtn.button-action, /* Added .button-action class to group them */
+#deleteSelectedBtn.button-action {
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    padding: 0 15px;
+    height: 38px;
+    line-height: 36px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    /* margin-left: 10px; /* Spacing handled by gap in .record-controls */
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+
+#restoreSelectedBtn.button-action {
+    border: 2px solid #07643d;
+}
+#restoreSelectedBtn.button-action:hover:not(:disabled) {
+    background-color: #07643d;
+    border-color: #07643d;
+    color: white;
+}
+
+
+#deleteSelectedBtn.button-action {
+    border: 2px solid #640712;
+}
+#deleteSelectedBtn.button-action:hover:not(:disabled) {
+    background-color: #640712;
+    color:white;
+}
+
+#restoreSelectedBtn.button-action:disabled,
+#deleteSelectedBtn.button-action:disabled {
+    background-color: #EEEEEE;
+    color: #A0A0A0;
+    border-color: #E0E0E0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#restoreSelectedBtn,
+#deleteSelectedBtn {
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    padding: 0 15px; /* Adjust padding for text */
+    height: 38px; /* Consistent height */
+    line-height: 34px; /* Center text vertically */
+    font-size: 1em; /* Match managerecord standard button size */
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    border: 2px solid transparent; /* Base border */
+}
+#restoreSelectedBtn {
+    border-color: #07643d; /* Green */
+}
+#restoreSelectedBtn:hover:not(:disabled) {
+    background-color: #07643d;
+    color: white;
+}
+#deleteSelectedBtn {
+    border-color: #640712; /* Maroon */
+}
+#deleteSelectedBtn:hover:not(:disabled) {
+    background-color: #640712;
+    color: white;
+}
+#restoreSelectedBtn:disabled,
+#deleteSelectedBtn:disabled {
+    background-color: #EEEEEE;
+    color: #A0A0A0;
+    border-color: #E0E0E0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+@media (max-width: 600px) {
+    .record-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .record-controls input,
+    .record-controls button {
+        width: 100%;
+    }
+}
+  
+/* --- Tablet Styles --- */
+@media (max-width: 1024px) {
+    .sidebar_menu {
+        width: 240px; /* Slightly narrower sidebar */
+    }
+
+    aside {
+        /* top: 70px; */ /* May not be needed if sticky works well */
+        height: calc(100vh - 70px); /* Assuming nav height is 70px on tablet */
+    }
+
+    main {
+        padding: 20px; /* Less padding */
+    }
+
+    main h1 {
+        font-size: 1.6rem;
+    }
+
+    /* .modal-box { This class isn't used in your provided HTML for modals */
+                 /* If you have modals using class="modal-box", these styles apply */
+        /* max-width: 500px; */ 
+    /* } */
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 767.98px) {
+    body {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto 1fr auto; 
+        grid-template-areas:
+            "navbar"
+            "main"
+            "footer";
+        overflow-x: hidden;
+        position: relative; 
+    }
+
+    aside {
+        grid-area: unset; 
+        position: fixed; 
+        top: 0;
+        left: -300px; 
+        width: 300px; 
+        height: 100vh; 
+        z-index: 1100; 
+        transition: left 0.3s ease-in-out; 
+        align-self: auto; 
+        overflow-y: auto; 
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        padding: 0; 
+    }
+
+    .sidebar_menu {
+        width: 100%; 
+        height: 100%;
+        border-radius: 0; 
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px; 
+        box-sizing: border-box; 
+        position: static; 
+    }
+
+    .sidebar_menu-bottom {
+        position: static; 
+        bottom: auto;
+        width: 100%; 
+        margin-top: auto; 
+        padding: 0 15px 20px 15px; 
+        box-sizing: border-box;
+    }
+     .sidebar_menu-bottom ul li {
+        margin-top: 5px; 
+    }
+
+    aside.sidebar-visible {
+        left: 0;
+    }
+
+    nav { /* Assuming you have a <nav> element for the navbar area */
+        height: 60px; 
+        padding: 0.5rem 1rem; 
+        position: sticky; 
+        top: 0;
+        z-index: 1050; 
+        background-color: #2d2d2d; /* Example background, match your theme */
+    }
+
+    .nav-container { /* If you have a wrapper inside nav */
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between; 
+    }
+
+      .menu-toggle {
+        width: 12%;
+        display: block; /* Show hamburger menu */
+        order: 1; /* Place hamburger first */
+        font-size: 1.6rem;
+        margin-right: 30px; /* Space after hamburger */
+    }
+    .logo { /* Assuming .logo class is on your mobile logo if different */
+        order: 2; 
+        height: 40px; 
+        margin-left: 0; 
+    }
+
+    .nav-title { /* If you have a title in the nav */
+        order: 3; 
+        flex-grow: 1; 
+        text-align: left; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0 10px; 
+        font-size: 1.2rem; 
+        color: #fff; /* Example color */
+    }
+
+
+    main {
+        padding: 15px; 
+    }
+
+    main::before {
+        background-size: 60%; 
+        opacity: 0.05;
+    }
+
+    main h1 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .search-bar {
+        padding: 8px 10px;
+        flex-direction: column; 
+        align-items: stretch; 
+    }
+    .search-bar input, .search-bar button {
+        width: 100%; 
+    }
+
+    .table-container {
+        max-height: none; 
+    }
+
+    table th, table td {
+        padding: 8px 10px; 
+        font-size: 0.85rem;
+    }
+
+    .button-container {
+        flex-direction: column; 
+        align-items: stretch; 
+        gap: 12px;
+    }
+    .button-container button {
+        width: 100%; 
+        padding: 12px 15px; 
+        font-size: 1rem;
+    }
+
+    /* Mobile adjustments for .modal-content (general modals) */
+    .modal-content { 
+        padding: 20px; /* Slightly less padding */
+        max-width: 95%; /* Allow it to be wider on mobile */
+     }
+    
+    /* Mobile adjustments for .modals-content (logout modal) */
+    .modals-content {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+
+    /* .logout-modal-content p { This class isn't in your HTML for logout modal */
+        /* font-size: 1rem; */
+    /* } */
+
+    .modals-buttons { /* For logout modal buttons container */
+        flex-direction: column; 
+        gap: 10px;
+        align-items: stretch;
+    }
+    .logout-btn { /* For buttons inside logout modal */
+        width: 100%;
+        padding: 12px;
+    }
+
+
+    footer {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Optional: Add an overlay element for when the mobile menu is open */
+body.sidebar-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1050; /* Below sidebar, above content */
+    display: none; /* Hidden by default */
+}
+
+/* Show overlay only on mobile when sidebar is visible */
+@media (max-width: 767.98px) {
+    body.sidebar-open::after {
+        display: block;
+    }
+}

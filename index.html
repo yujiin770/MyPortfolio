@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yujin Almira | PortFolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Swiper CSS is already here, which is great! -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Assets/Webicon.png">
+</head>
+<body>
+<div id="splash-screen">
+    <div class="splash-content">
+        <!-- The old H1 is replaced by this new loader structure -->
+        <div class="loader-container">
+            <h2 class="loader-text">
+                <span style="--i:1;">Y</span>
+                <span style="--i:2;">U</span>
+                <span style="--i:3;">J</span>
+                <span style="--i:4;">I</span>
+                <span style="--i:5;">I</span>
+                <span style="--i:6;">I</span>
+                <span style="--i:7;">I</span>
+                <span style="--i:8;">N</span>
+                <span style="--i:9;">N</span>
+                <span style="--i:10;">N</span>
+            </h2>
+        </div>
+    </div>
+</div>
+
+    <div id="root">
+
+      <!-- Navigation -->
+      <nav id="main-nav" class="fixed-nav glass-card">
+        <div class="nav-container">
+          <div class="nav-brand gradient-text">My Portfolio</div>
+          
+           <div id="mobile-nav-backdrop"></div>
+
+          <div class="nav-links" id="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+
+            <div id="mobile-nav-backdrop"></div>
+
+          <div class="nav-menu">
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
+                <span class="sun-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </span>
+                <span class="moon-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </span>
+            </button> 
+            
+            <button class="burger-btn" id="burger-btn" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+  
+      <!-- Hero Section -->
+      <section id="home" class="hero-section">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-content">
+          <div class="mb-8 animate-fade-in-up">
+            <div class="hero-icon-wrapper">
+              <div class="hero-icon-inner">
+                 <img src="Assets/Yujinnnn.jpg" alt="A profile picture of Eugene Almira" class="profile-image">
+              </div>
+            </div>
+          </div>
+          <h1 class="hero-title animate-fade-in-up">
+            <span class="gradient-text">Eugene Almira</span>
+          </h1>
+          <h2 id="typing-text" class="hero-subtitle animate-fade-in-up typing-animation">
+            <!-- Text will be typed here by JS -->
+          </h2>
+          <p class="hero-description animate-fade-in-up">
+            I build websites and desktop apps. From clean designs to custom VB.NET programs, I enjoy turning ideas into reality.
+          </p>
+          <div class="hero-buttons animate-fade-in-up">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+        <div class="scroll-down-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </div>
+      </section>
+      
+      <!-- About Section -->
+      <section id="about" class="section-padding">
+        <div class="container">
+          <div class="grid-2-cols">
+            
+            <!-- Left Column: Text and Stats -->
+            <div class="scroll-animation">
+              <h2 class="section-title gradient-text mb-6">About Me</h2>
+               <p class="text-large text-muted text-justify mb-6">
+                 As a dedicated freelance developer and a third-year BSIT student, I bring a unique
+                 blend of academic knowledge and three years of hands-on experience. My journey is
+                 fueled by a deep passion for exploring the world of technology and a drive to
+                 create practical, user-friendly digital solutions that solve real-world problems.
+              </p>
+              <p class="text-large text-muted mb-8">
+                I believe that the best learning happens by doing. When I'm not focused on 
+                client projects or coursework, I'm diving into new frameworks, experimenting 
+                with emerging tech, and building personal projects. This commitment to continuous 
+                learning ensures I can deliver modern, effective solutions in this fast-paced industry.
+              </p>
+
+              <!-- === UPDATED BUTTON (with Document Icon) === -->
+            <div class="mb-8">
+              <a href="Assets/resume.html" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <!-- Replaced SVG with a "document" icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                <polyline points="13 2 13 9 20 9"></polyline>
+               </svg>
+                View CV
+              </a>
+            </div>
+
+
+              <div class="stats-grid">
+                <div class="stat-box">
+                  <div class="stat-number">10+</div>
+                  <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-number">2+</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-number">10+</div>
+                  <div class="stat-label">Happy Clients</div>
+                </div>
+              </div>
+            </div>
+
+           <!-- Right Column: Services -->
+            <div class="scroll-animation">
+              <div class="services-card">
+                <div class="services-grid">
+                  
+                  <!-- Service 1: Front-End Development -->
+                  <div class="service-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-primary service-icon">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Front-End Development</h3>
+                    <p class="text-sm text-muted">Intuitive and responsive user interfaces.</p>
+                  </div>
+
+                 <!-- Service 2: Application Development -->
+                  <div class="service-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-accent service-icon">
+                      <line x1="6" y1="12" x2="18" y2="12"></line>
+                      <line x1="12" y1="6" x2="12" y2="18"></line>
+                      <path d="M17.5 15C17.5 16.933 15.933 18.5 14 18.5C12.067 18.5 10.5 16.933 10.5 15C10.5 13.067 12.067 11.5 14 11.5C15.933 11.5 17.5 13.067 17.5 15Z"></path>
+                      <path d="M6.5 9C6.5 7.067 8.067 5.5 10 5.5C11.933 5.5 13.5 7.067 13.5 9C13.5 10.933 11.933 12.5 10 12.5C8.067 12.5 6.5 10.933 6.5 9Z"></path>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Application Development</h3>
+                    <p class="text-sm text-muted">Custom desktop apps and interactive game experiences.</p>
+                  </div>
+
+                  <!-- Service 3: Responsive Design -->
+               <div class="service-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-primary service-icon">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
+                  <h3 class="font-semibold mb-2">UI/UX Design</h3>
+                <p class="text-sm text-muted">Creating clean and user-friendly interfaces for a better experience.</p>
+              </div>
+
+                </div>
+              </div>
+            </div>       
+          </div>
+        </div>
+      </section>
+      
+      <!-- Skills Section -->
+      <section id="skills" class="section-padding">
+        <div class="container">
+          <div class="text-center mb-16 scroll-animation">
+            <h2 class="section-title gradient-text">Learning & Capabilities</h2>
+            <p class="text-large text-muted max-w-2xl mx-auto">
+              I'm still learning, but I enjoy building modern websites and apps with focus and effort.
+            </p>
+          </div>
+          <div class="grid-2-cols">
+            
+            <div class="scroll-animation skill-card">
+              <div class="skill-header">
+                <h3 class="text-lg">C++</h3>
+                <span class="text-sm">70%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-progress" data-level="90"></div></div>
+            </div>
+            
+            <div class="scroll-animation skill-card">
+              <div class="skill-header">
+                <h3 class="text-lg">HTML & CSS</h3>
+                <span class="text-sm">95%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-progress" data-level="95"></div></div>
+            </div>
+            
+            <div class="scroll-animation skill-card">
+              <div class="skill-header">
+                <h3 class="text-lg">VB.NET</h3>
+                <span class="text-sm">80%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-progress"></div></div>
+            </div>
+
+            <div class="scroll-animation skill-card">
+              <div class="skill-header">
+                <h3 class="text-lg">Python</h3>
+                <span class="text-sm">60%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-progress"></div></div>
+            </div>
+            
+            <div class="scroll-animation skill-card">
+              <div class="skill-header">
+                <h3 class="text-lg">Javascript</h3>
+                <span class="text-sm">60%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-progress"></div></div>
+            </div>
+
+            <div class="scroll-animation skill-card">
+              <div class="skill-header">
+                <h3 class="text-lg">PHP</h3>
+                <span class="text-sm">50%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-progress"></div></div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+       <!-- ============================================= -->
+      <!-- === START: NEW INFINITE SCROLLER SECTION === -->
+      <!-- ============================================= -->
+      <section class="scroller-section" aria-label="Technologies I Use">
+        <div class="scroller" data-speed="fast" data-direction="left">
+            <ul class="tag-list scroller__inner">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>VB.NET</li>
+                <li>Python</li>
+                <li>C++</li>
+                <li>PHP</li>
+                <li>GitHub</li>
+                <li>Figma</li>
+                <li>VS Code</li>
+                <li>MySQL</li>
+                <li>API Integration</li>
+            </ul>
+        </div>
+      </section>
+      
+      <!-- Projects Section -->
+      <section id="projects" class="section-padding">
+        <div class="container">
+          <div class="text-center mb-16 scroll-animation">
+            <h2 class="section-title gradient-text">Featured Projects</h2>
+            <p class="text-large text-muted max-w-2xl mx-auto">
+              A showcase of my recent work and technical achievements
+            </p>
+          </div>
+          <!-- START: MODIFIED FOR CAROUSEL -->
+          <div class="projects-slider-wrapper scroll-animation">
+            <div class="swiper projects-swiper">
+              <div class="swiper-wrapper">
+                
+                <!-- Slide 1: Game Development -->
+                <div class="swiper-slide">
+                  <div class="project-card glass-card hover-lift">
+                    <div class="project-image-wrapper">
+                      <img src="Assets/poster.png" alt="Game Development in VB.NET" class="project-image"/>
+                    </div>
+                    <div class="p-6">
+                      <h3 class="text-xl font-bold mb-3">Game Development</h3>
+                      <p class="text-muted mb-4 text-sm project-description">Developed a 2D Horror game using VB.NET, featuring interactive gameplay and persistent data storage with a local database using xampp.</p>
+                      <div class="tech-tags">
+                        <span class="tech-tag">VB.NET</span><span class="tech-tag">Database</span><span class="tech-tag">Game Design</span>
+                      </div>
+                      <div class="project-links">
+                        <a href="https://www.youtube.com/watch?v=MxwtzSe99hg" target="_blank" class="project-link video-popup-trigger" data-video-src="Assets/Undead Slayer Main Teaser.mp4">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                        Watch Short Clip
+                        </a>
+                      </div>
+                     
+                  </div>
+                </div>
+              </div>
+
+                <!-- Slide 2: Point of Sale System -->
+                <div class="swiper-slide">
+                  <div class="project-card glass-card hover-lift">
+                    <div class="project-image-wrapper">
+                      <img src="Assets/POS.png" alt="Point of Sale System" class="project-image"/>
+                    </div>
+                    <div class="p-6">
+                      <h3 class="text-xl font-bold mb-3">Point of Sale (POS) System</h3>
+                      <p class="text-muted mb-4 text-sm project-description">Created a comprehensive POS system for an IT Week event. The system managed sales, and generated reports using VB.NET.</p>
+                      <div class="tech-tags">
+                        <span class="tech-tag">VB.NET</span>
+                      </div>
+                     <div class="project-links">
+                        <a href="#" class="project-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>View Project</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 <!-- Slide 3: Game Landing Page (REVISED) -->
+                <div class="swiper-slide">
+                  <div class="project-card glass-card hover-lift">
+                    <div class="project-image-wrapper">
+                      <!-- I've chosen a more relevant placeholder image. You can replace the src with your own screenshot. -->
+                      <img src="Assets/WebsiteImage.png" alt="Game Website Project Screenshot" class="project-image"/>
+                    </div>
+                    <div class="p-6">
+                      <h3 class="text-xl font-bold mb-3">Game Landing Page</h3>
+                      <p class="text-muted mb-4 text-sm project-description">Designed and developed a fully responsive landing page for a fictional video game. This project showcases modern front-end techniques using pure HTML and CSS, ensuring a seamless experience across all devices.</p>
+                      <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Responsive Design</span>
+                      </div>
+                     <div class="project-links">
+                        <a href="Assets/UndeadSlayerWebsiteUpdated1/Main Page.html" target="_blank" class="project-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>View Project</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+<div class="swiper-slide">
+  <div class="project-card glass-card hover-lift">
+    <div class="project-image-wrapper">
+      <!-- CineFlix screenshot -->
+      <img src="Assets/MoviePic.jpg" alt="CineFlix Website Screenshot" class="project-image"/>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-3">CineFlix – Movie Discovery Platform</h3>
+      <p class="text-muted mb-4 text-sm project-description">
+        I designed and developed CineFlix as a modern, responsive web application for discovering movies and TV shows. I focused on creating a clean, immersive user experience using HTML, Tailwind CSS, and JavaScript. The site includes dynamic sections like trending titles, search functionality, trailers, and a stylish splash screen. This project allowed me to sharpen my front-end skills while building something visually engaging and user-focused.
+      </p>
+      <div class="tech-tags">
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">Tailwind CSS</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Responsive Design</span>
+      </div>
+      <div class="project-links">
+        <a href="Assets/YujinMovieApi/index.html" target="_blank" class="project-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+               viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          View Project
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <div class="project-card glass-card hover-lift">
+    <div class="project-image-wrapper">
+      <!-- Tourista Trails screenshot -->
+      <img src="Assets/TouristSpotWebsite/Assets/SnakeIslandElNido.jpg" alt="Tourista Trails Website Screenshot" class="project-image"/>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-3">Tourista Trails – A Palawan Travel Experience</h3>
+      <p class="text-muted mb-4 text-sm project-description">
+        I designed and developed Tourista Trails, a responsive and immersive website for discovering and booking tours in Palawan, Philippines. The project showcases stunning destinations through video backgrounds, an interactive map using Leaflet.js, and animated content sections. It features a clean, user-friendly interface built with HTML, CSS, and JavaScript. A key feature is the booking form, which is connected to EmailJS, allowing booking inquiries to be sent directly to my Gmail. This project was a great opportunity to enhance my front-end development skills while creating a visually rich and functional travel platform.
+      </p>
+      <div class="tech-tags">
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Leaflet.js</span>
+        <span class="tech-tag">EmailJS</span>
+        <span class="tech-tag">Responsive Design</span>
+      </div>
+      <div class="project-links">
+        <a href="Assets/TouristSpotWebsite/html/index.html" target="_blank" class="project-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+               viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          View Project
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                <!-- Slide 4: School Clinic System (REVISED) -->
+<div class="swiper-slide">
+  <div class="project-card glass-card hover-lift">
+    <div class="project-image-wrapper">
+      <!-- I've chosen a relevant placeholder image. You can replace this with a screenshot of a flowchart or wireframe you created. -->
+      <img src="Assets/SCVRS-SS.png" alt="A conceptual image of a medical record system on a laptop" class="project-image"/>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-3">School Clinic Visit Record System</h3>
+      <!-- UPDATED DESCRIPTION -->
+      <p class="text-muted mb-4 text-sm project-description">
+        As a System Analyst of this project, my role was to plan how the system would work. I designed the step-by-step process for everything, like how to add a student and how to record a clinic visit. The programmers then used my plan as a guide to build the website.
+      </p>
+      <!-- UPDATED TECH TAGS -->
+      <div class="tech-tags">
+        <span class="tech-tag">System Design</span>
+        <span class="tech-tag">User Flow</span>
+        <span class="tech-tag">Data Modeling</span>
+      </div>
+      <!-- UPDATED PROJECT LINK -->
+      <div class="project-links">
+        <a href="assets/THESIS-SCRVS.pdf" target="_blank" class="project-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
+          </svg>
+          View Documentation
+        </a>
+          </div>
+        </div>
+      </div>
+    </div>
+                
+                <!-- Slide 4: Weather App -->
+                <div class="swiper-slide">
+                  <div class="project-card glass-card hover-lift">
+                    <div class="project-image-wrapper">
+                      <img src="https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=800&h=400&fit=crop" alt="Weather App with API Integration" class="project-image"/>
+                    </div>
+                    <div class="p-6">
+                      <h3 class="text-xl font-bold mb-3">Weather App with API</h3>
+                      <p class="text-muted mb-4 text-sm project-description">Built a dynamic weather application using a REST API to fetch and display real-time weather data. The front-end is crafted with HTML, CSS, and JavaScript.</p>
+                      <div class="tech-tags">
+                        <span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">REST API</span>
+                      </div>
+                      <div class="project-links">
+                        <a href="Assets/WeatherApi/index.html" target="_blank" class="project-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>View Project</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+          <!-- END: MODIFIED FOR CAROUSEL -->
+        </div>
+      </section>
+      
+      <!-- Contact Section -->
+      <section id="contact" class="section-padding bg-secondary-light">
+        <div class="contact-container">
+          <div class="scroll-animation">
+            <h2 class="section-title gradient-text">Let's Work Together</h2>
+            <p class="text-large text-muted mb-12 max-w-2xl mx-auto">
+              Have a project in mind? I'd love to hear about it. Let's create something amazing together.
+            </p>
+             <button id="contact-modal-trigger" class="btn btn-gradient">Start a Conversation</button>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+      </section>
+      
+      <!-- Footer -->
+  <footer id="footer" class="site-footer">
+  <div class="container">
+    <div class="footer-landscape-container">
+      
+      <!-- Left Side: Brand and Copyright -->
+      <div class="footer-left">
+        <h4 class="footer-brand gradient-text">My Portfolio</h4>
+        <p class="text-muted text-sm">© 2025 Eugene Almira. All Rights Reserved.</p>
+      </div>
+
+      <!-- Right Side: Links and Socials -->
+      <div class="footer-right">
+        <!-- We've removed the "Quick Links" and now have a single row of links -->
+        <ul class="footer-nav-links">
+          <li><a href="Terms/terms.html" target="_blank">Terms</a></li>
+          <li><a href="FAQ/faq.html" target="_blank">FAQ</a></li>
+          <li><a href="PrivacyPolicy/privacy.html" target="_blank">Privacy Policy</a></li>
+          
+        </ul>
+        
+        <div class="footer-socials">
+          
+          <a href="https://www.instagram.com/yujiiiiiiiin_/" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+          </a>
+          
+          <a href="https://www.tiktok.com/@eujinjae" target="_blank" rel="noopener noreferrer" title="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8.11V4h-2.5v10.53a2.5 2.5 0 1 1-2.22-2.38V8.53a4.5 4.5 0 1 0 4.5 4.5V10a2.5 2.5 0 0 0-2.28-2.47Z"></path></svg>
+          </a>   
+          
+           <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" rel="noopener noreferrer" title="Facebook">
+             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a><br>
+
+        </div>  
+      </div>
+       
+    </div>
+  </div>
+</footer>
+
+     <div id="video-modal" class="video-modal-overlay">
+        <div class="video-modal-content">
+           <span class="close-modal-btn">×</span>
+                <video id="modal-video-player" width="100%" controls muted autoplay></video>
+          </div>
+      </div>
+
+      <!-- === ADD THIS NEW CONTACT MODAL HTML HERE === -->
+<div id="contact-modal" class="contact-modal-overlay">
+  <div class="contact-modal-content glass-card">
+    <span id="close-contact-modal-btn"></span>
+    <h2 class="section-title gradient-text mb-6 text-center">Contact Me</h2>
+    
+    <form id="contact-form">
+        <div class="input-box">
+            <input type="text" name="from_name" placeholder="Full Name" required>
+            <input type="email" name="from_email" placeholder="Email Address" required>
+        </div>
+        <div class="input-box">
+            <input type="number" name="from_phone" placeholder="Phone Number" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+        </div>
+
+        <textarea name="message" id="contact-message" cols="30" rows="8" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message" class="btn btn-primary" style="width: 100%; margin-top: 1rem; cursor: pointer;">
+    </form>
+  </div>
+</div>
+
+    <div id="confirmation-modal" class="contact-modal-overlay">
+      <div class="contact-modal-content glass-card" style="text-align: center;">
+        <span id="close-confirmation-modal-btn"></span>
+        
+        <div class="confirmation-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+
+        <h2 class="section-title gradient-text mb-3">Message Sent!</h2>
+        <p class="text-large text-muted mb-8">
+          Thank you for reaching out. I'll get back to you as soon as possible.
+        </p>
+        <button id="confirm-ok-btn" class="btn btn-primary" style="cursor: pointer;">OK</button>
+      </div>
+    </div>
+
+      <a href="#home" id="back-to-top-btn" class="back-to-top-btn" title="Go to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </a>
+    
+    <!-- ADDED: Swiper JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    
+
+</body>
+</html>

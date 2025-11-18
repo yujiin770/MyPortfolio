@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineFlix - Discover Your Next Favorite Movie</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground">
+
+    <div id="splashScreen">
+        <div class="splash-logo">
+            <div class="p-3 bg-gradient-hero rounded-2xl shadow-glow">
+                <i class="fas fa-film text-white text-4xl"></i>
+            </div>
+            <span class="font-bold text-5xl text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                CineFlix
+            </span>
+        </div>
+        <div class="spinner mt-8"></div>
+    </div>
+
+    <div id="app" class="app-hidden">
+        <header id="appHeader" class="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+            <nav class="container mx-auto px-4 sm:px-6">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex items-center">
+                        <a href="#" class="flex items-center gap-2 sm:gap-3" onclick="event.preventDefault(); clearResult();">
+                            <div class="p-2 bg-gradient-hero rounded-xl shadow-glow">
+                                <i class="fas fa-film text-white text-xl sm:text-2xl"></i>
+                            </div>
+                            <span class="font-bold text-2xl sm:text-3xl text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                                CineFlix
+                            </span>
+                        </a>
+                    </div>
+                    <div class="w-full max-w-[150px] sm:max-w-xs ml-4">
+                        <div class="relative flex items-center">
+                            <i class="fas fa-search absolute left-4 text-muted-foreground"></i>
+                            <input type="text" id="movieTitle" placeholder="Search..." class="search-compact w-full pl-10 pr-12 py-2">
+                            <button id="searchBtn" class="absolute right-0 text-muted-foreground hover:text-primary p-2 mr-2 rounded-full transition-colors">
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <section id="heroSection" class="relative min-h-[50vh] flex flex-col items-center justify-center text-center px-4 fade-in">
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-shadow">
+                        Discover Your Next
+                        <span class="block text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                            Favorite Movie
+                        </span>
+                    </h1>
+                    <p class="text-lg sm:text-xl md:text-2xl text-muted-foreground mt-4 max-w-2xl mx-auto">
+                        Explore millions of movies and TV shows. Get detailed information, watch trailers, and find where to stream.
+                    </p>
+                </div>
+            </section>
+
+            <div id="homeContent" class="space-y-12">
+                <section id="trendingSection" class="movie-row-container fade-in-up"></section>
+                <section id="nowPlayingSection" class="movie-row-container fade-in-up"></section>
+                <section id="topRatedSection" class="movie-row-container fade-in-up"></section>
+                <section id="popularTVSection" class="movie-row-container fade-in-up"></section>
+            </div>
+
+            <section id="searchResults" class="hidden">
+                <div class="flex items-center gap-4 mb-6">
+                    <button onclick="clearResult()" class="text-muted-foreground hover:text-foreground">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </button>
+                    <div>
+                        <h2 class="text-2xl font-bold">Search Results</h2>
+                        <p id="searchQueryText" class="text-muted-foreground"></p>
+                    </div>
+                </div>
+                <div id="resultsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"></div>
+            </section>
+
+            <section id="resultView" class="hidden"></section>
+        </main>
+
+        <footer class="border-t border-border bg-card/50 mt-20">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-gradient-hero rounded-xl shadow-glow">
+                            <i class="fas fa-film text-white text-xl"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                            CineFlix
+                        </span>
+                    </div>
+                    <p class="text-sm text-muted-foreground mt-4 md:mt-0">
+                       © 2025 Eugene Almira. All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <div id="trailerModal" class="trailer-overlay hidden">
+        <div class="trailer-container">
+            <button id="trailerCloseBtn" class="trailer-close-btn">×</button>
+            <div id="trailerPlayer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

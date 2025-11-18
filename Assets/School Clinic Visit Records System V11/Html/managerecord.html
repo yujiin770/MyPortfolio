@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Clinic Management System</title>
+    <link rel="stylesheet" href="../Css/managerecord.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../Picture/datamex trans.png">
+</head>
+<body>
+    
+    <button class="menu-toggle" aria-label="Open Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+    <aside>
+        <div class="sidebar_menu-header">  
+            <div class="logo-title">
+                <img src="../Picture/datamex trans.png" alt="School Logo" class="school-logo">   
+                <h2>Manage Records</h2>             
+            </div>     
+        </div>  
+        <div class="sidebar_menu">
+
+            <ul>
+                <li><a href="../HTML/Dashboard.html" class="homeactive"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="../Html/managerecord.html" class="manageactive"><i class="fas fa-folder"></i> Manage Records</a></li>
+                <li><a href="../Html/dailytransaction.html" class="dailyactive"><i class="fas fa-exchange-alt"></i> Daily Visits</a></li>
+                <li><a href="../Html/reports.html" class="reportsactive"><i class="fas fa-file-alt"></i> Reports</a></li>
+                <li><a href="../Html/usermanagement.html" class="useractive"><i class="fas fa-history"></i> Log in History</a></li>
+                <li><a href="../Html/backuprestore.html" class="backupactive"><i class="fas fa-cloud-upload-alt "></i> Archive Records</a></li>
+                <li><a href="../Html/settings.html" class="settingsactive"><i class="fas fa-cog"></i>Account Settings</a></li>
+                <li><a href="#" id="logoutBtn" class="logactive"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main>
+        <div class="main-content">
+            <h1>School Clinic Visit Records System </h1>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for Name, Role, or Dates...">
+            </div>
+        <div class="record-controls">
+            <label for="startDate">From:</label>
+            <input type="date" id="startDate">
+
+            <label for="endDate">To:</label>
+            <input type="date" id="endDate">
+
+            <button id="deleteSelectedBtn">Remove</button>
+        </div>
+
+            
+            <div class="table-container">
+                <table id="recordsTable">
+                    <thead>
+                        <tr>
+                            <th>Select All<br><input type="checkbox" class="recordCheckbox" id="selectAllCheckbox" ></th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Action Taken</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="recordsTableBody"></tbody>
+                </table>
+            </div>
+            <div id="logoutModal" class="modal-overlay" style="display: none;">
+                <div class="modals-content">
+                  <h3>Are you sure you want to log out?</h3>
+                  <div class="modals-buttons">
+                    
+                    <button id="cancelLogout" class="logout-btn cancel">Cancel</button>
+                    <button id="confirmLogout" class="logout-btn confirm">Yes</button>
+                  </div>
+                </div>
+            </div>  
+
+        </div>
+    </main>
+
+   
+
+<!-- Modal for Adding New Record -->
+
+
+<div class="modal" id="viewRecordModal">
+    <div class="modal-content view-record-content">
+        <span class="close-button" id="closeViewModal">&times;</span>
+        <h2>View Record</h2>
+        <form class="view-form-grid">
+            <div class="form-group">
+                <label for="viewName">Name:</label>
+                <input type="text" id="viewName" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewRole">Role:</label>
+                <input type="text" id="viewRole" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewCourse">Course:</label>
+                <input type="text" id="viewCourse" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="viewschoolid">School ID:</label>
+                <input type="text" id="viewSchoolid" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="viewContact">Contact:</label>
+                <input type="text" id="viewContact" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewAge">Age:</label>
+                <input type="text" id="viewAge" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewSex">Sex:</label>
+                <input type="text" id="viewSex" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewTimeIn">Time In:</label>
+                <input type="text" id="viewTimeIn" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewTimeOut">Time Out:</label>
+                <input type="text" id="viewTimeOut" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewReason">Reason for Visit:</label>
+                <input type="text" id="viewReason" readonly>
+            </div>
+        
+            <div class="form-group">
+                <label for="viewActionTaken">Action Taken:</label>
+                <input type="text" id="viewActionTaken" readonly>
+            </div>
+        
+            <div class="form-group full-width">
+                <label for="viewHandledBy">Handled By:</label>
+                <input type="text" id="viewHandledBy" readonly>
+            </div>
+        
+            <!-- Export Button -->
+            <div class="form-group full-width">
+                <button id="exportBtn" type="button">Export (PDF)</button>
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+<!-- Modal for Editing Record -->
+<div class="modal" id="editRecordModal">
+     <div class="modal-content edit-record-content">
+        <span class="close-button" id="closeEditModal">×</span>
+        <h2>Edit Record</h2>
+        <form id="editForm">
+            <!-- Row 1 -->
+            <div class="form-group">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+            </div>
+            <div class="form-group">
+                <label for="editRole">Role:</label>
+                <input type="text" id="editRole" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="editCourse">Course:</label>
+                <select id="editCourse" disabled>
+                    <option value="">Select Course/Strand</option>
+                    <option value="BSIT">BSIT</option>
+                    <option value="BSHM">BSHM</option>
+                    <option value="ICT">ICT</option>
+                    <option value="STEM">STEM</option>
+                    <option value="GAS">GAS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="editSchoolid">School ID:</label> 
+                <input type="number" id="editSchoolid" minlength="5" maxlength="5" oninput="this.value = this.value.slice(0, 5);" disabled>
+            </div>
+            <div class="form-group">
+                <label for="editContact">Contact:</label>
+                <div class="contact-input-wrapper"> <!-- Standardized class name -->
+                    <span class="contact-prefix-display">+63</span> <!-- Standardized class name for styling -->
+                    <input type="tel" id="editContact" placeholder="9XXXXXXXXX" required
+                           maxlength="10" minlength="10" pattern="9\d{9}"
+                           title="Please enter 10 digits, starting with 9 (e.g., 9123456789)."
+                           oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10);"
+                           onkeypress="return event.charCode >= 48 && event.charCode <= 57;">
+                </div>
+                <small id="edit-contact-validation-msg" class="validation-message" style="display: none;"></small>
+            </div>
+            <div class="form-group">
+                <label for="editAge">Age:</label>
+                <input type="number" id="editAge" min="1" max="99" oninput="this.value = this.value.slice(0, 2);">
+            </div>
+
+            <div class="form-group">
+                <label for="editSex">Sex:</label>
+                <select id="editSex">
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="editTimeIn">Time In:</label>
+                <input type="text" id="editTimeIn" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="editTimeOut">Time Out:</label>
+                <input type="text" id="editTimeOut" disabled>
+            </div>
+            <div class="form-group">
+                <label for="editReason">Reason for Visit:</label>
+                <select id="editReason">
+                    <option value="">-- Select a reason --</option>
+                    <option value="Headache">Headache</option>
+                    <option value="Stomachache">Stomachache</option>
+                    <option value="Dizziness">Dizziness</option>
+                    <option value="Fever">Fever</option>
+                    <option value="Cough">Cough</option>
+                    <option value="Colds">Colds</option>
+                    <option value="Sore throat">Sore throat</option>
+                    <option value="Toothache">Toothache</option>
+                    <option value="Menstrual cramps">Menstrual cramps</option>
+                    <option value="Minorcutorwound">Minor cut or wound</option>
+                    <option value="Muscle pain / Body pain">Muscle pain / Body pain</option>
+                    <option value="Sprain or minor injury">Sprain or minor injury</option>
+                    <option value="Skin rash or irritation">Skin rash or irritation</option>
+                    <option value="Allergic reaction (mild)">Allergic reaction (mild)</option>
+                    <option value="Follow-up check">Follow-up check</option>
+                    <option value="Medication request">Medication request</option>
+                    <option value="Blood pressure check">Blood pressure check</option>
+                    <option value="Nausea or vomiting">Nausea or vomiting</option>
+                    <option value="Eye irritation">Eye irritation</option>
+                    <option value="Ear pain">Ear pain</option>
+                </select>
+            </div>
+            
+            <!-- Row 6: Action Taken in first column, second column empty to maintain layout -->
+            <div class="form-group">
+                <label for="editActionTaken">Action Taken:</label>
+                <input type="text" id="editActionTaken">
+            </div>
+            <div class="form-group">
+                <!-- Intentionally empty to allow "Action Taken" to be in the first column,
+                     and "Handled By" to start on a new line as full-width -->
+            </div>
+
+            <!-- Full Width Row: Handled By -->
+            <div class="form-group full-width">
+                <label for="editHandledBy">Handled By:</label>
+                <input type="text" id="editHandledBy" disabled>
+            </div>
+
+            <!-- Full Width Button: Save Changes -->
+            <div class="form-group full-width">
+                <button type="submit" id="saveEditBtn" class="button-save-changes">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Delete Confirmation Modal -->
+<div id="deleteConfirmModal" class="modal">
+    <div class="modal-content delete-confirm-content"> <!-- Added a more specific class for styling if needed -->
+        <span class="close-button" id="closeDeleteConfirmModal">×</span> <!-- Added the actual times character -->
+        <h2>Are you sure you want to remove this record?</h2>
+
+        <div class="modal-buttons-centered"> <!-- NEW WRAPPER DIV -->
+            <button id="deleteNoBtn">No</button>
+            <button id="deleteYesBtn">Yes</button>
+        </div>
+    </div>
+</div>
+
+
+  
+
+<script src="../Js/managerecord.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+
+
+ <!-- ADD THIS SCRIPT -->
+ <script>
+ const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('aside');
+    const body = document.body; // Or a main content wrapper
+
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-visible');
+            body.classList.toggle('sidebar-active'); // Optional: to prevent body scroll or dim background
+            const isExpanded = sidebar.classList.contains('sidebar-visible');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+    }
+
+    // Optional: Close sidebar if clicking outside of it
+    document.addEventListener('click', (event) => {
+        if (sidebar.classList.contains('sidebar-visible') &&
+            !sidebar.contains(event.target) &&
+            !menuToggle.contains(event.target)) {
+            sidebar.classList.remove('sidebar-visible');
+            body.classList.remove('sidebar-active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+</script>
+
+
+</body>
+</html>

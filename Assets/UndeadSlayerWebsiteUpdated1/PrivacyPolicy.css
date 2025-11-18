@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('your-image-path.jpg') no-repeat center center;
+  background-size: cover;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: gray;
+  
+}
+
+#header {
+  background: #333;
+  
+}
+
+.header .nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header .nav-bar .brand a {
+  text-decoration: none; 
+}
+
+.brand h1 {
+  color: whitesmoke;
+  font-size: 2.5em;
+  font-family: chiller;
+}
+.brand h1 span {
+  color: red;
+}
+
+.nav-rlist {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list ul {
+  display: flex;
+  list-style-type: none;
+  color: white;
+}
+
+.nav-list ul li  {
+  margin: 0 15px;
+}
+
+.nav-list ul li a {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.main {
+  flex: 1;
+}
+.main p{
+  font-size: 17px;
+  color: white;
+}
+
+.about-content {
+  max-width: 1200px;
+  width: 100%; /* Ensures it adapts to smaller screens */
+  margin: auto;
+  background: darkred;
+  padding: 20px; /* Adjusted padding for better fit */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Ensures content stacks nicely */
+  justify-content: center; /* Centers vertically */
+  align-items: center; /* Centers horizontally */
+  min-height: auto; /* Removed fixed height for more flexibility */
+}
+section {
+  margin-bottom: 30px;
+}
+section h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+section ul li {
+  color: white;
+}
+section h3{
+  color: white;
+}
+section ol li {
+  color: white;
+}
+section p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: white;
+}
+
+section strong {
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.buttons button {
+  background-color: gray;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.buttons button:hover {
+  background-color: black;
+  color: red;
+}
+
+.buttons button:focus {
+  outline: none;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+}
+
+footer .footer {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer h2 {
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  margin-top: 10px;
+}
+
+#footer .footer-links {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+#footer .footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#footer .footer-links a:hover {
+  color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-list ul {
+    flex-direction: column;
+  }
+
+  .nav-list ul li {
+    
+margin: 10px 0;
+  }
+
+  .brand h1 {
+    font-size: 2em;
+  }
+
+  .about-content {
+    padding: 20px;
+  }
+
+  .buttons button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}

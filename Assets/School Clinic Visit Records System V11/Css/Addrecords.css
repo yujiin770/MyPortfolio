@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' ,sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer";
+    user-select: none;
+}
+nav {
+    grid-area: navbar;
+    border-radius: 12px;
+    background: #fefefe;
+    color: #640712;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    z-index: 10;
+    align-items: center;
+    height: 70px; 
+}
+.nav-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+    padding: 0 20px; 
+    position: relative; 
+}
+.nav-title {
+    white-space: nowrap; 
+    overflow: hidden; 
+    flex-grow: 1; 
+    text-align: center; 
+}
+
+.logo {
+    height: 130px; 
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    margin-left: 20px;
+}
+aside{
+    height: 79.6vh;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: #dddddd;
+    
+}
+
+.sidebar_menu{
+    height: 100%;
+    width: 300px;
+    background-color: #333333;
+    color: #fff;
+    
+}
+.sidebar_menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    background-color: #333333
+}
+
+ul li{
+    list-style: none;
+}
+
+ul li a{
+    background-color: #333333;
+    color: #fff;;
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    text-align: left;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid black;
+    transition: .4s;
+}
+
+ul li a:hover {
+    background-color: maroon;
+    color: white; 
+    padding-left: 10px;
+
+}
+
+ul li a i{
+    width: 60px;
+    text-align: center;
+}
+
+main {
+    grid-area: main;
+    position: relative;
+    z-index: 1;
+    height: 86vh;
+    overflow-y: auto;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-image: url('../Picture/datamex trans.png');
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.5; 
+    z-index: 0;
+}
+
+main > * {
+    position: relative;
+    z-index: 1;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
+}
+
+.record-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.save-button,
+.cancel-button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+.cancel-button:hover {
+    background-color: #c82333; /* Darker red for hover effect */
+}
+footer{
+    grid-area: footer;
+    background: black;
+    color: white;
+    padding: 2m;
+}
+

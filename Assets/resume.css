@@ -1,0 +1,253 @@
+/* General Body and Font Styles */
+body {
+    background-color: #e8e8e8;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #4a4a4a;
+    line-height: 1.5; /* Slightly tightened line spacing */
+    user-select: none;
+}
+
+/* Main Container using CSS Grid, sized for A4 */
+.resume-container {
+    display: grid;
+    grid-template-columns: 1fr 2.2fr;
+    grid-template-rows: auto 1fr;
+    width: 100%;
+    max-width: 880px; /* Optimized width that fits well on A4 */
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* HEADER STYLES (More Compact) */
+.resume-header {
+    grid-column: 1 / -1;
+    background-color: #005A9C;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    position: relative;
+    border-bottom: 5px solid #005A9C;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.8rem; /* Reduced padding */
+}
+
+.header-content {
+    text-align: right;
+}
+
+.resume-header h1 {
+    font-size: 2.2rem; /* Reduced font size */
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.resume-header h2 {
+    font-size: 1rem; /* Reduced font size */
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* PHOTO CONTAINER STYLES (More Compact) */
+.profile-photo-container {
+    width: 130px; /* Reduced size */
+    height: 130px; /* Reduced size */
+    
+    overflow: hidden;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+    margin-right: 2rem;
+}
+
+.profile-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* COLUMN STYLES (More Compact) */
+.left-column {
+    background-color: #f8f9fa;
+    padding: 1.3rem; /* Reduced padding */
+    border-right: 1px solid #e0e0e0;
+    text-align: start;   
+}
+.left-column .skills ul li{
+    padding: 7px;
+}
+
+.right-column {
+    background-color: #ffffff;
+    padding: 1.3rem; /* Reduced padding */
+    text-align: justify;
+}
+/* UNIVERSAL SPACING (More Compact) */
+section {
+    margin-bottom: 1.4rem; /* Reduced space between sections */
+}
+section:last-child {
+    margin-bottom: 0;
+}
+section h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.7rem; /* Reduced space after title */
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid #e0e0e0;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1.5;
+}
+.contact ul li, .achievements ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5rem; /* Reduced space */
+}
+.contact i {
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+    color: #2c3e50;
+    width: 20px;
+    padding-top: 2px;
+}
+.achievements ul li {
+    position: relative;
+}
+.achievements ul li::before {
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: #333;
+}
+.right-column ul li {
+    margin-bottom: 0.4rem; /* Reduced space */
+    position: relative;
+    padding-left: 1.5rem;
+}
+.right-column ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #005A9C;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.edu-item, .exp-item {
+    margin-bottom: 1.2rem; /* Reduced space */
+}
+.edu-item:last-child, .exp-item:last-child {
+    margin-bottom: 0;
+}
+.edu-item h4, .exp-item h4 {
+    margin: 0;
+    font-size: 1rem; /* Adjusted size */
+    font-weight: 700;
+    color: #2c3e50;
+}
+.exp-details {
+    margin-bottom: 0.4rem;
+}
+.edu-item p, .exp-item p {
+    margin: 0;
+    font-size: 0.9rem; /* Adjusted size */
+}
+.print-button-container {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+.print-button-container button {
+    background-color: #005A9C;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.print-button-container button:hover {
+    background-color: #003e6b;
+}
+
+/* --- PRINT STYLES (Simplified to only handle page setup) --- */
+@media print {
+    /* Control the actual printed page margins and size */
+    @page {
+        size: A4;
+        margin: 0,;
+    }
+
+    /* Reset body for printing */
+    body {
+        background-color: #ffffff;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Ensure the container has no shadow */
+    .resume-container {
+        box-shadow: none;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+    }
+    
+    /* Force the browser to print all background colors and images */
+    .left-column, .resume-header {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    /* Hide the print button */
+    .print-button-container {
+        display: none;
+    }
+
+    /* Prevent content from breaking awkwardly across pages */
+    section, .exp-item, .edu-item {
+        page-break-inside: avoid;
+    }
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 800px) {
+    body {
+        padding: 0;
+    }
+    .resume-container {
+        grid-template-columns: 1fr;
+    }
+    .resume-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-content {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    .left-column {
+        border-right: none;
+    }
+}
