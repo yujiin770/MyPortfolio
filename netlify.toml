@@ -1,2 +1,15 @@
+# This tells Netlify where to find your serverless functions.
+# This part is correct and should stay.
 [functions]
   directory = "netlify/functions"
+
+# ADD THIS NEW SECTION BELOW
+# This tells Netlify how to handle the "build" process.
+[build]
+  # This command does nothing but print a message. It tells Netlify
+  # that no real build is needed.
+  command = "echo 'No build step required'"
+  
+  # This tells Netlify that your entire project folder is the final
+  # website and should be published as-is.
+  publish = "."
