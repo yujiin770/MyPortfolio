@@ -1,0 +1,34 @@
+/* ============================================= */
+/* ===    CAROUSEL MOBILE-ONLY STYLES (FINAL) === */
+/* ============================================= */
+
+/* These styles will only apply on screens 767px or narrower */
+
+.carousel-body {
+    /* Adjust padding for a better fit on mobile screens */
+    padding-top: 100px;
+}
+
+.carousel-container {
+    /* Smaller card size for a tighter look */
+    width: 140px;
+    height: 220px;
+    perspective: 800px; /* Tighter perspective for mobile */
+}
+
+.carousel .item {
+    /*
+     * ==========================================================
+     * ===           THE KEY FIX FOR OVERLAP                  ===
+     * ==========================================================
+     * The translateZ value is drastically reduced. This makes the
+     * circle much smaller and pulls the side items back, preventing
+     * them from overlapping the central item.
+    */
+    transform: rotateY(calc(var(--offset) * 40deg)) translateZ(200px);
+}
+
+.carousel .item:hover {
+    /* Adjust hover to match the new, smaller radius */
+    transform: rotateY(calc(var(--offset) * 40deg)) translateZ(160px) scale(1.05);
+}

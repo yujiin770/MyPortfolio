@@ -1,0 +1,130 @@
+/* ============================================= */
+/* ===    RESPONSIVE 3D CAROUSEL STYLES      === */
+/* ============================================= */
+
+/* New Simplified Header Styles */
+.simple-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    border-bottom: 1px solid #2b2f3680;
+}
+body.light-mode .simple-header {
+    border-bottom: 1px solid #dcdfe480;
+}
+.simple-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: auto;
+    padding: 1rem 1.5rem;
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.back-link:hover {
+    color: var(--primary);
+}
+
+.carousel-body {
+    padding: 120px 0 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--background);
+    overflow: hidden;
+}
+
+.carousel-body .text-center {
+    padding: 0 20px;
+}
+
+/* --- Mobile View (< 768px) --- */
+.carousel-container {
+    position: relative;
+    width: 160px;
+    height: 260px;
+    margin-bottom: 3rem;
+    transition: all 0.4s ease;
+    perspective: 1000px;
+    perspective-origin: 50% 25%;
+}
+.carousel {
+    --animation-speed: 25s;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate-mobile var(--animation-speed) infinite linear;
+    transform: rotateX(-10deg);
+}
+.carousel:hover { animation-play-state: paused; }
+.carousel .item {
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #ffffff1a;
+    background-color: var(--card);
+    transform: rotateY(calc(var(--offset) * 40deg)) translateZ(180px);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.carousel .item:hover {
+    transform: rotateY(calc(var(--offset) * 40deg)) translateZ(210px) scale(1.1);
+}
+.item .item-content {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,1) 10%, rgba(0,0,0,0.8) 50%, transparent);
+    color: white;
+}
+@keyframes rotate-mobile {
+    from { transform: rotateX(-10deg) rotateY(0deg); }
+    to   { transform: rotateX(-10deg) rotateY(360deg); }
+}
+
+/* --- List View & Button --- */
+.project-grid-container {
+    width: 100%; max-width: 1280px; padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.view-toggle-wrapper { margin-top: 2rem; }
+.hidden { display: none !important; }
+
+/* --- Tablet & Desktop Styles (> 768px) --- */
+@media (min-width: 768px) {
+    .carousel-container {
+        /* NEW: Refined desktop size */
+        width: 380px;  /* Wider for a cinematic look */
+        height: 280px; /* Shorter for a widescreen feel */
+        perspective: 2000px;
+        perspective-origin: 50% 50%; /* Reset perspective */
+    }
+    .carousel {
+        transform: rotateX(0deg); /* Reset tilt */
+        animation-name: rotate-desktop;
+    }
+    .carousel .item {
+        /* NEW: Wider circle to accommodate the cinematic layout */
+        transform: rotateY(calc(var(--offset) * 40deg)) translateZ(350px);
+    }
+    .carousel .item:hover {
+        transform: rotateY(calc(var(--offset) * 40deg)) translateZ(380px) scale(1.05);
+    }
+    @keyframes rotate-desktop {
+        from { transform: rotateY(0deg); }
+        to   { transform: rotateY(360deg); }
+    }
+}

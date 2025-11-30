@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Works | Yujin Almira</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="carousel-mobile.css" media="(max-width: 767px)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Assets/Webicon.png">
+</head>
+<body>
+    <div id="root">
+        <header class="simple-header glass-card">
+            <div class="simple-header-container">
+                <a href="index.html" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <span>Back to Home</span>
+                </a>
+                <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
+                  <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+                  <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                </button>
+            </div>
+        </header>
+
+        <section id="projects-page" class="carousel-body">
+            <div class="text-center mb-12">
+                <h1 class="section-title gradient-text">My Works</h1>
+                <p class="text-large text-muted max-w-2xl mx-auto">
+                    An interactive showcase of my projects. Click on an item to see details.
+                </p>
+            </div>
+
+            <div class="carousel-container" id="carousel-view">
+                <div class="carousel" id="carousel"></div>
+            </div>
+
+            <div class="project-grid-container hidden" id="list-view"></div>
+
+            <div class="view-toggle-wrapper">
+                <button id="toggle-view-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                    <span>List Mode</span>
+                </button>
+            </div>
+
+            <div id="project-details-modal" class="project-modal-overlay">
+                <div class="project-modal-content glass-card">
+                    <button class="close-modal-btn" id="close-project-modal-btn">&times;</button>
+                    <div class="project-modal-image-wrapper">
+                        <img id="modal-project-image" src="" alt="Project Image">
+                    </div>
+                    <div class="project-modal-body">
+                        <h2 id="modal-project-title" class="section-title gradient-text mb-4"></h2>
+                        <div id="modal-project-tags" class="tech-tags mb-6"></div>
+                        <p id="modal-project-description" class="text-muted text-justify"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADDED: CONTAINER FOR THE FLYING ANIMATION CLONE -->
+        <div id="animation-container"></div>
+    </div>
+
+    <script>
+        // Inline theme toggle script remains the same
+        document.addEventListener('DOMContentLoaded', () => { /* ... */ });
+    </script>
+    <script src="carousel.js"></script>
+</body>
+</html>

@@ -1,19 +1,18 @@
 // =========================================================================
-// --- FULLY CORRECTED SCRIPT.JS (with Click-Outside-to-Close) ---
+// --- FINAL SCRIPT (GitHub Button Visibility Corrected) ---
 // =========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Theme Toggle & Body ---
-  const themeToggle = document.getElementById('theme-toggle');
+  // --- Global Element Selections ---
   const body = document.body;
-  const backToTopBtn = document.getElementById('back-to-top-btn');
+  const splashScreen = document.getElementById('splash-screen');
   const mainNav = document.getElementById('main-nav');
+  const backToTopBtn = document.getElementById('back-to-top-btn');
   let lastScrollY = window.scrollY;
   const navHeight = mainNav ? mainNav.offsetHeight : 70;
 
   // --- Splash Screen ---
-  const splashScreen = document.getElementById('splash-screen');
   if (splashScreen) {
     body.classList.add('no-scroll');
     setTimeout(() => {
@@ -23,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Theme Toggle Logic ---
+  const themeToggle = document.getElementById('theme-toggle');
   if (localStorage.getItem('theme') === 'light') {
     body.classList.add('light-mode');
   }
@@ -50,11 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (burgerBtn) {
     burgerBtn.addEventListener('click', () => {
-      if (navLinksContainer.classList.contains('is-open')) {
-        closeNav();
-      } else {
-        openNav();
-      }
+      navLinksContainer.classList.contains('is-open') ? closeNav() : openNav();
     });
   }
   
@@ -70,25 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
     navBackdrop.addEventListener('click', closeNav);
   }
 
-  // === START: NEW CODE BLOCK TO ADD ===
-  // Close nav when clicking on the main content area (outside the sidebar)
-  document.addEventListener('click', (e) => {
-    if (
-      navLinksContainer.classList.contains('is-open') && // 1. Is the menu open?
-      !e.target.closest('#nav-links') &&                 // 2. Did we click OUTSIDE the nav links?
-      !e.target.closest('#burger-btn')                    // 3. And we didn't click the burger button?
-    ) {
-      closeNav(); // If all are true, close it.
-    }
-  });
-  // === END: NEW CODE BLOCK ===
-
-
-  // --- Typing Animation ---
+  // --- Typing Animation for Hero Section ---
   const typingText = document.getElementById('typing-text');
   if (typingText) {
     const roles = ['3rd Year Student', 'BSIT Freelancer', 'I want to be', 'Software Developer and UI/UX Designer'];
     let roleIndex = 0, charIndex = 0, isDeleting = false;
+    
     function type() {
       const currentRole = roles[roleIndex];
       let displayText = isDeleting ? currentRole.substring(0, charIndex - 1) : currentRole.substring(0, charIndex + 1);
@@ -122,9 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNavLinkOnScroll();
   };
 
-  // --- Scroll Animations ---
+  // --- Scroll-in Animations for Sections ---
   const scrollElements = document.querySelectorAll('.scroll-animation');
   const elementInView = (el, dividend = 1) => el.getBoundingClientRect().top <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
+  
   const displayScrollElement = (element) => {
     element.classList.add('is-visible');
     if (element.classList.contains('skill-card')) {
@@ -135,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   };
+
   const handleScrollAnimation = () => scrollElements.forEach(el => {
     if (elementInView(el, 1.25)) displayScrollElement(el);
   });
@@ -148,11 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const confirmationModal = document.getElementById('confirmation-modal');
   const closeConfirmationModalBtn = document.getElementById('close-confirmation-modal-btn');
   const confirmOkBtn = document.getElementById('confirm-ok-btn');
+
   const openContactModal = () => { if (contactModal) { contactModal.classList.add('is-visible'); body.style.overflow = 'hidden'; } };
   const closeContactModal = () => { if (contactModal) { contactModal.classList.remove('is-visible'); body.style.overflow = ''; if(contactForm) contactForm.reset(); } };
   const openConfirmationModal = () => { if (confirmationModal) { confirmationModal.classList.add('is-visible'); body.style.overflow = 'hidden'; } };
   const closeConfirmationModal = () => { if (confirmationModal) { confirmationModal.classList.remove('is-visible'); body.style.overflow = ''; } };
+
   if (contactModalTrigger) contactModalTrigger.addEventListener('click', (e) => { e.preventDefault(); openContactModal(); });
+
   if (contactModal) {
       closeContactModalBtn.addEventListener('click', closeContactModal);
       contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeContactModal(); });
@@ -169,10 +157,93 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       });
   }
+
   if (confirmationModal) {
       closeConfirmationModalBtn.addEventListener('click', closeConfirmationModal);
       confirmOkBtn.addEventListener('click', closeConfirmationModal);
       confirmationModal.addEventListener('click', (e) => { if(e.target === confirmationModal) closeConfirmationModal(); });
+  }
+
+  // --- Project Details Modal Logic ---
+  const projectModal = document.getElementById('project-details-modal');
+  if (projectModal) {
+    const closeProjectModalBtn = document.getElementById('close-project-modal-btn');
+    const projectsWrapper = document.querySelector('.projects-swiper');
+    const modalImage = document.getElementById('modal-project-image');
+    const modalTitle = document.getElementById('modal-project-title');
+    const modalDescription = document.getElementById('modal-project-description');
+    const modalTagsContainer = document.getElementById('modal-project-tags');
+    const modalLinksContainer = document.getElementById('modal-project-links');
+
+    const openProjectModal = (card) => {
+        modalImage.src = card.dataset.modalImage;
+        modalTitle.textContent = card.dataset.modalTitle;
+        modalDescription.textContent = card.dataset.modalDescription;
+        
+        modalTagsContainer.innerHTML = '';
+        modalLinksContainer.innerHTML = '';
+
+        card.querySelectorAll('.tech-tag').forEach(tag => {
+          modalTagsContainer.appendChild(tag.cloneNode(true));
+        });
+
+        const linkHref = card.dataset.modalLinkHref;
+        const linkText = card.dataset.modalLinkText;
+        if (linkHref && linkText && linkHref !== '#') {
+          const link = document.createElement('a');
+          link.href = linkHref;
+          link.textContent = linkText;
+          link.className = 'btn btn-primary';
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          modalLinksContainer.appendChild(link);
+        }
+
+        // *** THE FIX IS HERE ***
+        // The check '&& githubHref !== "#"' has been removed.
+        const githubHref = card.dataset.modalGithubHref;
+        if (githubHref) { 
+            const githubLink = document.createElement('a');
+            githubLink.href = githubHref;
+            githubLink.target = '_blank';
+            githubLink.rel = 'noopener noreferrer';
+            githubLink.className = 'btn btn-secondary';
+            githubLink.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                View on GitHub
+            `;
+            modalLinksContainer.appendChild(githubLink);
+        }
+        
+        projectModal.classList.add('is-visible');
+        body.style.overflow = 'hidden';
+    };
+    
+    const closeProjectModal = () => {
+        projectModal.classList.remove('is-visible');
+        body.style.overflow = '';
+    };
+
+    projectsWrapper.addEventListener('click', (e) => {
+      if (e.target.closest('a') || e.target.closest('button')) {
+          if (!e.target.closest('.project-modal-trigger')) {
+              return;
+          }
+      }
+      const card = e.target.closest('.project-card');
+      if (card) {
+        openProjectModal(card);
+      }
+    });
+
+    closeProjectModalBtn.addEventListener('click', closeProjectModal);
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
+    });
   }
 
   // --- Active Navigation Link on Scroll ---
@@ -182,7 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSectionId = '';
     const scrollY = window.scrollY;
     sections.forEach(section => {
-      if (scrollY >= section.offsetTop - 150) currentSectionId = section.id;
+      if (scrollY >= section.offsetTop - 150) {
+        currentSectionId = section.id;
+      }
     });
     if (window.innerHeight + scrollY >= document.body.offsetHeight - 5) {
        currentSectionId = sections[sections.length - 1].id;
@@ -192,15 +265,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // --- Swiper Initialization ---
+  // --- Swiper Initialization for Projects Carousel ---
   new Swiper('.projects-swiper', {
-    loop: true, grabCursor: true, slidesPerView: 1, spaceBetween: 30,
-    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    pagination: { el: '.swiper-pagination', clickable: true },
+    loop: true,
+    grabCursor: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
   });
 
-  // --- Infinite Scroller Logic (CONSOLIDATED) ---
+  // --- Infinite Scroller Logic for Tech Stack ---
   const scrollers = document.querySelectorAll(".scroller");
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     scrollers.forEach((scroller) => {
@@ -214,6 +299,106 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
+   // ==========================================================
+    // ===           CHATBOT LOGIC - UPDATED FOR GEMINI API   ===
+    // ==========================================================
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSendBtn = document.getElementById('chatbot-send-btn');
+    const TYPING_DELAY = 800;
+    
+    // DELETED: The old, hardcoded 'responses' object is gone!
+
+    const addUserMessage = (message) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', 'user-message');
+        messageElement.innerHTML = `<p>${message}</p>`;
+        chatbotMessages.appendChild(messageElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    };
+    
+    const addBotMessage = (message) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', 'bot-message');
+        messageElement.innerHTML = `<p>${message}</p>`;
+        chatbotMessages.appendChild(messageElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    };
+
+    const showTypingIndicator = () => {
+        const indicator = document.createElement('div');
+        indicator.id = 'typing-indicator';
+        indicator.classList.add('chat-message', 'bot-message', 'bot-typing-indicator');
+        indicator.innerHTML = `<p><span></span><span></span><span></span></p>`;
+        chatbotMessages.appendChild(indicator);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    };
+
+    const hideTypingIndicator = () => {
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) {
+            indicator.remove();
+        }
+    };
+    
+    // NEW: Asynchronous function to call our secure serverless function
+    async function getGeminiResponse(userInput) {
+        // This is the "magic" URL that Netlify creates for your function
+        const functionUrl = '/.netlify/functions/get-gemini-response';
+
+        try {
+            const response = await fetch(functionUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: userInput })
+            });
+
+            if (!response.ok) {
+                return "I'm sorry, I'm having trouble connecting to my brain right now. Please try again later.";
+            }
+
+            const data = await response.json();
+            return data.reply;
+
+        } catch (error) {
+            console.error("Error fetching Gemini response:", error);
+            return "There was an error reaching my servers. Let's try that again in a moment.";
+        }
+    }
+
+
+    // UPDATED: handleSendMessage is now an 'async' function
+    const handleSendMessage = async () => {
+        const userInput = chatbotInput.value.trim();
+        if (!userInput) return;
+
+        addUserMessage(userInput);
+        chatbotInput.value = '';
+        showTypingIndicator();
+
+        // Give a small delay before calling the API
+        setTimeout(async () => {
+            // NEW: Call the Gemini API and wait for the response
+            const botResponse = await getGeminiResponse(`You are a helpful assistant for a personal portfolio website. The portfolio belongs to Eugene Almira. Keep your answers concise and friendly. Here is the user's question: "${userInput}"`);
+            
+            hideTypingIndicator();
+            addBotMessage(botResponse);
+        }, TYPING_DELAY);
+    };
+
+    chatbotSendBtn.addEventListener('click', handleSendMessage);
+    chatbotInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            handleSendMessage();
+        }
+    });
+    
+    // Add the initial greeting
+    setTimeout(() => {
+        addBotMessage("Hello! I'm Eugene's AI assistant. Feel free to ask me anything about his work!");
+    }, 1000);
+
   // --- Initial & Event-Driven Calls ---
   window.addEventListener('scroll', handleScroll);
   handleScroll();
