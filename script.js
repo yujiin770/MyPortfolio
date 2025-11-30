@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async function getGeminiResponse(userInput) {
             // This is the relative path to your Netlify function
-            const functionUrl = '/.netlify/functions/get-gemini-response';
+            const functionUrl = '/api/get-gemini-response';
             try {
                 const response = await fetch(functionUrl, {
                     method: 'POST',
