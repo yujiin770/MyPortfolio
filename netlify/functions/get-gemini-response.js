@@ -17,11 +17,12 @@ exports.handler = async function(event) {
 
         /*
          * ==========================================================
-         * ===           THE FINAL FIX IS HERE                    ===
+         * ===           THE FINAL, CORRECTED URL IS HERE         ===
          * ==========================================================
-         * We are changing "gemini-pro" to the new "gemini-1.5-flash-latest" model.
+         * Switched from the unstable v1beta to the stable v1 endpoint
+         * and using the standard gemini-pro model.
         */
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`;
 
         const requestBody = {
             contents: [{
