@@ -299,105 +299,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-   // ==========================================================
-    // ===           CHATBOT LOGIC - UPDATED FOR GEMINI API   ===
-    // ==========================================================
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotSendBtn = document.getElementById('chatbot-send-btn');
-    const TYPING_DELAY = 800;
-    
-    // DELETED: The old, hardcoded 'responses' object is gone!
+     // --- 2. CHATBOT LOGIC (GEMINI API VERSION) ---
+    // NOTE: This uses the secure serverless function method we discussed.
+    const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+    if (chatbotToggleBtn) {
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSendBtn = document.getElementById('chatbot-send-btn');
+        const TYPING_DELAY = 800;
 
-    const addUserMessage = (message) => {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chat-message', 'user-message');
-        messageElement.innerHTML = `<p>${message}</p>`;
-        chatbotMessages.appendChild(messageElement);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    };
-    
-    const addBotMessage = (message) => {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chat-message', 'bot-message');
-        messageElement.innerHTML = `<p>${message}</p>`;
-        chatbotMessages.appendChild(messageElement);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    };
+        const addUserMessage = (message) => {
+            const el = document.createElement('div');
+            el.classList.add('chat-message', 'user-message');
+            el.innerHTML = `<p>${message}</p>`;
+            chatbotMessages.appendChild(el);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        };
+        const addBotMessage = (message) => {
+            const el = document.createElement('div');
+            el.classList.add('chat-message', 'bot-message');
+            el.innerHTML = `<p>${message}</p>`; // Use innerHTML to render Gemini's Markdown formatting if any
+            chatbotMessages.appendChild(el);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        };
+        const showTypingIndicator = () => {
+            const indicator = document.createElement('div');
+            indicator.id = 'typing-indicator';
+            indicator.classList.add('chat-message', 'bot-message', 'bot-typing-indicator');
+            indicator.innerHTML = `<p><span></span><span></span><span></span></p>`;
+            chatbotMessages.appendChild(indicator);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        };
+        const hideTypingIndicator = () => {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+        };
 
-    const showTypingIndicator = () => {
-        const indicator = document.createElement('div');
-        indicator.id = 'typing-indicator';
-        indicator.classList.add('chat-message', 'bot-message', 'bot-typing-indicator');
-        indicator.innerHTML = `<p><span></span><span></span><span></span></p>`;
-        chatbotMessages.appendChild(indicator);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    };
-
-    const hideTypingIndicator = () => {
-        const indicator = document.getElementById('typing-indicator');
-        if (indicator) {
-            indicator.remove();
-        }
-    };
-    
-    // NEW: Asynchronous function to call our secure serverless function
-    async function getGeminiResponse(userInput) {
-        // This is the "magic" URL that Netlify creates for your function
-        const functionUrl = '/.netlify/functions/get-gemini-response';
-
-        try {
-            const response = await fetch(functionUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: userInput })
-            });
-
-            if (!response.ok) {
-                return "I'm sorry, I'm having trouble connecting to my brain right now. Please try again later.";
+        async function getGeminiResponse(userInput) {
+            // This is the relative path to your Netlify function
+            const functionUrl = '/.netlify/functions/get-gemini-response';
+            try {
+                const response = await fetch(functionUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: userInput })
+                });
+                if (!response.ok) return "I'm sorry, I'm having trouble connecting to my brain right now.";
+                const data = await response.json();
+                return data.reply;
+            } catch (error) {
+                console.error("Error fetching Gemini response:", error);
+                return "There was an error reaching my servers. Let's try that again.";
             }
-
-            const data = await response.json();
-            return data.reply;
-
-        } catch (error) {
-            console.error("Error fetching Gemini response:", error);
-            return "There was an error reaching my servers. Let's try that again in a moment.";
         }
+
+        const handleSendMessage = async () => {
+            const userInput = chatbotInput.value.trim();
+            if (!userInput) return;
+            addUserMessage(userInput);
+            chatbotInput.value = '';
+            showTypingIndicator();
+            setTimeout(async () => {
+                const botResponse = await getGeminiResponse(`You are a helpful assistant for Eugene Almira's portfolio. Be friendly and concise. User asks: "${userInput}"`);
+                hideTypingIndicator();
+                addBotMessage(botResponse);
+            }, TYPING_DELAY);
+        };
+
+        chatbotToggleBtn.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('is-open');
+            chatbotToggleBtn.classList.toggle('is-open');
+        });
+        chatbotSendBtn.addEventListener('click', handleSendMessage);
+        chatbotInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSendMessage(); });
+        
+        setTimeout(() => { addBotMessage("Hi! I'm Eugene's AI assistant. Ask me anything about his portfolio."); }, 1500);
     }
-
-
-    // UPDATED: handleSendMessage is now an 'async' function
-    const handleSendMessage = async () => {
-        const userInput = chatbotInput.value.trim();
-        if (!userInput) return;
-
-        addUserMessage(userInput);
-        chatbotInput.value = '';
-        showTypingIndicator();
-
-        // Give a small delay before calling the API
-        setTimeout(async () => {
-            // NEW: Call the Gemini API and wait for the response
-            const botResponse = await getGeminiResponse(`You are a helpful assistant for a personal portfolio website. The portfolio belongs to Eugene Almira. Keep your answers concise and friendly. Here is the user's question: "${userInput}"`);
-            
-            hideTypingIndicator();
-            addBotMessage(botResponse);
-        }, TYPING_DELAY);
-    };
-
-    chatbotSendBtn.addEventListener('click', handleSendMessage);
-    chatbotInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            handleSendMessage();
-        }
-    });
-    
-    // Add the initial greeting
-    setTimeout(() => {
-        addBotMessage("Hello! I'm Eugene's AI assistant. Feel free to ask me anything about his work!");
-    }, 1000);
 
   // --- Initial & Event-Driven Calls ---
   window.addEventListener('scroll', handleScroll);

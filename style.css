@@ -1472,3 +1472,28 @@ body.light-mode .close-modal-btn {
 body.light-mode .close-modal-btn:hover {
   color: var(--primary);
 }
+
+.chatbot-footer {
+    padding: 0.6rem 1rem;
+    text-align: center;
+    font-size: 0.75rem; /* 12px */
+    color: var(--muted-foreground);
+    border-top: 1px solid var(--border);
+    /* Match the semi-transparent look of the header */
+    background: #1a1c204d;
+}
+
+body.light-mode .chatbot-footer {
+    background: #ffffff4d;
+}
+
+.chatbot-footer a {
+    color: var(--muted-foreground); /* Start with a muted color */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.chatbot-footer a:hover {
+    color: var(--primary); /* Change to your primary theme color on hover */
+}
