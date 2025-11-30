@@ -9,20 +9,18 @@ exports.handler = async function(event) {
 
     try {
         const { prompt } = JSON.parse(event.body);
+        
+        // --- CONFIGURATION FOR THE FREE VERTEX AI ENDPOINT ---
         const apiKey = process.env.GEMINI_API_KEY;
+        const project_id = "plenary-beach-479805-k0"; // <-- PASTE YOUR PROJECT ID HERE
+        const model = "gemini-pro";
+        
+        // This is the new, free endpoint URL
+        const apiUrl = `https://us-central1-aiplatform.googleapis.com/v1/projects/${project_id}/locations/us-central1/publishers/google/models/${model}:streamGenerateContent`;
 
         if (!apiKey) {
             throw new Error("GEMINI_API_KEY is not set in Netlify environment variables.");
         }
-
-        /*
-         * ==========================================================
-         * ===           THE FINAL, CORRECTED URL IS HERE         ===
-         * ==========================================================
-         * Switched from the unstable v1beta to the stable v1 endpoint
-         * and using the standard gemini-pro model.
-        */
-        const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`;
 
         const requestBody = {
             contents: [{
@@ -34,7 +32,10 @@ exports.handler = async function(event) {
 
         const response = await fetch(apiUrl, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Authorization': `Bearer ${apiKey}`, // Vertex AI uses a different authorization method
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify(requestBody)
         });
 
@@ -45,7 +46,8 @@ exports.handler = async function(event) {
 
         const data = await response.json();
         
-        const botResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't generate a response.";
+        // The response structure is slightly different for Vertex AI
+        const botResponse = data[0]?.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't generate a response.";
 
         return {
             statusCode: 200,
