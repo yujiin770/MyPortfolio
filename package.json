@@ -1,0 +1,14 @@
+{
+  "name": "yujin-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio site with Netlify serverless function",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eugene Almira",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
