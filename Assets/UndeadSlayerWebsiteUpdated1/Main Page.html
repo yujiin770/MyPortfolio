@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crimson Blood | Game Website</title>
   <link rel="stylesheet" href="HomePageCSS.css">
-  <title>Game Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -15,303 +16,282 @@
       <div class="nav-bar">
         <div class="brand">
           <a href="#hero">
-            <h1><span>CRIMSON</span>  </span> BLOOD</h1>
+            <h1><span>CRIMSON</span> BLOOD</h1>
           </a>
         </div>
-        <input type="checkbox" id="toggle" class="toggle-checkbox">
-      <label for="toggle" class="hamburger">
-        <div class="bar"></div>
-      </label>
-      <div class="nav-list">
-        <ul>
-          <li><a href="#hero" data-after="Home">Home</a></li>
-          <li><a href="#services" data-after="About">About</a></li>
-          <li><a href="#projects" data-after="Features">Features</a></li>
-          <li><a href="#about" data-after="Members">Members</a></li>
-          <li><a href="#contact" data-after="Social Media">Social Media</a></li>
-        </ul>
+        <div class="nav-list">
+          <input type="checkbox" id="toggle" class="toggle-checkbox">
+          <label for="toggle" class="hamburger">
+            <div class="bar"></div>
+          </label>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#services" data-after="About">About</a></li>
+            <li><a href="#projects" data-after="Features">Features</a></li>
+            <li><a href="#characters" data-after="Characters">Characters</a></li>
+            <li><a href="#about" data-after="Members">Members</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- End Header -->
 
-  <!-- Hero Section  -->
+  <!-- Hero Section -->
   <section id="hero">
     <div class="hero container">
-      <div>
-        
+      <div class="hero-content">
         <h1>UNDEAD SLAYER<span></span></h1>
         <h1>GAME DEVELOPMENT<span></span></h1>
         <a href="Background/ZombieGame1-20241202T134912Z-001.zip" type="button" class="cta">Download Now</a>
       </div>
     </div>
   </section>
-  <!-- End Hero Section  -->
+  <!-- End Hero Section -->
 
-  <!-- Service Section -->
+  <!-- Service Section (About Game) -->
   <section id="services">
     <div class="services container">
       <div class="service-top">
-        <h1 class="section-title"><span>About</span> Game</h1>
-        
+        <h1 class="section-title"><span>About the</span> Game</h1>
       </div>
       <div class="service-bottom">
         <div class="service-item">
-        
           <h2>Insight of the Game</h2>
-          <p>Martin is an ordinary man who never imagined he'd be forced to survive in a world ravaged by a zombie apocalypse. A former high school teacher in his late 30s, Martin’s life is turned upside down when a viral outbreak turns most of humanity into mindless, flesh-eating zombies. Struggling to come to terms with the loss of his loved ones, Martin must navigate through a broken world, facing both the undead and the darker sides of human nature.</p>
+          <p>Martin is an ordinary man who never imagined he'd be forced to survive in a world ravaged by a zombie apocalypse. A former high school teacher, his life is turned upside down when a viral outbreak turns most of humanity into mindless, flesh-eating zombies.</p>
         </div>
         <div class="service-item">
-        
           <h2>Objective</h2>
-          <p>To create a sense of tension, fear, and immersion, pulling players into a world where they feel vulnerable, isolated, or under threat, especially zombie games, rely heavily on atmosphere, suspense, and psychological tension. The objective is often to engage players emotionally, making them feel part of the terrifying world they’re in.</p>
+          <p>To create a sense of tension, fear, and immersion, pulling players into a world where they feel vulnerable and under threat. The objective is to engage players emotionally, making them feel part of the terrifying world they’re in.</p>
         </div>
         <div class="service-item">
-          
           <h2>How To Play</h2>
-          <p>Use the arrow keys for the movement. (Up, down, left and right)
-            Press the Spacebar to shoot. (The bullet will shoot wherever you're facing.)
-            Do your best to survive the thriller nights without getting infected. Avoid the undead and kill them before they can bite you!</p>
+          <p>Use the arrow keys for movement (Up, down, left and right) and Press the Spacebar to shoot. Do your best to survive the thriller nights without getting infected. Avoid the undead and kill them before they can bite you!</p>
         </div>
         <div class="service-item">
-         
           <h2>Conclusion</h2>
-          <p> Ultimately, a successful horror or zombie game is one that effectively combines all these elements to create a gripping, immersive, and rewarding experience that resonates with players long after the game is over. Whether aiming for emotional impact, innovative mechanics, or commercial success, the goal is to leave players with a lasting impression, keeping them coming back for more fear, excitement, and challenges.</p>
-</p>
+          <p>A successful zombie horror game combines all these elements to create a gripping and rewarding experience that resonates with players long after the game is over, keeping them coming back for more.</p>
         </div>
       </div>
     </div>
   </section>
   <!-- End Service Section -->
 
-  <!-- Projects Section -->
+  <!-- Projects Section (Features) -->
   <section id="projects">
     <div class="projects container">
       <div class="projects-header">
-        <h1 class="section-title"><span>Features</span></h1>
-        <div id="projects">
-
-  </div>
-  <div class="all-projects">
-    <!-- Video Container -->
-    <div class="video-container">
-      <video controls autoplay>
-        <source src="Undead Slayer Main Teaser.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+        <h1 class="section-title"><span>Core</span> Features</h1>
       </div>
+      
+      <!-- Video Container -->
+      <div class="video-container">
+        <video controls autoplay muted loop>
+          <source src="Undead Slayer Main Teaser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Feature Items -->
       <div class="all-projects">
+        
+        <!-- Feature 1 -->
         <div class="project-item">
           <div class="project-info">
             <h1>Player Control</h1>
-            
-            <p>- For movement, we will utilize the standard Left,Up,Down,Right arrow keys and space for shoot like in other rpg games.</p>
+            <p>- For movement, we will utilize the standard Left, Up, Down, Right arrow keys and space for shooting like in other RPG games.</p>
           </div>
           <div class="project-img">
-            <img src="Background/bg2.png" alt="img">
+            <img src="Background/bg2.png" alt="Player control visual">
           </div>
         </div>
+
+        <!-- Feature 2 -->
         <div class="project-item">
           <div class="project-info">
             <h1>Graphics and Visuals</h1>
-           
-            <p>We want to create the game more understable just by using visual basic 2010 as much as possible, with top down view interface and camera angles, so that players may feel the peak of the horror game/survival like zombie</p>
+            <p>We want to create the game more understandable just by using Visual Basic 2010 as much as possible, with top-down view interface and camera angles, so that players may feel the peak of the horror/survival genre.</p>
           </div>
           <div class="project-img">
-            <img src="Background/bg2.png" alt="img">
+            <img src="Background/bg2.png" alt="Graphics visual">
           </div>
         </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Sound and Music</h1>
-           
-            <p>Of course, we'll employ dreadful and realistic sounds like gunshot and bullethit along with other eerie and terrifying sounds.</p>
-          </div>
-          <div class="project-img">
-           <img src="Background/bg2.png" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>User-Interface</h1>
-            
-            <p>In the HUD, we will show the Main Character health bar , Kill and Time, The wave of zombies.</p>
-          </div>
-          <div class="project-img">
-            <img src="Background/UI.JPG" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Main Character</h1> 
-            <p></p>
-          </div>
-          <div class="project-img">
-           <img src="Characters/MainChar1.png" alt="img">
-          </div>
-        </div>
-		  
-		  <div class="project-item">
-          <div class="project-info">
-            <h1>Zombie 1 </h1>
-            <p>Is the 1st Wave of Zombie</p>
-                
-          </div>
-          <div class="project-img">
-           <img src="Characters/Zombie.png" alt="img">
-          </div>
-        </div>
-		  
-		  <div class="project-item">
-          <div class="project-info">
-            <h1>Zombie 2</h1>
-           
-          </div>
-          <div class="project-img">
-           <img src="Characters/Zom.gif" alt="img">
-          </div>
-        </div>
-		  <div class="project-item">
-          <div class="project-info">
-            <h1>Zombie 3</h1>
-            
-          </div>
-          <div class="project-img">
-           <img src="Characters/finalzombie.png" alt="img">
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
   <!-- End Projects Section -->
 
-  <!-- About Section -->
-<section id="about">
+  <!-- Characters Section -->
+  <section id="characters">
+    <div class="characters container">
+      <h1 class="character-section-title">MEET THE <span>CAST</span></h1>
+      <div class="all-characters">
+        <!-- Main Character -->
+        <div class="character-item">
+          <div class="character-img">
+            <img src="Characters/MainChar1.png" alt="Main Character">
+          </div>
+          <div class="character-info">
+            <h1>MAIN CHARACTER</h1>
+          </div>
+        </div>
+        <!-- Zombie 1 -->
+        <div class="character-item">
+          <div class="character-img">
+            <img src="Characters/Zombie.png" alt="Zombie Wave 1">
+          </div>
+          <div class="character-info">
+            <h1>ZOMBIE 1</h1>
+          </div>
+        </div>
+        <!-- Zombie 2 -->
+        <div class="character-item">
+          <div class="character-img">
+            <img src="Characters/Zom.gif" alt="Zombie Wave 2">
+          </div>
+          <div class="character-info">
+            <h1>ZOMBIE 2</h1>
+          </div>
+        </div>
+        <!-- Zombie 3 -->
+        <div class="character-item">
+          <div class="character-img">
+            <img src="Characters/finalzombie.png" alt="Zombie Wave 3">
+          </div>
+          <div class="character-info">
+            <h1>ZOMBIE 3</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Characters Section -->
 
-    <div class="col-right">
-      <h1 class="section-title">GroupMembers<span></span></h1>
-
-      <h3>Meet Our Team</h3>
+  <!-- About Section (Team) -->
+  <section id="about">
+    <div class="about container">
+      <h1 class="section-title"><span>Meet The</span> Team</h1>
+      <h3>The Team Behind The Terror</h3>
       <div class="team-members">
         <ul>
-
           <li>
-            <div class="member-img">
-              <img src="MEMBERS/member1.jpg" alt="Member 1">
-            </div>
+            <div class="member-img"><img src="MEMBERS/member1.jpg" alt="Member"></div>
             <h4>Eugene Almira</h4>
             <p>Game Developer</p>
-          </li>
-
-
-          <li>
-            <div class="member-img">
-              <img src="MEMBERS/member2.jpg" alt="Member 2">
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            <h4>Princes Mahallalel Bacani</h4>
+          </li>
+          <li>
+            <div class="member-img"><img src="MEMBERS/member2.jpg" alt="Member"></div>
+            <h4>Princes M. Bacani</h4>
             <p>Website Developer</p>
-          </li>
-
-
-          <li>
-            <div class="member-img">
-              <img src="MEMBERS/member3.jpg" alt="Member 3">
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+          </li>
+          <li>
+            <div class="member-img"><img src="MEMBERS/member3.jpg" alt="Member"></div>
             <h4>Ivan Bidayan</h4>
             <p>Main Designer</p>
-          </li>
-
-
-          <li>
-            <div class="member-img">
-              <img src="MEMBERS/member4.jpg" alt="Member 4">
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+          </li>
+           <li>
+            <div class="member-img"><img src="MEMBERS/member4.jpg" alt="Member"></div>
             <h4>Jhaym Resposar</h4>
             <p>Artist</p>
-          </li>
-
-
-          <li>
-            <div class="member-img">
-              <img src="MEMBERS/member5.jpg" alt="Reylyn Tapitan">
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+          </li>
+           <li>
+            <div class="member-img"><img src="MEMBERS/member5.jpg" alt="Member"></div>
             <h4>Reylyn Tapitan</h4>
             <p>Sub Designer</p>
-          </li>
-
-
-          <li>
-            <div class="member-img">
-              <img src="MEMBERS/member6.jpg" alt="Member 6">
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+          </li>
+           <li>
+            <div class="member-img"><img src="MEMBERS/member6.jpg" alt="Member"></div>
             <h4>Lovely Baquilar</h4>
             <p>System Analyst</p>
-          </li>
-          
-         
-    <li>
-          <div class="member-img">
-            <img src="MEMBERS/member7.jpg" alt="Member 7">
-          </div>
-          <h4>Ramrey Balando</h4>
-          <p>Sub Designer</p>
-        </li>
-
-
-        <li>
-          <div class="member-img">
-            <img src="MEMBERS/member8.jpg" alt="Member 8">
-          </div>
-          <h4>Mholer Balisacan</h4>
-          <p>Sub Designer</p>
-        </li>
-
-
-          <li>
-            <div class="member-img">
-              <img src="MEMBERS/member9.jpg" alt="Member 9">
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+          </li>
+           <li>
+            <div class="member-img"><img src="MEMBERS/member7.jpg" alt="Member"></div>
+            <h4>Ramrey Balando</h4>
+            <p>Sub Designer</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </li>
+           <li>
+            <div class="member-img"><img src="MEMBERS/member8.jpg" alt="Member"></div>
+            <h4>Mholer Balisacan</h4>
+            <p>Sub Designer</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </li>
+           <li>
+            <div class="member-img"><img src="MEMBERS/member9.jpg" alt="Member"></div>
             <h4>Romeo Arellano</h4>
             <p>Data Gatherer</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
           </li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  <!-- End About Section -->
 
+  <!-- Contact Section -->
   <section id="contact">
     <div class="contact container">
       <div>
-        <h1 class="section-title">Social Media<span></span>
+        <h1 class="section-title"><span>Get In</span> Touch</h1>
       </div>
       <div class="contact-items">
         <div class="contact-item">
-          <div class="icon"><img src="Characters/contact.jpg" /></div>
+          <div class="icon"><i class="fas fa-phone-alt fa-3x" style="color: white;"></i></div>
           <div class="contact-info">
-            <h1>ContactNumber</h1>
-            <h2>Marulas Valenzuela City</h2>
-			  <h2>09380984110</h2>
+            <h1>Contact Number</h1>
+            <h2>09380984110</h2>
           </div>
         </div>
         <div class="contact-item">
-          <div class="icon"><img src="Background/gmail.jpg" /></div>
+          <div class="icon"><i class="fas fa-envelope fa-3x" style="color: white;"></i></div>
           <div class="contact-info">
             <h1>Gmail</h1>
             <h2>CrimsonBloodStudio@gmail.com</h2>
           </div>
         </div>
         <div class="contact-item">
-          <div class="icon"><img src="Background/facebook.png" /></div>
+          <div class="icon"><i class="fab fa-facebook fa-3x" style="color: white;"></i></div>
           <div class="contact-info">
             <h1>Facebook</h1>
             <h2>CrimsonBloodStudio</h2>
           </div>
         </div>
       </div>
-      
     </div>
   </section>
   <!-- End Contact Section -->
@@ -326,12 +306,9 @@
         <a href="Term&Condition.html" class="footer-link">Terms and Condition</a> | 
         <a href="PrivacyPolicy.html" class="footer-link">Privacy Policy</a>
       </div>
-      <p>All Right Reserved 2024</p>
-     
+      <p>All Rights Reserved © 2024</p>
     </div>
   </section>
-
-  
+  <!-- End Footer -->
 </body>
-
 </html>
