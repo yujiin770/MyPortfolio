@@ -5,68 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineFlix - Discover Your Next Favorite Movie</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-
+    <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-background text-foreground">
 
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Mobile Sidebar Menu -->
+    <aside id="sidebarMenu" class="sidebar">
+        <div class="p-4">
+            <button id="sidebarCloseBtn" class="w-full text-left p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors flex items-center gap-3">
+                <i class="fas fa-arrow-left"></i> Close menu
+            </button>
+        </div>
+        <nav class="flex flex-col p-4 space-y-1">
+            <a href="#" class="sidebar-link" onclick="clearResult(); closeSidebar();">Home</a>
+            <div class="collapsible-section">
+                <button class="sidebar-section-toggle">
+                    <span>Genre</span>
+                    <i class="fas fa-plus toggle-icon"></i>
+                </button>
+                <div id="mobileGenreContainer" class="collapsible-content"></div>
+            </div>
+             <div class="collapsible-section">
+                <button class="sidebar-section-toggle">
+                    <span>Country</span>
+                    <i class="fas fa-plus toggle-icon"></i>
+                </button>
+                <div class="collapsible-content">
+                    <div class="mobile-genre-grid">
+                        <a href="#" class="mobile-genre-link">USA</a>
+                        <a href="#" class="mobile-genre-link">UK</a>
+                        <a href="#" class="mobile-genre-link">Canada</a>
+                        <a href="#" class="mobile-genre-link">Japan</a>
+                    </div>
+                </div>
+            </div>
+             <a href="#" class="sidebar-link" onclick="event.preventDefault(); searchByQuery('popular movies'); closeSidebar();"></a>
+             <a href="#" class="sidebar-link" onclick="event.preventDefault(); searchByQuery('popular tv shows'); closeSidebar();"></a>
+             <a href="#" class="sidebar-link" onclick="event.preventDefault(); searchByQuery('top rated movies'); closeSidebar();"></a>
+        </nav>
+    </aside>
+
+    <!-- Splash Screen -->
     <div id="splashScreen">
         <div class="splash-logo">
-            <div class="p-3 bg-gradient-hero rounded-2xl shadow-glow">
-                <i class="fas fa-film text-white text-4xl"></i>
+             <!-- LOGO FIX: Simplified to just the icon -->
+             <div class="p-3 bg-card rounded-2xl shadow-lg">
+                <p></p>
+                <i class="fas fa-clapperboard text-white text-4xl"> C I N E F L I X </i>
             </div>
-            <span class="font-bold text-5xl text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                CineFlix
-            </span>
         </div>
         <div class="spinner mt-8"></div>
     </div>
 
+    <!-- Main App Container -->
     <div id="app" class="app-hidden">
-        <header id="appHeader" class="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-            <nav class="container mx-auto px-4 sm:px-6">
-                <div class="flex items-center justify-between h-20">
-                    <div class="flex items-center">
-                        <a href="#" class="flex items-center gap-2 sm:gap-3" onclick="event.preventDefault(); clearResult();">
-                            <div class="p-2 bg-gradient-hero rounded-xl shadow-glow">
-                                <i class="fas fa-film text-white text-xl sm:text-2xl"></i>
-                            </div>
-                            <span class="font-bold text-2xl sm:text-3xl text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                                CineFlix
-                            </span>
-                        </a>
-                    </div>
-                    <div class="w-full max-w-[150px] sm:max-w-xs ml-4">
-                        <div class="relative flex items-center">
-                            <i class="fas fa-search absolute left-4 text-muted-foreground"></i>
-                            <input type="text" id="movieTitle" placeholder="Search..." class="search-compact w-full pl-10 pr-12 py-2">
-                            <button id="searchBtn" class="absolute right-0 text-muted-foreground hover:text-primary p-2 mr-2 rounded-full transition-colors">
-                                <i class="fa fa-arrow-right"></i>
+        <header id="appHeader" class="sticky top-0 z-50 bg-background/80 backdrop-blur-lg">
+            <div class="container mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
+                <!-- LOGO FIX: Simplified logo and main navigation container -->
+                <div class="flex items-center gap-6">
+                    <a href="#" class="flex items-center" onclick="event.preventDefault(); clearResult();">
+                        <i class="fas fa-clapperboard text-white text-3xl"></i>
+                    </a>
+                    <nav class="main-nav hidden md:flex items-center gap-2">
+                         <a href="#" id="navShows" class="nav-link"></a>
+                         <a href="#" id="navMovies" class="nav-link"></a>
+                         <div id="genreDropdownContainer" class="relative">
+                            <button id="genreDropdownToggle" class="nav-link flex items-center gap-2">
+                                <span>Categories</span>
+                                <i class="fas fa-chevron-down text-xs transition-transform"></i>
                             </button>
+                            <div id="genreDropdownMenu" class="genre-dropdown absolute left-0 mt-3 w-56 p-2 hidden flex flex-col gap-1 z-50"></div>
                         </div>
-                    </div>
+                     </nav>
                 </div>
-            </nav>
+                 
+                <div class="flex items-center gap-4">
+                     <!-- Search Bar -->
+                     <div class="relative flex items-center w-full max-w-[200px] sm:max-w-xs">
+                        <i class="fas fa-search absolute left-4 text-muted-foreground"></i>
+                        <input type="text" id="movieTitle" placeholder="Search..." class="search-compact w-full pl-10 pr-4 py-2">
+                    </div>
+                    <!-- Hamburger Menu Button -->
+                    <button id="hamburgerBtn" class="md:hidden text-2xl text-muted-foreground hover:text-foreground">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
         </header>
 
         <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <section id="heroSection" class="relative min-h-[50vh] flex flex-col items-center justify-center text-center px-4 fade-in">
-                <div class="relative z-10 max-w-4xl mx-auto">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-shadow">
-                        Discover Your Next
-                        <span class="block text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                            Favorite Movie
-                        </span>
-                    </h1>
-                    <p class="text-lg sm:text-xl md:text-2xl text-muted-foreground mt-4 max-w-2xl mx-auto">
-                        Explore millions of movies and TV shows. Get detailed information, watch trailers, and find where to stream.
-                    </p>
-                </div>
+            <!-- Hero Section -->
+            <section id="heroSection" class="relative min-h-[60vh] w-full max-w-full -mt-8 mx-auto rounded-2xl overflow-hidden mb-12 fade-in">
+                <div id="heroCarousel" class="absolute inset-0 w-full h-full"></div>
+                <div class="hero-gradient-overlay absolute inset-0"></div>
+                <button id="heroPrevBtn" class="scroll-btn absolute top-1/2 left-4 -translate-y-1/2 opacity-100 pointer-events-auto"><i class="fas fa-chevron-left"></i></button>
+                <button id="heroNextBtn" class="scroll-btn absolute top-1/2 right-4 -translate-y-1/2 opacity-100 pointer-events-auto"><i class="fas fa-chevron-right"></i></button>
+                <div id="heroContent" class="relative z-10 h-full w-full flex flex-col justify-end md:justify-center p-8 md:p-12"></div>
             </section>
 
+            <!-- Home Content -->
             <div id="homeContent" class="space-y-12">
                 <section id="trendingSection" class="movie-row-container fade-in-up"></section>
                 <section id="nowPlayingSection" class="movie-row-container fade-in-up"></section>
@@ -74,41 +119,39 @@
                 <section id="popularTVSection" class="movie-row-container fade-in-up"></section>
             </div>
 
+            <!-- Search Results -->
             <section id="searchResults" class="hidden">
                 <div class="flex items-center gap-4 mb-6">
-                    <button onclick="clearResult()" class="text-muted-foreground hover:text-foreground">
-                        <i class="fas fa-arrow-left text-xl"></i>
-                    </button>
+                    <button onclick="clearResult()" class="text-muted-foreground hover:text-foreground"><i class="fas fa-arrow-left text-xl"></i></button>
                     <div>
                         <h2 class="text-2xl font-bold">Search Results</h2>
                         <p id="searchQueryText" class="text-muted-foreground"></p>
                     </div>
                 </div>
                 <div id="resultsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"></div>
+                 <div id="loadingIndicator" class="col-span-full flex justify-center mt-8 hidden">
+                    <div class="spinner"></div>
+                </div>
             </section>
 
+            <!-- Movie Details View -->
             <section id="resultView" class="hidden"></section>
         </main>
 
         <footer class="border-t border-border bg-card/50 mt-20">
             <div class="container mx-auto px-4 py-8">
                 <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-                    <div class="flex items-center gap-3">
-                        <div class="p-2 bg-gradient-hero rounded-xl shadow-glow">
-                            <i class="fas fa-film text-white text-xl"></i>
-                        </div>
-                        <span class="font-bold text-2xl text-glow bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                            CineFlix
-                        </span>
-                    </div>
-                    <p class="text-sm text-muted-foreground mt-4 md:mt-0">
-                       © 2025 Eugene Almira. All Rights Reserved
-                    </p>
+                    <a href="#" class="flex items-center gap-3">
+                         <i class="fas fa-clapperboard text-white text-2xl"></i>
+                         <span class="font-bold text-xl text-foreground">CineFlix</span>
+                    </a>
+                    <p class="text-sm text-muted-foreground mt-4 md:mt-0">© 2025 Eugene Almira. All Rights Reserved</p>
                 </div>
             </div>
         </footer>
     </div>
     
+    <!-- Trailer Modal -->
     <div id="trailerModal" class="trailer-overlay hidden">
         <div class="trailer-container">
             <button id="trailerCloseBtn" class="trailer-close-btn">×</button>
