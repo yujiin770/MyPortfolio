@@ -33,80 +33,125 @@ body.light-mode {
   padding: 0;
   border-color: var(--border);
 }
-/* --- Splash Screen Styles --- */
+/* --- Cinematic Splash Screen --- */
 #splash-screen {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #0f172a;
-    z-index: 9999;
+    inset: 0;
+    background-color: #05070a;
+    z-index: 10000;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 1s ease-out, visibility 1s ease-out;
-    opacity: 1;
-    visibility: visible;
+    overflow: hidden;
+    transition: visibility 1s;
 }
 
-#splash-screen.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+/* The Shutters */
+.shutter {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #0a0c10;
+    z-index: 2;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.shutter.top { top: 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2); }
+.shutter.bottom { bottom: 0; border-top: 1px solid rgba(59, 130, 246, 0.2); }
+
+/* Shutter Exit Animation */
+#splash-screen.hidden .shutter.top { transform: translateY(-100%); }
+#splash-screen.hidden .shutter.bottom { transform: translateY(100%); }
+#splash-screen.hidden { visibility: hidden; }
+
+/* The Grid Background */
+.cyber-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
 }
 
-/* The H2 container for the text */
-.loader-text {
-    /* No special positioning needed, it will just be centered text */
+/* The Logo Effect */
+.loader-container {
+    position: relative;
+    z-index: 3;
     text-align: center;
 }
 
-.loader-text span {
-    display: inline-block; /* Allows transforms and keeps them in a line */
-    text-transform: uppercase;
-    font-size: 4rem; /* You can adjust the font size */
+.loader-logo {
+    font-size: 5rem;
     font-weight: 900;
-
-    /* The core animation setup */
-    opacity: 0; /* Start invisible */
-    animation: typing-fade-in 0.5s ease-out forwards; /* Apply the animation */
-    
-    /* This is the magic: each letter's animation is delayed based on its position */
-    animation-delay: calc(0.1s * var(--i));
+    letter-spacing: 15px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
 }
 
-/* Responsive font size for smaller screens */
-@media (max-width: 600px) {
-    .loader-text span {
-        font-size: 2.5rem;
-    }
-}
-
-/* Keep the cool color effect */
-.loader-text span:nth-child(even) {
+/* Scanning line effect */
+.loader-logo::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     color: var(--primary);
-    text-shadow: 0 0 5px var(--primary), 0 0 15px var(--primary);
-}
-.loader-text span:nth-child(odd) {
-    color: var(--primary);
-    text-shadow: 0 0 5px var(--primary), 0 0 15px var(--primary);
-}
-
-body.no-scroll {
     overflow: hidden;
+    clip-path: inset(0 100% 0 0);
+    animation: scan-reveal 2s ease-in-out infinite;
 }
 
-/* The new keyframe animation for the typing effect */
-@keyframes typing-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.9); /* Start slightly down and smaller */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1); /* End in its normal position */
-    }
+@keyframes scan-reveal {
+    0% { clip-path: inset(0 100% 0 0); }
+    50% { clip-path: inset(0 0 0 0); }
+    100% { clip-path: inset(0 0 0 100%); }
+}
+
+/* Progress Bar (No Percentages) */
+.loader-progress-wrapper {
+    width: 300px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+}
+
+.loader-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+    animation: bar-fill 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes bar-fill {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.loader-status {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: var(--primary);
+    opacity: 0.7;
+    letter-spacing: 2px;
+}
+
+/* Fade out the container before shutters open */
+#splash-screen.hidden .loader-container {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 html {
   scroll-behavior: smooth;
@@ -1381,6 +1426,15 @@ body.light-mode .chatbot-header {
         max-width: 45px;
         max-height: 45px;
     }
+
+      .loader-logo {
+        font-size: 2.2rem; /* Shrinks the text for small phones */
+        letter-spacing: 4px; /* Tightens spacing to fit small screens */
+    }
+    
+    .loader-progress-wrapper {
+        width: 70%;
+    }
 }
 
 @media (min-width: 1280px) {
@@ -1396,50 +1450,122 @@ body.light-mode .chatbot-header {
   #mobile-nav-backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
+     background-color: transparent !important;
+    backdrop-filter: none !important;
     z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
   }
+
+  .loader-logo {
+        font-size: 3rem; /* Shrinks the text for tablets */
+        letter-spacing: 8px; /* Reduces spacing so it doesn't wrap */
+        margin-bottom: 15px;
+    }
+
+      .loader-progress-wrapper {
+        width: 80%; /* Bar takes 80% of screen width instead of fixed pixels */
+        max-width: 250px;
+    }
+    
+    .loader-status {
+        width: 80%;
+        max-width: 250px;
+        margin: 15px auto 0;
+        font-size: 0.6rem; /* Slightly smaller text */
+    }
   
   #mobile-nav-backdrop.is-visible {
     opacity: 1;
     visibility: visible;
   }
 
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-    height: 100vh;
-    background-color: #212429e6;
-    backdrop-filter: blur(8px);
-    border-left: 1px solid var(--border);
-    z-index: 1000;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-  }
+ .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%; /* Full screen for a "fantastic" feel */
+        height: 100vh;
+        background: rgba(5, 7, 10, 0.95); /* Deep dark to match splash */
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        
+        /* Hidden state */
+        clip-path: circle(0% at 100% 0%); /* Starts from the top-right corner */
+        transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        pointer-events: none;
+    }
 
-  body.light-mode .nav-links {
-      background-color: #e7e9ece6;
-  }
+    .nav-links.is-open {
+        clip-path: circle(150% at 100% 0%); /* Circular reveal animation */
+        pointer-events: auto;
+    }
 
-  .nav-links.is-open {
-    transform: translateX(0);
-  }
+    /* Add the cyber grid to the mobile menu too */
+    .nav-links::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: -1;
+    }
 
-  .nav-links .nav-link {
-    font-size: 1.5rem; 
-    color: var(--foreground);
-  }
+    /* Staggered Link Animation */
+    .nav-links .nav-link {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: 4px;
+        color: var(--foreground);
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    .nav-links.is-open .nav-link {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Add delay to each link for the "pop" effect */
+    .nav-links.is-open .nav-link:nth-child(1) { transition-delay: 0.2s; }
+    .nav-links.is-open .nav-link:nth-child(2) { transition-delay: 0.3s; }
+    .nav-links.is-open .nav-link:nth-child(3) { transition-delay: 0.4s; }
+    .nav-links.is-open .nav-link:nth-child(4) { transition-delay: 0.5s; }
+    .nav-links.is-open .nav-link:nth-child(5) { transition-delay: 0.6s; }
+
+    /* HUD style brackets for active link */
+    .nav-link.active {
+        color: var(--primary);
+        text-shadow: 0 0 15px var(--primary);
+    }
+    
+    .nav-link.active::before {
+        content: '[';
+        margin-right: 10px;
+        color: var(--primary);
+    }
+    .nav-link.active::after {
+        content: ']';
+        margin-left: 10px;
+        color: var(--primary);
+        box-shadow: none; /* remove old underline shadow */
+    }
+
+    /* Burger button stays on top */
+    .burger-btn {
+        z-index: 1100;
+        position: relative;
+    }
   .footer-landscape-container {
     flex-direction: column;
     align-items: flex-start;
@@ -1464,6 +1590,60 @@ body.light-mode .chatbot-header {
   .swiper-button-next {
     display: none;
   }
+
+  .nav-links {
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links .nav-link {
+        font-size: 1.8rem; /* Slightly smaller to prevent wrapping */
+        width: 100%;
+        text-align: center;
+        display: flex; /* Use flex to keep brackets and text on one line */
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap; /* Forces text to stay on one line */
+        margin: 10px 0;
+    }
+
+    /* Brackets Fix: Ensure they stay inline and glow */
+    .nav-link.active {
+        color: var(--primary) !important;
+        text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        transform: scale(1.1); /* Subtle pop for the active link */
+    }
+    
+     .nav-link.active::before {
+        content: '{'; /* Opening bracket */
+        margin-right: 15px;
+        color: var(--primary);
+        font-family: monospace;
+        display: block; /* Ensure it is visible */
+    }
+
+    .nav-link.active::after {
+        content: '}'; /* The missing closing bracket */
+        margin-left: 15px;
+        color: var(--primary);
+        font-family: monospace;
+        
+        /* THE FIX: Re-enable display and remove underline styles */
+        display: block !important; 
+        width: auto !important;
+        height: auto !important;
+        background-color: transparent !important;
+        position: static !important;
+        opacity: 0.8;
+    }
+
+    /* Hide the default underline animation on mobile HUD */
+    .nav-link::after {
+        display: none !important;
+    }
 }
 
 @media (min-width: 768px) {

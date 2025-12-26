@@ -12,13 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastScrollY = window.scrollY;
   const navHeight = mainNav ? mainNav.offsetHeight : 70;
 
-  // --- Splash Screen ---
+// --- Enhanced Cinematic Splash Screen ---
   if (splashScreen) {
     body.classList.add('no-scroll');
+    
+    // 1. After 2.5s (when bar is full), add the 'hidden' class
+    // 2. This triggers the shutter CSS animations
     setTimeout(() => {
       splashScreen.classList.add('hidden');
-      body.classList.remove('no-scroll');
-    }, 2500);
+      
+      // 3. Completely remove splash from view after shutters finish sliding
+      setTimeout(() => {
+        body.classList.remove('no-scroll');
+        splashScreen.style.display = 'none';
+      }, 1000); 
+    }, 2800);
   }
 
   // --- Theme Toggle Logic ---
@@ -50,7 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (burgerBtn) {
     burgerBtn.addEventListener('click', () => {
-      navLinksContainer.classList.contains('is-open') ? closeNav() : openNav();
+      const isOpen = navLinksContainer.classList.contains('is-open');
+      if (isOpen) {
+        closeNav();
+        burgerBtn.style.transform = "rotate(0deg)";
+      } else {
+        openNav();
+        burgerBtn.style.transform = "rotate(90deg)";
+      }
     });
   }
   
