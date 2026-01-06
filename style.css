@@ -1473,7 +1473,7 @@ body.light-mode .chatbot-header {
         width: 80%;
         max-width: 250px;
         margin: 15px auto 0;
-        font-size: 0.6rem; /* Slightly smaller text */
+        font-size: 0.4rem; /* Slightly smaller text */
     }
   
   #mobile-nav-backdrop.is-visible {
