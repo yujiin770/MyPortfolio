@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Typing Animation for Hero Section ---
   const typingText = document.getElementById('typing-text');
   if (typingText) {
-    const roles = ['3rd Year Student', 'BSIT Freelancer', 'I want to be', 'Software Developer and UI/UX Designer'];
+    const roles = ['4th Year Student', 'BSIT Freelancer', 'I want to be', 'Software Developer and UI/UX Designer'];
     let roleIndex = 0, charIndex = 0, isDeleting = false;
     
     function type() {
