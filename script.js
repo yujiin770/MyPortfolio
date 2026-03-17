@@ -392,6 +392,44 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { addBotMessage("Hi! I'm Eugene's AI assistant. Ask me anything about his portfolio."); }, 1500);
     }
 
+    // --- Certificate Modal Logic ---
+  const certificateModal = document.getElementById('certificateModal');
+  if (certificateModal) {
+    const certificateCards = document.querySelectorAll('.certificate-card');
+    const modalImage = document.getElementById('certificateModalImage');
+    const closeModalBtn = document.getElementById('closeCertificateModalBtn');
+
+    const openCertificateModal = (imageSrc) => {
+      modalImage.src = imageSrc;
+      certificateModal.classList.add('is-visible');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeCertificateModal = () => {
+      certificateModal.classList.remove('is-visible');
+      document.body.style.overflow = '';
+      // Optional: Clear src after closing to stop image loading if the modal is closed quickly
+      setTimeout(() => { modalImage.src = ""; }, 300);
+    };
+
+    certificateCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const imageSrc = card.dataset.imageSrc;
+        if (imageSrc) {
+          openCertificateModal(imageSrc);
+        }
+      });
+    });
+
+    closeModalBtn.addEventListener('click', closeCertificateModal);
+    certificateModal.addEventListener('click', (e) => {
+      // Close modal if the outer overlay is clicked
+      if (e.target === certificateModal) {
+        closeCertificateModal();
+      }
+    });
+  }
+
   // --- Initial & Event-Driven Calls ---
   window.addEventListener('scroll', handleScroll);
   handleScroll();

@@ -532,6 +532,21 @@ body.light-mode .theme-toggle-btn .moon-icon { display: none; }
     perspective: 1000px;
 }
 
+/* Add this to your style.css file */
+
+.tech-icon-box i {
+    font-size: 40px; /* Matches the previous image size */
+    color: var(--foreground);
+    opacity: 0.7; /* Simulates the previous grayscale effect */
+    transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.tech-card:hover .tech-icon-box i {
+    opacity: 1;
+    color: var(--primary); /* Uses your theme's primary color on hover */
+    transform: scale(1.1); /* Matches the existing icon box scale effect */
+}
+
 .tech-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -779,20 +794,7 @@ body.light-mode .tech-card {
   border-radius: calc(var(--radius) - 4px);
 }
 
-.close-modal-btn {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  color: #fff;
-  font-size: 2.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
 
-.close-modal-btn:hover {
-  color: var(--primary);
-}
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -1728,4 +1730,167 @@ body.light-mode .chatbot-footer {
 
 .chatbot-footer a:hover {
     color: var(--primary); /* Change to your primary theme color on hover */
+}
+
+/* --- Achievements Section --- */
+.achievements-grid {
+    display: grid;
+    /* This creates a responsive grid that shows 1, 2, or 3 columns based on screen size */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.achievement-icon {
+    font-size: 2.5rem; /* Makes the icon large and prominent */
+    color: var(--primary); /* Uses your portfolio's primary theme color */
+    margin-bottom: 1.5rem; /* Adds space between the icon and the title */
+    display: inline-block;
+}
+
+/* 3. Make the "X" close button high-contrast and properly styled for ALL modes.
+      This ensures it is white in dark mode and dark gray in light mode. */
+#certificateModal .close-modal-btn {
+    color: var(--foreground);
+    opacity: 0.6;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+#certificateModal .close-modal-btn:hover {
+    color: var(--primary);
+    opacity: 1;
+}
+
+/* Makes the certificate card clickable */
+.certificate-card {
+    cursor: pointer;
+}
+
+/* Styles the small image preview inside the card */
+.certificate-preview-img {
+    width: 100%;
+    height: 50px; /* Controls the height of the preview */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 6px; /* Slightly rounded corners */
+    border: 1px solid var(--border);
+}
+
+/* Styling for the modal that displays the full certificate */
+.certificate-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    width: auto; /* Let the image define the width */
+    padding: 1rem; /* Increased from 0.5rem */
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     border: 1px solid var(--border); /* Ensures border is always visible */
+}
+/* 2. In LIGHT mode, override the border to use the standard theme border. */
+body.light-mode .certificate-modal-content {
+    border-color: var(--border);
+}
+
+#certificateModalImage {
+    display: block;
+    max-width: 100%;
+    max-height: 85vh; /* Ensure the image fits vertically */
+    height: auto;
+    width: auto;
+    border-radius: 8px; /* Rounded corners for the image itself */
+    border: 2px solid rgba(255, 255, 255, 0.15); /* A subtle white border */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* A soft shadow for depth */
+}
+body.light-mode #certificateModalImage {
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* --- NEW: Modern Achievements Section Layout --- */
+
+.achievements-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Space between the featured card and the secondary grid */
+}
+
+/* Featured Achievement Card */
+.featured-achievement-card {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem;
+    align-items: center;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.featured-image-wrapper {
+    width: 100%;
+    height: 250px; /* Taller height for the image on mobile */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.eyebrow-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.view-certificate-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.featured-achievement-card:hover .view-certificate-link {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.view-certificate-link i {
+    font-size: 0.8em;
+    vertical-align: middle;
+    margin-left: 0.25rem;
+}
+
+/* Secondary Grid */
+.achievements-subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    border-top: 1px solid var(--border);
+    padding-top: 3rem;
+}
+
+.secondary-achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Tablet & Desktop Styles */
+@media (min-width: 768px) {
+    .featured-achievement-card {
+        grid-template-columns: 250px 1fr; /* Two columns on larger screens */
+        padding: 2.5rem;
+    }
+
+    .featured-image-wrapper {
+        height: 100%; /* Auto-height based on content */
+    }
 }
