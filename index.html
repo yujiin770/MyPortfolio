@@ -15,66 +15,155 @@
     <link rel="icon" type="image/x-icon" href="Assets/Webicon.png">
 </head>
 <body>
+<!-- Modern Splash Screen -->
 <div id="splash-screen">
-    <!-- The split shutters that will slide away -->
-    <div class="shutter top"></div>
-    <div class="shutter bottom"></div>
+    <!-- Animated gradient background -->
+    <div class="splash-gradient"></div>
+    
+    <!-- Floating particles background -->
+    <div class="splash-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
-    <div class="loader-container">
-        <div class="loader-content">
-            <!-- Main branding with a data-attribute for the glitch effect -->
-            <h1 class="loader-logo" data-text="YUJIIN">YUJIIN</h1>
-            
-            <div class="loader-progress-wrapper">
-                <div class="loader-bar"></div>
-                <div class="loader-glow"></div>
+    <div class="splash-container">
+        <!-- Animated logo with reveal effect -->
+        <div class="splash-logo-wrapper">
+            <div class="logo-reveal"></div>
+            <h1 class="splash-logo" data-text="EUGENE ALMIRA">EUGENE ALMIRA</h1>
+        </div>
+        
+        <!-- Animated tagline -->
+        <div class="splash-tagline">
+            <span class="tagline-word">My</span>
+            <span class="tagline-dot">•</span>
+            <span class="tagline-word">Portfolio</span>
+        </div>
+        
+        <!-- Progress bar with pulse effect -->
+        <div class="splash-progress-wrapper">
+            <div class="splash-progress-bar"></div>
+            <div class="splash-progress-glow"></div>
+        </div>
+        
+        <!-- Loading status with micro-interactions -->
+        <div class="splash-status">
+            <div class="status-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
-
-            <div class="loader-status">
-                <span class="status-text">SYSTEM INITIALIZED</span>
-                <span class="status-code">0x00A52</span>
-            </div>
+            <span class="status-message">Loading experience</span>
         </div>
     </div>
     
-    <!-- Aesthetic background elements -->
-    <div class="cyber-grid"></div>
+    <!-- Decorative bottom line -->
+    <div class="splash-bottom-line"></div>
 </div>
 
     <div id="root">
 
-      <!-- Navigation -->
-      <nav id="main-nav" class="fixed-nav glass-card">
-        <div class="nav-container">
-          <div class="nav-brand gradient-text">My Portfolio</div>
-          
-           <div id="mobile-nav-backdrop"></div>
-
-          <div class="nav-links" id="nav-links">
+   <!-- Navigation -->
+<nav id="main-nav" class="fixed-nav glass-card">
+    <div class="nav-container">
+        <div class="nav-brand gradient-text">My Portfolio</div>
+        
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links" id="nav-links">
             <a href="#home" class="nav-link active">Home</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#skills" class="nav-link">Tech Stack</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#contact" class="nav-link">Contact</a>
-          </div>
+        </div>
 
-            <div id="mobile-nav-backdrop"></div>
-
-          <div class="nav-menu">
+        <div class="nav-menu">
             <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
                 <span class="sun-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                 </span>
                 <span class="moon-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </span>
             </button> 
             
+            <!-- Burger Button -->
             <button class="burger-btn" id="burger-btn" aria-label="Toggle navigation">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
             </button>
-          </div>
         </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+        <div class="mobile-menu-brand gradient-text">Menu</div>
+        <button class="mobile-menu-close" id="mobile-menu-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+    
+    <div class="mobile-menu-links">
+        <a href="#home" class="mobile-link active">
+            <span class="link-icon">
+                <i class="fas fa-home"></i>
+            </span>
+            <span class="link-text">Home</span>
+        </a>
+        <a href="#about" class="mobile-link">
+            <span class="link-icon">
+                <i class="fas fa-user"></i>
+            </span>
+            <span class="link-text">About</span>
+        </a>
+        <a href="#skills" class="mobile-link">
+            <span class="link-icon">
+                <i class="fas fa-code"></i>
+            </span>
+            <span class="link-text">Tech Stack</span>
+        </a>
+        <a href="#projects" class="mobile-link">
+            <span class="link-icon">
+                <i class="fas fa-rocket"></i>
+            </span>
+            <span class="link-text">Projects</span>
+        </a>
+        <a href="#contact" class="mobile-link">
+            <span class="link-icon">
+                <i class="fas fa-envelope"></i>
+            </span>
+            <span class="link-text">Contact</span>
+        </a>
+    </div>
+    
+    <div class="mobile-menu-footer">
+        <div class="mobile-socials">
+            <a href="https://www.linkedin.com/in/eugene-almira-3262203a6/" target="_blank" class="mobile-social-link">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/yujiin770" target="_blank" class="mobile-social-link">
+            <i class="fab fa-github"></i>
+        </a>
+            <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" class="mobile-social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <p class="mobile-menu-copyright">© 2026 Eugene Almira</p>
+    </div>
+</div>
+
+<!-- Backdrop -->
+<div id="mobile-nav-backdrop"></div>
       </nav>
   
       <!-- Hero Section -->
@@ -843,18 +932,16 @@
         
         <div class="footer-socials">
           
-          <a href="https://www.instagram.com/yujiiiiiiiin_/" target="_blank" rel="noopener noreferrer" title="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-          </a>
+           <a href="https://www.linkedin.com/in/eugene-almira-3262203a6/" target="_blank" class="mobile-social-link">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/yujiin770" target="_blank" class="mobile-social-link">
+            <i class="fab fa-github"></i>
+        </a>
           
-          <a href="https://www.tiktok.com/@eujinjae" target="_blank" rel="noopener noreferrer" title="TikTok">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8.11V4h-2.5v10.53a2.5 2.5 0 1 1-2.22-2.38V8.53a4.5 4.5 0 1 0 4.5 4.5V10a2.5 2.5 0 0 0-2.28-2.47Z"></path></svg>
-          </a>   
-          
-           <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" rel="noopener noreferrer" title="Facebook">
-             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-          </a><br>
-
+          <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" class="mobile-social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
         </div>  
       </div>
        

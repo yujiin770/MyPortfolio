@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         body.classList.remove('no-scroll');
         splashScreen.style.display = 'none';
-      }, 1000); 
-    }, 2800);
+      }, 1500); 
+    }, 5000);
   }
 
   // --- Theme Toggle Logic ---
@@ -39,47 +39,110 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : '');
   });
 
-  // --- Mobile Navigation Sidebar Logic ---
-  const burgerBtn = document.getElementById('burger-btn');
-  const navLinksContainer = document.getElementById('nav-links');
-  const navBackdrop = document.getElementById('mobile-nav-backdrop');
+  // --- Mobile Menu Logic ---
+const burgerBtn = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+const navBackdrop = document.getElementById('mobile-nav-backdrop');
+const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  const openNav = () => {
-    navLinksContainer.classList.add('is-open');
+// Function to open mobile menu
+function openMobileMenu() {
+    mobileMenu.classList.add('is-open');
+    burgerBtn.classList.add('is-open');
     navBackdrop.classList.add('is-visible');
-    body.style.overflow = 'hidden';
-  };
+    document.body.style.overflow = 'hidden'; // Use document.body instead of body variable
+}
 
-  const closeNav = () => {
-    navLinksContainer.classList.remove('is-open');
+// Function to close mobile menu
+function closeMobileMenu() {
+    mobileMenu.classList.remove('is-open');
+    burgerBtn.classList.remove('is-open');
     navBackdrop.classList.remove('is-visible');
-    body.style.overflow = '';
-  };
+    document.body.style.overflow = ''; // Restore scrolling
+}
 
-  if (burgerBtn) {
-    burgerBtn.addEventListener('click', () => {
-      const isOpen = navLinksContainer.classList.contains('is-open');
-      if (isOpen) {
-        closeNav();
-        burgerBtn.style.transform = "rotate(0deg)";
-      } else {
-        openNav();
-        burgerBtn.style.transform = "rotate(90deg)";
-      }
+// Check if elements exist before adding event listeners
+if (burgerBtn) {
+    burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openMobileMenu();
     });
-  }
-  
-  if (navLinksContainer) {
-    navLinksContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains('nav-link')) {
-        closeNav();
-      }
-    });
-  }
+}
 
-  if (navBackdrop) {
-    navBackdrop.addEventListener('click', closeNav);
-  }
+if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeMobileMenu();
+    });
+}
+
+if (navBackdrop) {
+    navBackdrop.addEventListener('click', function() {
+        closeMobileMenu();
+    });
+}
+
+// Close menu when clicking on a link
+mobileLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get the target section
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            closeMobileMenu();
+            
+            // Smooth scroll to section after menu closes
+            setTimeout(() => {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 300);
+        }
+        
+        // Update active state
+        mobileLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Close menu on escape key press
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+        closeMobileMenu();
+    }
+});
+
+// Update active link on scroll
+function updateActiveMobileLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = window.scrollY;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const currentId = section.getAttribute('id');
+        
+        if (scrollY >= sectionTop && scrollY < sectionBottom) {
+            mobileLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+// Add scroll event listener
+window.addEventListener('scroll', updateActiveMobileLink);
+
+// Initial call to set active link
+updateActiveMobileLink();
 
   // --- Typing Animation for Hero Section ---
   const typingText = document.getElementById('typing-text');
