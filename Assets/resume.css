@@ -1,253 +1,533 @@
-/* General Body and Font Styles */
-body {
-    background-color: #e8e8e8;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 2rem;
-    color: #4a4a4a;
-    line-height: 1.5; /* Slightly tightened line spacing */
-    user-select: none;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, print-scale=1">
+    <title>Harvard Style CV | Professional Resume</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* RESET & GLOBAL — compact, clean, Harvard-style refinement */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Main Container using CSS Grid, sized for A4 */
-.resume-container {
-    display: grid;
-    grid-template-columns: 1fr 2.2fr;
-    grid-template-rows: auto 1fr;
-    width: 100%;
-    max-width: 880px; /* Optimized width that fits well on A4 */
-    background-color: #ffffff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+        body {
+            background-color: #eef2f5;
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1.8rem;
+            color: #2c3e44;
+            line-height: 1.45;
+            user-select: none;
+        }
 
-/* HEADER STYLES (More Compact) */
-.resume-header {
-    grid-column: 1 / -1;
-    background-color: #005A9C;
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    position: relative;
-    border-bottom: 5px solid #005A9C;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 1.8rem; /* Reduced padding */
-}
+        /* Main Grid — refined Harvard proportions (elegant left panel) */
+        .resume-container {
+            display: grid;
+            grid-template-columns: 1fr 2.3fr;
+            width: 100%;
+            max-width: 900px;
+            background-color: #ffffff;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s;
+        }
 
-.header-content {
-    text-align: right;
-}
+        /* HEADER — Harvard crimson accent but classic deep blue base (professional) */
+        .resume-header {
+            grid-column: 1 / -1;
+            background-color: #1e466e;  /* deep navy - sophisticated */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            border-bottom: 4px solid #b31b1b; /* Harvard crimson touch */
+        }
 
-.resume-header h1 {
-    font-size: 2.2rem; /* Reduced font size */
-    font-weight: 900;
-    margin: 0;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
+        .header-content {
+            text-align: right;
+        }
 
-.resume-header h2 {
-    font-size: 1rem; /* Reduced font size */
-    font-weight: 400;
-    margin: 0;
-    text-transform: uppercase;
-}
+        .resume-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
 
-/* PHOTO CONTAINER STYLES (More Compact) */
-.profile-photo-container {
-    width: 130px; /* Reduced size */
-    height: 130px; /* Reduced size */
-    
-    overflow: hidden;
-    border: 4px solid #ffffff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    flex-shrink: 0;
-    margin-right: 2rem;
-}
+        .resume-header h2 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin: 0.25rem 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
 
-.profile-photo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
+        /* PHOTO — classic oval/circle look */
+        .profile-photo-container {
+            width: 115px;
+            height: 115px;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #f0f0f0;
+        }
 
-/* COLUMN STYLES (More Compact) */
-.left-column {
-    background-color: #f8f9fa;
-    padding: 1.3rem; /* Reduced padding */
-    border-right: 1px solid #e0e0e0;
-    text-align: start;   
-}
-.left-column .skills ul li{
-    padding: 7px;
-}
+        .profile-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
 
-.right-column {
-    background-color: #ffffff;
-    padding: 1.3rem; /* Reduced padding */
-    text-align: justify;
-}
-/* UNIVERSAL SPACING (More Compact) */
-section {
-    margin-bottom: 1.4rem; /* Reduced space between sections */
-}
-section:last-child {
-    margin-bottom: 0;
-}
-section h3 {
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 0.7rem; /* Reduced space after title */
-    padding-bottom: 0.4rem;
-    border-bottom: 3px solid #e0e0e0;
-    color: #2c3e50;
-    font-size: 1rem;
-}
-ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 1.5;
-}
-.contact ul li, .achievements ul li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 0.5rem; /* Reduced space */
-}
-.contact i {
-    font-size: 1.1rem;
-    margin-right: 0.75rem;
-    color: #2c3e50;
-    width: 20px;
-    padding-top: 2px;
-}
-.achievements ul li {
-    position: relative;
-}
-.achievements ul li::before {
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    color: #333;
-}
-.right-column ul li {
-    margin-bottom: 0.4rem; /* Reduced space */
-    position: relative;
-    padding-left: 1.5rem;
-}
-.right-column ul li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #005A9C;
-    font-weight: bold;
-    font-size: 1rem;
-}
-.edu-item, .exp-item {
-    margin-bottom: 1.2rem; /* Reduced space */
-}
-.edu-item:last-child, .exp-item:last-child {
-    margin-bottom: 0;
-}
-.edu-item h4, .exp-item h4 {
-    margin: 0;
-    font-size: 1rem; /* Adjusted size */
-    font-weight: 700;
-    color: #2c3e50;
-}
-.exp-details {
-    margin-bottom: 0.4rem;
-}
-.edu-item p, .exp-item p {
-    margin: 0;
-    font-size: 0.9rem; /* Adjusted size */
-}
-.print-button-container {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e0e0e0;
-}
-.print-button-container button {
-    background-color: #005A9C;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-.print-button-container button:hover {
-    background-color: #003e6b;
-}
+        /* LEFT COLUMN — Harvard sidebar style: subtle, clean, strong hierarchy */
+        .left-column {
+            background-color: #fafcfd;
+            padding: 1.4rem 1.6rem;
+            border-right: 1px solid #e2e6e9;
+        }
 
-/* --- PRINT STYLES (Simplified to only handle page setup) --- */
-@media print {
-    /* Control the actual printed page margins and size */
-    @page {
-        size: A4;
-        margin: 0,;
-    }
+        /* RIGHT COLUMN — content area with crisp spacing */
+        .right-column {
+            background-color: #ffffff;
+            padding: 1.4rem 1.8rem;
+        }
 
-    /* Reset body for printing */
-    body {
-        background-color: #ffffff;
-        padding: 0;
-        margin: 0;
-    }
+        /* Universal Section Styling */
+        section {
+            margin-bottom: 1.2rem;
+        }
+        section:last-child {
+            margin-bottom: 0;
+        }
 
-    /* Ensure the container has no shadow */
-    .resume-container {
-        box-shadow: none;
-        max-width: 100%;
-        width: 100%;
-        border-radius: 0;
-        border: none;
-    }
-    
-    /* Force the browser to print all background colors and images */
-    .left-column, .resume-header {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
-    
-    /* Hide the print button */
-    .print-button-container {
-        display: none;
-    }
+        /* Section title — Harvard small caps style (modern twist) */
+        section h3 {
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.65rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #d4dadf;
+            color: #1e466e;
+            font-size: 0.9rem;
+            font-family: 'Lato', sans-serif;
+        }
 
-    /* Prevent content from breaking awkwardly across pages */
-    section, .exp-item, .edu-item {
-        page-break-inside: avoid;
-    }
-}
+        /* Contact + list styling */
+        .contact ul, .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .contact ul li, .achievements ul li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.55rem;
+            font-size: 0.85rem;
+            line-height: 1.35;
+        }
+        .contact i {
+            font-size: 0.9rem;
+            margin-right: 0.7rem;
+            color: #b31b1b;
+            width: 20px;
+            margin-top: 2px;
+        }
 
-/* Responsive styles for small screens */
-@media (max-width: 800px) {
-    body {
-        padding: 0;
-    }
-    .resume-container {
-        grid-template-columns: 1fr;
-    }
-    .resume-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    .header-content {
-        text-align: center;
-        margin-top: 1.5rem;
-    }
-    .left-column {
-        border-right: none;
-    }
-}
+        /* SKILLS — newly structured: modern chip/list style, Harvard clarity */
+        .skills-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+        .skills-section ul li {
+            background: #eef2f7;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e3a5f;
+            letter-spacing: 0.2px;
+            transition: 0.1s;
+            border: 1px solid #dce3e9;
+        }
+        /* Additional skill subcategory (if needed) but keeping neat */
+        .skill-category {
+            margin-bottom: 0.8rem;
+        }
+        .skill-category p {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+            color: #2c3e50;
+            letter-spacing: 0.3px;
+        }
+
+        /* Achievements / awards bullet style */
+        .achievements ul li::before {
+            content: "▹";
+            color: #b31b1b;
+            font-weight: bold;
+            margin-right: 0.6rem;
+            font-size: 0.8rem;
+        }
+        .achievements ul li {
+            padding-left: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Right column lists (experience & education bullets) */
+        .right-column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .right-column ul li {
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1.3rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .right-column ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #b31b1b;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Education & Experience items */
+        .edu-item, .exp-item {
+            margin-bottom: 1rem;
+        }
+        .edu-item:last-child, .exp-item:last-child {
+            margin-bottom: 0;
+        }
+        .edu-item h4, .exp-item h4 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #1e466e;
+            letter-spacing: -0.2px;
+        }
+        .exp-details {
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+            color: #5f6c72;
+            font-weight: 500;
+        }
+        .edu-item p, .exp-item p {
+            margin: 0.2rem 0 0 0;
+            font-size: 0.83rem;
+            color: #3a4a54;
+        }
+
+        /* Print button */
+        .print-button-container {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+        }
+        .print-button-container button {
+            background-color: #1e466e;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            font-size: 0.85rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .print-button-container button:hover {
+            background-color: #b31b1b;
+            transform: scale(0.98);
+        }
+
+        /* --- PRINT STYLES: Exactly 1 page, A4, Harvard print-ready --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.55cm 0.6cm;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                max-width: 100%;
+                width: 100%;
+                border-radius: 0;
+                margin: 0;
+                grid-template-columns: 1fr 2.3fr;
+            }
+
+            /* Force exact background colors & no overflow */
+            .left-column, .resume-header {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .print-button-container {
+                display: none;
+            }
+
+            /* Avoid page breaks inside critical blocks */
+            section, .exp-item, .edu-item, .skills-section ul, .contact ul {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Slight reduction in spacing to guarantee 1-page */
+            .left-column {
+                padding: 0.9rem 1.2rem;
+            }
+            .right-column {
+                padding: 0.9rem 1.4rem;
+            }
+            section {
+                margin-bottom: 0.9rem;
+            }
+            .edu-item, .exp-item {
+                margin-bottom: 0.7rem;
+            }
+            .resume-header {
+                padding: 0.7rem 1.5rem;
+            }
+            .profile-photo-container {
+                width: 100px;
+                height: 100px;
+            }
+            .resume-header h1 {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* Responsive behavior for mobile (keeps grid on print) */
+        @media (max-width: 720px) {
+            body {
+                padding: 0.8rem;
+            }
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+            .resume-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+            .header-content {
+                text-align: center;
+            }
+            .left-column {
+                border-right: none;
+            }
+            .skills-section ul {
+                justify-content: center;
+            }
+        }
+
+        /* Additional micro spacing for consistency */
+        .contact, .achievements, .skills-section {
+            margin-bottom: 1.3rem;
+        }
+        .separator-light {
+            height: 1px;
+            background: #e0e6ea;
+            margin: 0.6rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="resume-container">
+    <!-- Header: Name + Title with photo (Harvard style presence) -->
+    <div class="resume-header">
+        <div class="profile-photo-container">
+            <!-- Placeholder professional avatar (generic but elegant) -->
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profile Portrait" onerror="this.src='https://ui-avatars.com/api/?background=1e466e&color=fff&rounded=true&size=115&name=AJ';">
+        </div>
+        <div class="header-content">
+            <h1>ALEXANDRA J. REID</h1>
+            <h2>Strategy & Operations Leader | Harvard Alumna</h2>
+        </div>
+    </div>
+
+    <!-- LEFT COLUMN: Contact, SKILLS (revamped technical skills area), Achievements -->
+    <div class="left-column">
+        <!-- Contact Section -->
+        <section class="contact">
+            <h3>CONTACT</h3>
+            <ul>
+                <li><i class="fas fa-phone-alt"></i> +1 (617) 455-8920</li>
+                <li><i class="fas fa-envelope"></i> alexandra.reid@harvard.edu</li>
+                <li><i class="fas fa-map-marker-alt"></i> Cambridge, MA / New York, NY</li>
+                <li><i class="fab fa-linkedin"></i> linkedin.com/in/alexreid</li>
+            </ul>
+        </section>
+
+        <!-- SKILLS SECTION — Harvard Style: organized, crisp, with software + programming + MS office + time management etc -->
+        <section class="skills-section">
+            <h3>SKILLS</h3>
+            <div class="skill-category">
+                <p>⚙️ Technical & Programming</p>
+                <ul>
+                    <li>Python (Pandas, NumPy)</li>
+                    <li>SQL / PostgreSQL</li>
+                    <li>R / Statistical Analysis</li>
+                    <li>Tableau & Power BI</li>
+                    <li>HTML5 / CSS3</li>
+                    <li>JavaScript (ES6)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <p>💼 Software & Tools</p>
+                <ul>
+                    <li>Microsoft 365 (Excel, PowerPoint, Word)</li>
+                    <li>Google Workspace</li>
+                    <li>Salesforce CRM</li>
+                    <li>Asana / Jira</li>
+                    <li>Adobe Creative Suite</li>
+                    <li>SAP Analytics Cloud</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <p>📋 Core Competencies</p>
+                <ul>
+                    <li>Time Management & Prioritization</li>
+                    <li>Cross-functional Organization</li>
+                    <li>Strategic Planning</li>
+                    <li>Data-driven Decision Making</li>
+                    <li>Public Speaking & Negotiation</li>
+                    <li>Leadership & Team Development</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Achievements / Honors (Harvard style hallmark) -->
+        <section class="achievements">
+            <h3>ACHIEVEMENTS</h3>
+            <ul>
+                <li>Harvard Presidential Scholar Award (2021-2023)</li>
+                <li>McKinsey & Company Women’s Leadership Fellow</li>
+                <li>Published Case Study: "Digital Transformation in Healthcare" – HBS</li>
+                <li>Forbes 30 Under 30 Nominee – Management Category</li>
+                <li>Lean Six Sigma Green Belt Certification</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- RIGHT COLUMN: Education, Professional Experience (Harvard style CV) -->
+    <div class="right-column">
+        <!-- Education Section -->
+        <section>
+            <h3>EDUCATION</h3>
+            <div class="edu-item">
+                <h4>Harvard University — Cambridge, MA</h4>
+                <p style="font-size:0.8rem; font-weight:500; color:#4b6a7c;">Master in Public Policy (MPP) | 2022 – 2024</p>
+                <p>Concentration: Business & Government Relations. Recipient of the Dubin Fellowship. Capstone: “AI Ethics & Workforce Development.” GPA: 3.9/4.0.</p>
+            </div>
+            <div class="edu-item">
+                <h4>Yale University — New Haven, CT</h4>
+                <p style="font-size:0.8rem; font-weight:500; color:#4b6a7c;">B.A. in Economics & Political Science | 2017 – 2021</p>
+                <p>Summa Cum Laude, Phi Beta Kappa. Thesis: “Labor Market Dynamics in the Digital Era.”</p>
+            </div>
+        </section>
+
+        <!-- Professional Experience (Harvard style achievement-driven) -->
+        <section>
+            <h3>EXPERIENCE</h3>
+            <div class="exp-item">
+                <h4>Strategy Consultant | Boston Consulting Group (BCG)</h4>
+                <div class="exp-details">Sept 2024 – Present | New York, NY</div>
+                <ul>
+                    <li>Lead data-driven transformation roadmap for Fortune 500 retail client, improving operational efficiency by 22% using SQL/Python analytics.</li>
+                    <li>Managed cross-functional teams of 8+ members; delivered executive presentations to C-suite leveraging MS PowerPoint & advanced data visualization.</li>
+                    <li>Orchestrated client workshops on agile methodologies, reducing time-to-market by 30%.</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <h4>Senior Business Analyst | McKinsey & Company</h4>
+                <div class="exp-details">Jul 2022 – Aug 2024 | Boston, MA</div>
+                <ul>
+                    <li>Spearheaded market research & financial modeling for healthcare non-profit, leading to $4.2M in annual cost savings.</li>
+                    <li>Developed interactive dashboards in Tableau and Power BI for stakeholder tracking, improving KPI visibility by 45%.</li>
+                    <li>Collaborated with IT and product teams to implement CRM (Salesforce) solutions and enhance data integrity.</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <h4>Policy & Research Associate | Harvard Kennedy School</h4>
+                <div class="exp-details">Jan 2021 – Jun 2022 | Cambridge, MA</div>
+                <ul>
+                    <li>Co-authored research on public sector innovation with recommendations adopted by state-level agencies.</li>
+                    <li>Organized seminars with 50+ attendees; managed project timelines and deliverables using Asana & MS Office Suite.</li>
+                    <li>Analyzed survey data using R and presented findings to academic board, highlighting time management excellence.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Additional highlight: Leadership & Organizational (optional mini-section) to showcase soft skills, but integrated -->
+        <section>
+            <h3>LEADERSHIP & VOLUNTEERING</h3>
+            <div class="exp-item">
+                <h4>Board Member | Women in Data & Tech (WIDAT)</h4>
+                <ul>
+                    <li>Lead mentorship program for 120+ early-career women; orchestrated monthly workshops on time management, Python, and career strategy.</li>
+                    <li>Increased membership retention by 35% through strategic organizational initiatives.</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <h4>Harvard Graduate Council | VP of Professional Development</h4>
+                <ul>
+                    <li>Coordinated 12+ networking events with top-tier employers, showcasing superior event management and communication skills.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="print-button-container">
+    <button onclick="window.print();">
+        <i class="fas fa-print"></i> Print / Save as PDF (A4 Harvard CV)
+    </button>
+</div>
+
+<!-- Ensure image fallback in case of network issues (elegant UI remains) -->
+<script>
+    (function() {
+        // optional: fix broken image placeholder with initials if needed
+        const profileImg = document.querySelector('.profile-photo-container img');
+        if (profileImg) {
+            profileImg.onerror = function() {
+                this.onerror = null;
+                this.src = "https://ui-avatars.com/api/?background=1e466e&color=fff&bold=true&rounded=true&size=115&name=AR";
+            };
+        }
+    })();
+</script>
+</body>
+</html>
