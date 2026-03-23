@@ -5,7 +5,6 @@
     font-style: normal;
   }
 
-  /* Menggunakan font di seluruh halaman */
   body {
     font-family: 'Bebas Neue', sans-serif;
     background-color: rgb(120, 179, 199);
@@ -144,8 +143,8 @@ body::before {
     bottom: 40%;
     right: 10%;
     justify-content: space-around;
-    width: 500px; /* Lebar gambar */
-    height: 170px; /* Tinggi gambar */
+    width: 500px; 
+    height: 170px;
     object-fit: contain;
    
     
@@ -544,7 +543,6 @@ button {
     }
 }
 
-/* Style untuk gambar */
 .image-display img {
     max-width: 100%;
     height: auto;
@@ -552,7 +550,7 @@ button {
     
 }
 
-/*aaa*/
+
 .container {
     
     flex-direction: column;
@@ -568,8 +566,8 @@ button {
 }
 .image-container img {
     justify-content: space-around;
-    width: 83.3px; /* Lebar gambar */
-    height: 80px; /* Tinggi gambar */
+    width: 83.3px;
+    height: 80px; 
     margin: 7px;
     object-fit: contain;
 }
