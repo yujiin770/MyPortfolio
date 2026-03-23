@@ -1,6 +1,4 @@
-// =========================================================================
-// --- FINAL SCRIPT (GitHub Button Visibility Corrected) ---
-// =========================================================================
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -15,13 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Enhanced Cinematic Splash Screen ---
   if (splashScreen) {
     body.classList.add('no-scroll');
-    
-    // 1. After 2.5s (when bar is full), add the 'hidden' class
-    // 2. This triggers the shutter CSS animations
+
     setTimeout(() => {
       splashScreen.classList.add('hidden');
-      
-      // 3. Completely remove splash from view after shutters finish sliding
       setTimeout(() => {
         body.classList.remove('no-scroll');
         splashScreen.style.display = 'none';
@@ -51,7 +45,7 @@ function openMobileMenu() {
     mobileMenu.classList.add('is-open');
     burgerBtn.classList.add('is-open');
     navBackdrop.classList.add('is-visible');
-    document.body.style.overflow = 'hidden'; // Use document.body instead of body variable
+    document.body.style.overflow = 'hidden'; 
 }
 
 // Function to close mobile menu
@@ -59,10 +53,9 @@ function closeMobileMenu() {
     mobileMenu.classList.remove('is-open');
     burgerBtn.classList.remove('is-open');
     navBackdrop.classList.remove('is-visible');
-    document.body.style.overflow = ''; // Restore scrolling
+    document.body.style.overflow = ''; 
 }
 
-// Check if elements exist before adding event listeners
 if (burgerBtn) {
     burgerBtn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -276,9 +269,6 @@ updateActiveMobileLink();
           link.rel = 'noopener noreferrer';
           modalLinksContainer.appendChild(link);
         }
-
-        // *** THE FIX IS HERE ***
-        // The check '&& githubHref !== "#"' has been removed.
         const githubHref = card.dataset.modalGithubHref;
         if (githubHref) { 
             const githubLink = document.createElement('a');
@@ -397,7 +387,7 @@ updateActiveMobileLink();
         const addBotMessage = (message) => {
             const el = document.createElement('div');
             el.classList.add('chat-message', 'bot-message');
-            el.innerHTML = `<p>${message}</p>`; // Use innerHTML to render Gemini's Markdown formatting if any
+            el.innerHTML = `<p>${message}</p>`; 
             chatbotMessages.appendChild(el);
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         };
@@ -415,7 +405,6 @@ updateActiveMobileLink();
         };
 
         async function getGeminiResponse(userInput) {
-            // This is the relative path to your Netlify function
             const functionUrl = '/api/get-gemini-response';
             try {
                 const response = await fetch(functionUrl, {
@@ -471,7 +460,6 @@ updateActiveMobileLink();
     const closeCertificateModal = () => {
       certificateModal.classList.remove('is-visible');
       document.body.style.overflow = '';
-      // Optional: Clear src after closing to stop image loading if the modal is closed quickly
       setTimeout(() => { modalImage.src = ""; }, 300);
     };
 
@@ -486,7 +474,6 @@ updateActiveMobileLink();
 
     closeModalBtn.addEventListener('click', closeCertificateModal);
     certificateModal.addEventListener('click', (e) => {
-      // Close modal if the outer overlay is clicked
       if (e.target === certificateModal) {
         closeCertificateModal();
       }

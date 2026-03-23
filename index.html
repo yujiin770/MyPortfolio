@@ -1,606 +1,670 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yujin Almira | PortFolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="Assets/Webicon.png">
 </head>
-<body>
-<!-- Modern Splash Screen -->
-<div id="splash-screen">
-    <!-- Animated gradient background -->
-    <div class="splash-gradient"></div>
-    
-    <!-- Floating particles background -->
-    <div class="splash-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
 
-    <div class="splash-container">
-        <!-- Animated logo with reveal effect -->
-        <div class="splash-logo-wrapper">
-            <div class="logo-reveal"></div>
-            <h1 class="splash-logo" data-text="YUJIN">YUJIN</h1>
+<body>
+    <!-- Modern Splash Screen -->
+    <div id="splash-screen">
+        <!-- Animated gradient background -->
+        <div class="splash-gradient"></div>
+
+        <!-- Floating particles background -->
+        <div class="splash-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
         </div>
-        
-        <!-- Animated tagline -->
-        <div class="splash-tagline">
-            <span class="tagline-word">My</span>
-            <span class="tagline-dot">•</span>
-            <span class="tagline-word">Portfolio</span>
-        </div>
-        
-        <!-- Progress bar with pulse effect -->
-        <div class="splash-progress-wrapper">
-            <div class="splash-progress-bar"></div>
-            <div class="splash-progress-glow"></div>
-        </div>
-        
-        <!-- Loading status with micro-interactions -->
-        <div class="splash-status">
-            <div class="status-dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+
+        <div class="splash-container">
+            <!-- Animated logo with reveal effect -->
+            <div class="splash-logo-wrapper">
+                <div class="logo-reveal"></div>
+                <h1 class="splash-logo" data-text="YUJIN">YUJIN</h1>
             </div>
-            <span class="status-message">Loading experience</span>
+
+            <!-- Animated tagline -->
+            <div class="splash-tagline">
+                <span class="tagline-word">My</span>
+                <span class="tagline-dot">•</span>
+                <span class="tagline-word">Portfolio</span>
+            </div>
+
+            <!-- Progress bar with pulse effect -->
+            <div class="splash-progress-wrapper">
+                <div class="splash-progress-bar"></div>
+                <div class="splash-progress-glow"></div>
+            </div>
+
+            <!-- Loading status with micro-interactions -->
+            <div class="splash-status">
+                <div class="status-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <span class="status-message">Loading experience</span>
+            </div>
         </div>
+
+        <!-- Decorative bottom line -->
+        <div class="splash-bottom-line"></div>
     </div>
-    
-    <!-- Decorative bottom line -->
-    <div class="splash-bottom-line"></div>
-</div>
 
     <div id="root">
 
-   <!-- Navigation -->
-<nav id="main-nav" class="fixed-nav glass-card">
-    <div class="nav-container">
-        <div class="nav-brand gradient-text">My Portfolio</div>
-        
-        <!-- Desktop Navigation Links -->
-        <div class="nav-links" id="nav-links">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#skills" class="nav-link">Tech Stack</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
+        <!-- Navigation -->
+        <nav id="main-nav" class="fixed-nav glass-card">
+            <div class="nav-container">
+                <div class="nav-brand gradient-text">My Portfolio</div>
 
-        <div class="nav-menu">
-            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
-                <span class="sun-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                </span>
-                <span class="moon-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </span>
-            </button> 
-            
-            <!-- Burger Button -->
-            <button class="burger-btn" id="burger-btn" aria-label="Toggle navigation">
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-            </button>
-        </div>
-    </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-header">
-        <div class="mobile-menu-brand gradient-text">Menu</div>
-        <button class="mobile-menu-close" id="mobile-menu-close">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-    </div>
-    
-    <div class="mobile-menu-links">
-        <a href="#home" class="mobile-link active">
-            <span class="link-icon">
-                <i class="fas fa-home"></i>
-            </span>
-            <span class="link-text">Home</span>
-        </a>
-        <a href="#about" class="mobile-link">
-            <span class="link-icon">
-                <i class="fas fa-user"></i>
-            </span>
-            <span class="link-text">About</span>
-        </a>
-        <a href="#skills" class="mobile-link">
-            <span class="link-icon">
-                <i class="fas fa-code"></i>
-            </span>
-            <span class="link-text">Tech Stack</span>
-        </a>
-        <a href="#projects" class="mobile-link">
-            <span class="link-icon">
-                <i class="fas fa-rocket"></i>
-            </span>
-            <span class="link-text">Projects</span>
-        </a>
-        <a href="#contact" class="mobile-link">
-            <span class="link-icon">
-                <i class="fas fa-envelope"></i>
-            </span>
-            <span class="link-text">Contact</span>
-        </a>
-    </div>
-    
-    <div class="mobile-menu-footer">
-        <div class="mobile-socials">
-            <a href="https://www.linkedin.com/in/eugene-almira-3262203a6/" target="_blank" class="mobile-social-link">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/yujiin770" target="_blank" class="mobile-social-link">
-            <i class="fab fa-github"></i>
-        </a>
-            <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" class="mobile-social-link">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
-        <p class="mobile-menu-copyright">© 2026 Eugene Almira</p>
-    </div>
-</div>
-
-<!-- Backdrop -->
-<div id="mobile-nav-backdrop"></div>
-      </nav>
-  
-      <!-- Hero Section -->
-      <section id="home" class="hero-section">
-        <div class="hero-bg-gradient"></div>
-        <div class="hero-content">
-          <div class="mb-8 animate-fade-in-up">
-            <div class="hero-icon-wrapper">
-              <div class="hero-icon-inner">
-                 <img src="Assets/YujinFormal.jpg" alt="A profile picture of Eugene Almira" class="profile-image">
-              </div>
-            </div>
-          </div>
-          <h1 class="hero-title animate-fade-in-up">
-            <span class="gradient-text">Eugene Almira</span>
-          </h1>
-          <h2 id="typing-text" class="hero-subtitle animate-fade-in-up typing-animation">
-            <!-- Text will be typed here by JS -->
-          </h2>
-          <p class="hero-description animate-fade-in-up">
-            I build websites and desktop apps. From clean designs to custom VB.NET programs, I enjoy turning ideas into reality.
-          </p>
-          <div class="hero-buttons animate-fade-in-up">
-            <a href="projects.html" class="btn btn-primary">View My Work</a>
-            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-          </div>
-        </div>
-        <div class="scroll-down-indicator">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-        </div>
-      </section>
-      
-      <!-- About Section -->
-      <section id="about" class="section-padding">
-        <div class="container">
-          <div class="grid-2-cols">
-            
-            <!-- Left Column: Text and Stats -->
-            <div class="scroll-animation">
-              <h2 class="section-title gradient-text mb-6">About Me</h2>
-               <p class="text-large text-muted text-justify mb-6">
-                 As a dedicated freelance developer and a third-year BSIT student, I bring a unique
-                 blend of academic knowledge and three years of hands-on experience. My journey is
-                 fueled by a deep passion for exploring the world of technology and a drive to
-                 create practical, user-friendly digital solutions that solve real-world problems.
-              </p>
-              <p class="text-large text-muted mb-8">
-                I believe that the best learning happens by doing. When I'm not focused on 
-                client projects or coursework, I'm diving into new frameworks, experimenting 
-                with emerging tech, and building personal projects. This commitment to continuous 
-                learning ensures I can deliver modern, effective solutions in this fast-paced industry.
-              </p>
-
-              <!-- === UPDATED BUTTON (with Document Icon) === -->
-            <div class="mb-8">
-              <a href="Assets/resume.html" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-              <!-- Replaced SVG with a "document" icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                <polyline points="13 2 13 9 20 9"></polyline>
-               </svg>
-                View CV
-              </a>
-            </div>
-
-
-              <div class="stats-grid">
-                <div class="stat-box">
-                  <div class="stat-number">10+</div>
-                  <div class="stat-label">Projects Completed</div>
+                <!-- Desktop Navigation Links -->
+                <div class="nav-links" id="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Tech Stack</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </div>
-                <div class="stat-box">
-                  <div class="stat-number">2+</div>
-                  <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-box">
-                  <div class="stat-number">10+</div>
-                  <div class="stat-label">Happy Clients</div>
-                </div>
-              </div>
-            </div>
 
-           <!-- Right Column: Services -->
-            <div class="scroll-animation">
-              <div class="services-card">
-                <div class="services-grid">
-                  
-                  <!-- Service 1: Front-End Development -->
-                  <div class="service-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-primary service-icon">
-                      <polyline points="16 18 22 12 16 6"></polyline>
-                      <polyline points="8 6 2 12 8 18"></polyline>
+                <div class="nav-menu">
+                    <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
+                        <span class="sun-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </span>
+                        <span class="moon-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <!-- Burger Button -->
+                    <button class="burger-btn" id="burger-btn" aria-label="Toggle navigation">
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-brand gradient-text">Menu</div>
+                <button class="mobile-menu-close" id="mobile-menu-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
-                    <h3 class="font-semibold mb-2">Front-End Development</h3>
-                    <p class="text-sm text-muted">Intuitive and responsive user interfaces.</p>
-                  </div>
+                </button>
+            </div>
 
-                 <!-- Service 2: Application Development -->
-                  <div class="service-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-accent service-icon">
-                      <line x1="6" y1="12" x2="18" y2="12"></line>
-                      <line x1="12" y1="6" x2="12" y2="18"></line>
-                      <path d="M17.5 15C17.5 16.933 15.933 18.5 14 18.5C12.067 18.5 10.5 16.933 10.5 15C10.5 13.067 12.067 11.5 14 11.5C15.933 11.5 17.5 13.067 17.5 15Z"></path>
-                      <path d="M6.5 9C6.5 7.067 8.067 5.5 10 5.5C11.933 5.5 13.5 7.067 13.5 9C13.5 10.933 11.933 12.5 10 12.5C8.067 12.5 6.5 10.933 6.5 9Z"></path>
-                    </svg>
-                    <h3 class="font-semibold mb-2">Application Development</h3>
-                    <p class="text-sm text-muted">Custom desktop apps and interactive game experiences.</p>
-                  </div>
+            <div class="mobile-menu-links">
+                <a href="#home" class="mobile-link active">
+                    <span class="link-icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                    <span class="link-text">Home</span>
+                </a>
+                <a href="#about" class="mobile-link">
+                    <span class="link-icon">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="link-text">About</span>
+                </a>
+                <a href="#skills" class="mobile-link">
+                    <span class="link-icon">
+                        <i class="fas fa-code"></i>
+                    </span>
+                    <span class="link-text">Tech Stack</span>
+                </a>
+                <a href="#projects" class="mobile-link">
+                    <span class="link-icon">
+                        <i class="fas fa-rocket"></i>
+                    </span>
+                    <span class="link-text">Projects</span>
+                </a>
+                <a href="#contact" class="mobile-link">
+                    <span class="link-icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="link-text">Contact</span>
+                </a>
+            </div>
 
-                  <!-- Service 3: Responsive Design -->
-               <div class="service-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-primary service-icon">
-                  <rect x="3" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="14" width="7" height="7"></rect>
-                  <rect x="3" y="14" width="7" height="7"></rect>
-                  </svg>
-                  <h3 class="font-semibold mb-2">UI/UX Design</h3>
-                <p class="text-sm text-muted">Creating clean and user-friendly interfaces for a better experience.</p>
-              </div>
-
+            <div class="mobile-menu-footer">
+                <div class="mobile-socials">
+                    <a href="https://www.linkedin.com/in/eugene-almira-3262203a6/" target="_blank"
+                        class="mobile-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/yujiin770" target="_blank" class="mobile-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" class="mobile-social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
                 </div>
-              </div>
-            </div>       
-          </div>
-        </div>
-      </section>
-      
-    <!-- Tech Stack Section -->
-      <section id="skills" class="section-padding">
-        <div class="container">
-          <div class="text-center mb-16 scroll-animation">
-            <h2 class="section-title gradient-text">My Tech Stack</h2>
-            <p class="text-large text-muted max-w-2xl mx-auto">
-              A collection of technologies I use to turn complex ideas into digital reality.
-            </p>
-          </div>
-          
-          <div class="tech-stack-grid">
-            
-            <!-- C++ -->
-            <div class="tech-card scroll-animation">
-              <div class="tech-icon-box">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
-              </div>
-              <h3 class="tech-name">C++</h3>
-              <p class="tech-desc">Algorithms & Logic</p>
+                <p class="mobile-menu-copyright">© 2026 Eugene Almira</p>
             </div>
-            
-            <!-- HTML5 -->
-            <div class="tech-card scroll-animation">
-              <div class="tech-icon-box">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-              </div>
-              <h3 class="tech-name">HTML5</h3>
-              <p class="tech-desc">Web Structure</p>
-            </div>
-            
-            <!-- CSS3 -->
-            <div class="tech-card scroll-animation">
-              <div class="tech-icon-box">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-              </div>
-              <h3 class="tech-name">CSS3</h3>
-              <p class="tech-desc">Visual Styling</p>
-            </div>
-            
-            <!-- VB.NET -->
-            <div class="tech-card scroll-animation">
-              <div class="tech-icon-box">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="VB.NET">
-              </div>
-              <h3 class="tech-name">VB.NET</h3>
-              <p class="tech-desc">Desktop Applications</p>
-            </div>
-
-            <!-- Python -->
-            <div class="tech-card scroll-animation">
-              <div class="tech-icon-box">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-              </div>
-              <h3 class="tech-name">Python</h3>
-              <p class="tech-desc">Automation & Scripting</p>
-            </div>
-            
-            <!-- JavaScript -->
-            <div class="tech-card scroll-animation">
-              <div class="tech-icon-box">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
-              </div>
-              <h3 class="tech-name">JavaScript</h3>
-              <p class="tech-desc">Frontend Interactivity</p>
-            </div>
-
-            <!-- PHP -->
-            <div class="tech-card scroll-animation">
-              <div class="tech-icon-box">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
-              </div>
-              <h3 class="tech-name">PHP</h3>
-              <p class="tech-desc">Backend Systems</p>
-            </div>
-
-            <!-- MySQL -->
-            <div class="tech-card scroll-animation">
-                <div class="tech-icon-box">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
-                </div>
-                <h3 class="tech-name">MySQL</h3>
-                <p class="tech-desc">Database Management</p>
-            </div>
-
-            <!-- New Items Added -->
-<div class="tech-card scroll-animation">
-    <div class="tech-icon-box">
-        <!-- Replaced img with i tag -->
-        <i class="fa-brands fa-git-alt"></i>
-    </div>
-    <h3 class="tech-name">Git</h3>
-    <p class="tech-desc">Version Control</p>
-</div>
-
-<div class="tech-card scroll-animation">
-    <div class="tech-icon-box">
-        <!-- Replaced img with i tag -->
-        <i class="fa-brands fa-github"></i>
-    </div>
-    <h3 class="tech-name">GitHub</h3>
-    <p class="tech-desc">Code Hosting</p>
-</div>
-
-<div class="tech-card scroll-animation">
-        <div class="tech-icon-box">
-            <img src="Assets/photoshop.png" alt="Photoshop Icon">
-        </div>
-        <h3 class="tech-name">Adobe Photoshop</h3>
-        <p class="tech-desc">Design</p>
-    </div>
-            
-          </div>
-        </div>
-      </section>
-
-       <!-- ============================================= -->
-      <!-- === START: NEW INFINITE SCROLLER SECTION === -->
-      <!-- ============================================= -->
-      <section class="scroller-section" aria-label="Technologies I Use">
-        <div class="scroller" data-speed="fast" data-direction="left">
-            <ul class="tag-list scroller__inner">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>VB.NET</li>
-                <li>Python</li>
-                <li>C++</li>
-                <li>PHP</li>
-                <li>GitHub</li>
-                <li>Figma</li>
-                <li>VS Code</li>
-                <li>MySQL</li>
-                <li>API Integration</li>
-            </ul>
-        </div>
-      </section>
-<!-- ========================================================================= -->
-<!-- === NEW: MODERN ACHIEVEMENTS & CERTIFICATES SECTION === -->
-<!-- ========================================================================= -->
-<section id="achievements" class="section-padding">
-    <div class="container">
-        <!-- Section Title -->
-        <div class="text-center mb-16 scroll-animation">
-            <h1 class="section-title gradient-text">Certificates & Achievements</h1>
-            <p class="text-large text-muted max-w-2xl mx-auto">
-                A collection of my certifications and notable accomplishments.
-            </p>
         </div>
 
-        <!-- New Modern Layout Container -->
-        <div class="achievements-layout">
+        <!-- Backdrop -->
+        <div id="mobile-nav-backdrop"></div>
+        </nav>
 
-            <!-- Featured Achievement Card (Champion Award) -->
-            <div class="featured-achievement-card glass-card hover-lift scroll-animation certificate-card" data-image-src="Assets/Champion.png">
-                <div class="featured-image-wrapper">
-                    <img src="Assets/Champion.png" alt="GameFest Champion Certificate" class="featured-image">
-                </div>
-                <div class="featured-text-content">
-                    <p class="eyebrow-text">Top Achievement</p>
-                    <h3 class="text-2xl font-bold mb-3">GameFest Champion</h3>
-                    <p class="text-muted mb-4">Recognized for excellence in game design, innovation, and technical execution in the GameFest 2025 competition.</p>
-                    <span class="view-certificate-link">View Certificate <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </div>
-
-            <!-- Subtitle for the secondary grid -->
-            <h2 class="achievements-subtitle scroll-animation">Additional Awards & Roles</h2>
-
-            <!-- Secondary Grid for Other Items -->
-            <div class="secondary-achievements-grid">
-
-                <!-- Card 2: Popularity Choice Award -->
-                <div class="glass-card hover-lift p-8 scroll-animation certificate-card" data-image-src="Assets/Popularity.png">
-                    <div class="achievement-icon">
-                        <img src="Assets/Popularity.png" alt="Popularity Choice Award Certificate" class="certificate-preview-img">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-gradient"></div>
+            <div class="hero-content">
+                <div class="mb-8 animate-fade-in-up">
+                    <div class="hero-icon-wrapper">
+                        <div class="hero-icon-inner">
+                            <img src="Assets/YujinFormal.jpg" alt="A profile picture of Eugene Almira"
+                                class="profile-image">
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Popularity Choice Award</h3>
-                    <p class="text-muted mb-4">GameFest 2025</p>
-                    <p class="text-sm text-justify">
-                        Voted by event attendees as the most popular game, highlighting strong user experience and audience appeal.
+                </div>
+                <h1 class="hero-title animate-fade-in-up">
+                    <span class="gradient-text">Eugene Almira</span>
+                </h1>
+                <h2 id="typing-text" class="hero-subtitle animate-fade-in-up typing-animation">
+                    <!-- Text will be typed here by JS -->
+                </h2>
+                <p class="hero-description animate-fade-in-up">
+                    I build websites and desktop apps. From clean designs to custom VB.NET programs, I enjoy turning
+                    ideas into reality.
+                </p>
+                <div class="hero-buttons animate-fade-in-up">
+                    <a href="projects.html" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="scroll-down-indicator">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="grid-2-cols">
+
+                    <!-- Left Column: Text and Stats -->
+                    <div class="scroll-animation">
+                        <h2 class="section-title gradient-text mb-6">About Me</h2>
+                        <p class="text-large text-muted text-justify mb-6">
+                            As a dedicated freelance developer and a third-year BSIT student, I bring a unique
+                            blend of academic knowledge and three years of hands-on experience. My journey is
+                            fueled by a deep passion for exploring the world of technology and a drive to
+                            create practical, user-friendly digital solutions that solve real-world problems.
+                        </p>
+                        <p class="text-large text-muted mb-8">
+                            I believe that the best learning happens by doing. When I'm not focused on
+                            client projects or coursework, I'm diving into new frameworks, experimenting
+                            with emerging tech, and building personal projects. This commitment to continuous
+                            learning ensures I can deliver modern, effective solutions in this fast-paced industry.
+                        </p>
+
+                        <!-- === UPDATED BUTTON (with Document Icon) === -->
+                        <div class="mb-8">
+                            <a href="Assets/resume.html" class="btn btn-secondary" target="_blank"
+                                rel="noopener noreferrer">
+                                <!-- Replaced SVG with a "document" icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="margin-right: 0.5rem;">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                View CV
+                            </a>
+                        </div>
+
+
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">2+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Happy Clients</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Services -->
+                    <div class="scroll-animation">
+                        <div class="services-card">
+                            <div class="services-grid">
+
+                                <!-- Service 1: Front-End Development -->
+                                <div class="service-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="icon-primary service-icon">
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
+                                    </svg>
+                                    <h3 class="font-semibold mb-2">Front-End Development</h3>
+                                    <p class="text-sm text-muted">Intuitive and responsive user interfaces.</p>
+                                </div>
+
+                                <!-- Service 2: Application Development -->
+                                <div class="service-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="icon-accent service-icon">
+                                        <line x1="6" y1="12" x2="18" y2="12"></line>
+                                        <line x1="12" y1="6" x2="12" y2="18"></line>
+                                        <path
+                                            d="M17.5 15C17.5 16.933 15.933 18.5 14 18.5C12.067 18.5 10.5 16.933 10.5 15C10.5 13.067 12.067 11.5 14 11.5C15.933 11.5 17.5 13.067 17.5 15Z">
+                                        </path>
+                                        <path
+                                            d="M6.5 9C6.5 7.067 8.067 5.5 10 5.5C11.933 5.5 13.5 7.067 13.5 9C13.5 10.933 11.933 12.5 10 12.5C8.067 12.5 6.5 10.933 6.5 9Z">
+                                        </path>
+                                    </svg>
+                                    <h3 class="font-semibold mb-2">Application Development</h3>
+                                    <p class="text-sm text-muted">Custom desktop apps and interactive game experiences.
+                                    </p>
+                                </div>
+
+                                <!-- Service 3: Responsive Design -->
+                                <div class="service-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="icon-primary service-icon">
+                                        <rect x="3" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="14" width="7" height="7"></rect>
+                                        <rect x="3" y="14" width="7" height="7"></rect>
+                                    </svg>
+                                    <h3 class="font-semibold mb-2">UI/UX Design</h3>
+                                    <p class="text-sm text-muted">Creating clean and user-friendly interfaces for a
+                                        better experience.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-16 scroll-animation">
+                    <h2 class="section-title gradient-text">My Tech Stack</h2>
+                    <p class="text-large text-muted max-w-2xl mx-auto">
+                        A collection of technologies I use to turn complex ideas into digital reality.
                     </p>
                 </div>
 
-                <!-- Card 3: Panelist's Choice Award -->
-                <div class="glass-card hover-lift p-8 scroll-animation certificate-card" data-image-src="Assets/Panelist.png">
-                    <div class="achievement-icon">
-                        <img src="Assets/Panelist.png" alt="Panelist's Choice Award Certificate" class="certificate-preview-img">
+                <div class="tech-stack-grid">
+
+                    <!-- C++ -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                                alt="C++">
+                        </div>
+                        <h3 class="tech-name">C++</h3>
+                        <p class="tech-desc">Algorithms & Logic</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Panelist's Choice Award</h3>
-                    <p class="text-muted mb-4">GameFest 2025</p>
-                    <p class="text-sm text-justify">
-                        Selected by judges for outstanding technical achievement and creative vision during the competition.
+
+                    <!-- HTML5 -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                alt="HTML5">
+                        </div>
+                        <h3 class="tech-name">HTML5</h3>
+                        <p class="tech-desc">Web Structure</p>
+                    </div>
+
+                    <!-- CSS3 -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                                alt="CSS3">
+                        </div>
+                        <h3 class="tech-name">CSS3</h3>
+                        <p class="tech-desc">Visual Styling</p>
+                    </div>
+
+                    <!-- VB.NET -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
+                                alt="VB.NET">
+                        </div>
+                        <h3 class="tech-name">VB.NET</h3>
+                        <p class="tech-desc">Desktop Applications</p>
+                    </div>
+
+                    <!-- Python -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Python">
+                        </div>
+                        <h3 class="tech-name">Python</h3>
+                        <p class="tech-desc">Automation & Scripting</p>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                alt="JS">
+                        </div>
+                        <h3 class="tech-name">JavaScript</h3>
+                        <p class="tech-desc">Frontend Interactivity</p>
+                    </div>
+
+                    <!-- PHP -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                                alt="PHP">
+                        </div>
+                        <h3 class="tech-name">PHP</h3>
+                        <p class="tech-desc">Backend Systems</p>
+                    </div>
+
+                    <!-- MySQL -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                alt="MySQL">
+                        </div>
+                        <h3 class="tech-name">MySQL</h3>
+                        <p class="tech-desc">Database Management</p>
+                    </div>
+
+                    <!-- New Items Added -->
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <!-- Replaced img with i tag -->
+                            <i class="fa-brands fa-git-alt"></i>
+                        </div>
+                        <h3 class="tech-name">Git</h3>
+                        <p class="tech-desc">Version Control</p>
+                    </div>
+
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <!-- Replaced img with i tag -->
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <h3 class="tech-name">GitHub</h3>
+                        <p class="tech-desc">Code Hosting</p>
+                    </div>
+
+                    <div class="tech-card scroll-animation">
+                        <div class="tech-icon-box">
+                            <img src="Assets/photoshop.png" alt="Photoshop Icon">
+                        </div>
+                        <h3 class="tech-name">Adobe Photoshop</h3>
+                        <p class="tech-desc">Design</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- === START: NEW INFINITE SCROLLER SECTION === -->
+        <!-- ============================================= -->
+        <section class="scroller-section" aria-label="Technologies I Use">
+            <div class="scroller" data-speed="fast" data-direction="left">
+                <ul class="tag-list scroller__inner">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>VB.NET</li>
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>PHP</li>
+                    <li>GitHub</li>
+                    <li>Figma</li>
+                    <li>VS Code</li>
+                    <li>MySQL</li>
+                    <li>API Integration</li>
+                </ul>
+            </div>
+        </section>
+        <!-- ========================================================================= -->
+        <!-- === NEW: MODERN ACHIEVEMENTS & CERTIFICATES SECTION === -->
+        <!-- ========================================================================= -->
+        <section id="achievements" class="section-padding">
+            <div class="container">
+                <!-- Section Title -->
+                <div class="text-center mb-16 scroll-animation">
+                    <h1 class="section-title gradient-text">Certificates & Achievements</h1>
+                    <p class="text-large text-muted max-w-2xl mx-auto">
+                        A collection of my certifications and notable accomplishments.
                     </p>
                 </div>
 
-               <!-- Card 4: Game Development Panelist -->
-<div class="glass-card hover-lift p-8 scroll-animation certificate-card" data-image-src="Assets/GamePanelist.png">
-    <div class="achievement-icon">
-         <i class="fas fa-gavel"></i>
-    </div>
-    <h3 class="text-xl font-bold mb-3">Game Development Panelist</h3>
-    <p class="text-muted mb-4">Game Development 2026</p>
-    <p class="text-sm text-justify">
-        Served as a panelist for 2nd year college students, evaluating thesis-based game projects developed using engines such as Godot and Unity. Assessed projects based on gameplay mechanics, creativity, technical implementation, and overall user experience.
-    </p>
-</div>
+                <!-- New Modern Layout Container -->
+                <div class="achievements-layout">
 
-<!-- Card 5: Thesis Defense Panelist -->
-<div class="glass-card hover-lift p-8 scroll-animation certificate-card" data-image-src="Assets/SystemPanelist.png">
-    <div class="achievement-icon">
-        <i class="fas fa-graduation-cap"></i>
-    </div>
-    <h3 class="text-xl font-bold mb-3">Defense Panelist</h3>
-    <p class="text-muted mb-4">System Development (VB6)</p>
-    <p class="text-sm text-justify">
-        Served as a panelist for 1st year college students, evaluating system development projects built using Visual Basic 6.0. Focused on assessing system functionality, logic flow, user interface, and overall implementation.
-    </p>
-</div>
+                    <!-- Featured Achievement Card (Champion Award) -->
+                    <div class="featured-achievement-card glass-card hover-lift scroll-animation certificate-card"
+                        data-image-src="Assets/Champion.png">
+                        <div class="featured-image-wrapper">
+                            <img src="Assets/Champion.png" alt="GameFest Champion Certificate" class="featured-image">
+                        </div>
+                        <div class="featured-text-content">
+                            <p class="eyebrow-text">Top Achievement</p>
+                            <h3 class="text-2xl font-bold mb-3">GameFest Champion</h3>
+                            <p class="text-muted mb-4">Recognized for excellence in game design, innovation, and
+                                technical execution in the GameFest 2025 competition.</p>
+                            <span class="view-certificate-link">View Certificate <i
+                                    class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
 
+                    <!-- Subtitle for the secondary grid -->
+                    <h2 class="achievements-subtitle scroll-animation">Additional Awards & Roles</h2>
+
+                    <!-- Secondary Grid for Other Items -->
+                    <div class="secondary-achievements-grid">
+
+                        <!-- Card 2: Popularity Choice Award -->
+                        <div class="glass-card hover-lift p-8 scroll-animation certificate-card"
+                            data-image-src="Assets/Popularity.png">
+                            <div class="achievement-icon">
+                                <img src="Assets/Popularity.png" alt="Popularity Choice Award Certificate"
+                                    class="certificate-preview-img">
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Popularity Choice Award</h3>
+                            <p class="text-muted mb-4">GameFest 2025</p>
+                            <p class="text-sm text-justify">
+                                Voted by event attendees as the most popular game, highlighting strong user experience
+                                and audience appeal.
+                            </p>
+                        </div>
+
+                        <!-- Card 3: Panelist's Choice Award -->
+                        <div class="glass-card hover-lift p-8 scroll-animation certificate-card"
+                            data-image-src="Assets/Panelist.png">
+                            <div class="achievement-icon">
+                                <img src="Assets/Panelist.png" alt="Panelist's Choice Award Certificate"
+                                    class="certificate-preview-img">
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Panelist's Choice Award</h3>
+                            <p class="text-muted mb-4">GameFest 2025</p>
+                            <p class="text-sm text-justify">
+                                Selected by judges for outstanding technical achievement and creative vision during the
+                                competition.
+                            </p>
+                        </div>
+
+                        <!-- Card 4: Game Development Panelist -->
+                        <div class="glass-card hover-lift p-8 scroll-animation certificate-card"
+                            data-image-src="Assets/GamePanelist.png">
+                            <div class="achievement-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Game Development Panelist</h3>
+                            <p class="text-muted mb-4">Game Development 2026</p>
+                            <p class="text-sm text-justify">
+                                Served as a panelist for 2nd year college students, evaluating thesis-based game
+                                projects developed using engines such as Godot and Unity. Assessed projects based on
+                                gameplay mechanics, creativity, technical implementation, and overall user experience.
+                            </p>
+                        </div>
+
+                        <!-- Card 5: Thesis Defense Panelist -->
+                        <div class="glass-card hover-lift p-8 scroll-animation certificate-card"
+                            data-image-src="Assets/SystemPanelist.png">
+                            <div class="achievement-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Defense Panelist</h3>
+                            <p class="text-muted mb-4">System Development (VB6)</p>
+                            <p class="text-sm text-justify">
+                                Served as a panelist for 1st year college students, evaluating system development
+                                projects built using Visual Basic 6.0. Focused on assessing system functionality, logic
+                                flow, user interface, and overall implementation.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-      
-  <!-- Projects Section -->
-      <section id="projects" class="section-padding">
-          <div class="container">
-              <div class="text-center mb-16 scroll-animation">
-                  <h2 class="section-title gradient-text">Featured Projects</h2>
-                  <p class="text-large text-muted max-w-2xl mx-auto">A showcase of my recent work and technical achievements</p>
-              </div>
-              <div class="projects-slider-wrapper scroll-animation">
-                  <div class="swiper projects-swiper">
-                      <div class="swiper-wrapper">
+        </section>
 
-                        <!-- NEW PROJECT CARD: Aloha Security Agency - Recruitment & Management System -->
-<div class="swiper-slide">
-    <div class="project-card glass-card hover-lift project-modal-trigger"
-         data-modal-image="Assets/aloha-dashboard.png" 
-         data-modal-title="Aloha Security Agency - Recruitment & Management System"
-         data-modal-description="As the frontend developer for the Aloha Security Agency System, I designed and implemented responsive and user-friendly interfaces for both the Applicant Portal and the Administrative System. I used HTML5, CSS3, and Vanilla JavaScript to build features such as a multi-step application form with validation, applicant status checking, and admin dashboards for managing applicants, personnel, branches, and deployments. I also integrated dynamic content loading, modern UI elements, and real-time notifications to ensure a smooth and efficient user experience. This project is part of the capstone development phase and has passed the proposal defense."
-         data-modal-link-href="public/index.html" 
-         data-modal-link-text="Live Demo (Public Portal)"
-         data-modal-github-href="https://github.com/yourusername/aloha-security-system.git"> 
-        <div class="project-image-wrapper">
-            <img src="Assets/aloha-landing-page.png" 
-                 alt="Aloha Security Application Form"
-                 class="project-image"/>
-        </div>
-        <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Aloha Security Agency System</h3>
-            <div class="tech-tags">
-                <span class="tech-tag">ONLINE WEB-BASED</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">JavaScript (ES6+)</span>
-                <span class="tech-tag">AJAX</span>
-                <span class="tech-tag">NODE.JS</span>
-                <span class="tech-tag">Responsive Design</span>
-                <span class="tech-tag">UI/UX Implementation</span>
-                <span class="tech-tag">Socket.io (Client)</span>
-                <span class="tech-tag">AOS (Animations)</span>
-            </div>
-        </div>
-    </div>
-</div>
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-16 scroll-animation">
+                    <h2 class="section-title gradient-text">Featured Projects</h2>
+                    <p class="text-large text-muted max-w-2xl mx-auto">A showcase of my recent work and technical
+                        achievements</p>
+                </div>
+                <div class="projects-slider-wrapper scroll-animation">
+                    <div class="swiper projects-swiper">
+                        <div class="swiper-wrapper">
 
-                        <!-- NEW PROJECT CARD: ELMS - Electronic Learning Management System -->
-<div class="swiper-slide">
-    <div class="project-card glass-card hover-lift project-modal-trigger"
-         data-modal-image="Assets/dcsa-dashboard.png" 
-         data-modal-title="Electronic Learning Management System (ELMS)"
-         data-modal-description="As the frontend developer for the Electronic Learning Management System (ELMS), I focused on creating responsive and user-friendly interfaces for different user roles, including Super Admins, School Admins, Branch Admins, Registrars, Teachers, and Students. I used Bootstrap 5 for layout and design, and JavaScript with jQuery for interactivity, form validation, and dynamic content loading. I implemented features such as real-time notifications, interactive tables, and streamlined navigation for processes like enrollment, curriculum management, and grade entry. Overall, I ensured that the system was easy to use and visually organized. This project is passed in defense."
-         data-modal-link-href="https://dcsa-elms.infinityfreeapp.com/index.php?i=1"
-         data-modal-link-text="Live Demo (Login)"
-         data-modal-github-href="https://github.com/Tsukimitisu/E---Learning-Management-System"> 
-        <div class="project-image-wrapper">
-            <img src="Assets/dcsa-login.png" 
-                 alt="ELMS - Electronic Learning Management System"
-                 class="project-image"/>
-        </div>
-        <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Electronic Learning Management System (ELMS)</h3>
-            <div class="tech-tags">
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">jQuery</span>
-                <span class="tech-tag">Bootstrap 5</span>
-                <span class="tech-tag">PHPMailer</span>
-                <span class="tech-tag">TCPDF</span>
-                <span class="tech-tag">Node.js (Real-time)</span>
-                <span class="tech-tag">Express.js (Real-time)</span>
-                <span class="tech-tag">Socket.io (Real-time)</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-                        
-                              <!-- NEW PROJECT CARD: Cafeteria Ordering System -->
+                            <!-- NEW PROJECT CARD: Aloha Security Agency - Recruitment & Management System -->
                             <div class="swiper-slide">
                                 <div class="project-card glass-card hover-lift project-modal-trigger"
-                                     data-modal-image="Assets/cafeteria-cashier.png"
-                                     data-modal-title="Cafeteria Ordering System"
-                                     data-modal-description="A full-stack Cafeteria Ordering System with Admin, Cashier, and Kitchen interfaces. Features real-time order processing via WebSockets, menu management, inventory tracking with recipe-based deductions, sales analytics, and user role management."
-                                     data-modal-link-href="public/views/index.html"
-                                     data-modal-link-text="Live Demo (Login)"
-                                     data-modal-github-href="#">
+                                    data-modal-image="Assets/aloha-dashboard.png"
+                                    data-modal-title="Aloha Security Agency - Recruitment & Management System"
+                                    data-modal-description="As the frontend developer for the Aloha Security Agency System, I designed and implemented responsive and user-friendly interfaces for both the Applicant Portal and the Administrative System. I used HTML5, CSS3, and Vanilla JavaScript to build features such as a multi-step application form with validation, applicant status checking, and admin dashboards for managing applicants, personnel, branches, and deployments. I also integrated dynamic content loading, modern UI elements, and real-time notifications to ensure a smooth and efficient user experience. This project is part of the capstone development phase and has passed the proposal defense."
+                                    data-modal-link-href="public/index.html"
+                                    data-modal-link-text="Live Demo (Public Portal)"
+                                    data-modal-github-href="https://github.com/yourusername/aloha-security-system.git">
                                     <div class="project-image-wrapper">
-                                        <img src="Assets/cafeteria-login.jpg" alt="Cafeteria Ordering System" class="project-image"/>
+                                        <img src="Assets/aloha-landing-page.png" alt="Aloha Security Application Form"
+                                            class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Aloha Security Agency System</h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">ONLINE WEB-BASED</span>
+                                            <span class="tech-tag">CSS3</span>
+                                            <span class="tech-tag">JavaScript (ES6+)</span>
+                                            <span class="tech-tag">AJAX</span>
+                                            <span class="tech-tag">NODE.JS</span>
+                                            <span class="tech-tag">Responsive Design</span>
+                                            <span class="tech-tag">UI/UX Implementation</span>
+                                            <span class="tech-tag">Socket.io (Client)</span>
+                                            <span class="tech-tag">AOS (Animations)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NEW PROJECT CARD: ELMS - Electronic Learning Management System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift project-modal-trigger"
+                                    data-modal-image="Assets/dcsa-dashboard.png"
+                                    data-modal-title="Electronic Learning Management System (ELMS)"
+                                    data-modal-description="As the frontend developer for the Electronic Learning Management System (ELMS), I focused on creating responsive and user-friendly interfaces for different user roles, including Super Admins, School Admins, Branch Admins, Registrars, Teachers, and Students. I used Bootstrap 5 for layout and design, and JavaScript with jQuery for interactivity, form validation, and dynamic content loading. I implemented features such as real-time notifications, interactive tables, and streamlined navigation for processes like enrollment, curriculum management, and grade entry. Overall, I ensured that the system was easy to use and visually organized. This project is passed in defense."
+                                    data-modal-link-href="https://dcsa-elms.infinityfreeapp.com/index.php?i=1"
+                                    data-modal-link-text="Live Demo (Login)"
+                                    data-modal-github-href="https://github.com/Tsukimitisu/E---Learning-Management-System">
+                                    <div class="project-image-wrapper">
+                                        <img src="Assets/dcsa-login.png"
+                                            alt="ELMS - Electronic Learning Management System" class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Electronic Learning Management System (ELMS)
+                                        </h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">PHP</span>
+                                            <span class="tech-tag">MySQL</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">jQuery</span>
+                                            <span class="tech-tag">Bootstrap 5</span>
+                                            <span class="tech-tag">PHPMailer</span>
+                                            <span class="tech-tag">TCPDF</span>
+                                            <span class="tech-tag">Node.js (Real-time)</span>
+                                            <span class="tech-tag">Express.js (Real-time)</span>
+                                            <span class="tech-tag">Socket.io (Real-time)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- NEW PROJECT CARD: Cafeteria Ordering System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift project-modal-trigger"
+                                    data-modal-image="Assets/cafeteria-cashier.png"
+                                    data-modal-title="Cafeteria Ordering System"
+                                    data-modal-description="A full-stack Cafeteria Ordering System with Admin, Cashier, and Kitchen interfaces. Features real-time order processing via WebSockets, menu management, inventory tracking with recipe-based deductions, sales analytics, and user role management."
+                                    data-modal-link-href="public/views/index.html"
+                                    data-modal-link-text="Live Demo (Login)" data-modal-github-href="#">
+                                    <div class="project-image-wrapper">
+                                        <img src="Assets/cafeteria-login.jpg" alt="Cafeteria Ordering System"
+                                            class="project-image" />
                                     </div>
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold mb-3">Cafeteria Ordering System</h3>
@@ -617,387 +681,530 @@
                                 </div>
                             </div>
 
-                          <!-- Slide: Chrono's Royale E-commerce -->
-<div class="swiper-slide">
-    <div class="project-card glass-card hover-lift"
-        data-modal-image="Assets/loginbg.jpg" 
-        data-modal-title="Chrono's Royale – Luxury E-commerce Watch Store"
-        data-modal-description="A high-end full-stack e-commerce platform for luxury timepieces. This project features a sophisticated mechanical-themed splash screen, secure PHP-based user authentication (Login/Register) with smart-focus error handling, and a responsive corporate-style landing page. It demonstrates my ability to integrate complex backend logic with a premium, user-centric frontend design."
-        data-modal-link-href="https://chronoroyale.great-site.net/"
-        data-modal-link-text="View Live Project"
-        data-modal-github-href="#">
-        <div class="project-image-wrapper">
-            <!-- Ensure you save a screenshot of Chrono Royale as Assets/ChronoRoyale-SS.png -->
-            <img src="Assets/loginbg.jpg" alt="Chrono's Royale Watch Store Screenshot" class="project-image"/>
-        </div>
-        <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Chrono's Royale (E-commerce)</h3>
-            <div class="tech-tags">
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Bootstrap 5</span>
-            </div>
-            <div class="project-links">
-                <button class="project-link project-modal-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    View Details
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-                          <!-- Slide 1: Game Development -->
+                            <!-- Slide: MLBB Draft and Ban Tool (Esports IT Week) -->
                             <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/HISTORY-DASH/assets/HD Poster_20250917_213358_0000.png"
-                                  data-modal-title="History Dash - Game-Fest Champion"
-                                  data-modal-description="A mobile endless runner game developed on the HypeHype platform for our 3rd-year GAME-FEST project. I'm incredibly proud that our team's hard work paid off, as we won the CHAMPIONSHIP at the event. The game blends fast-paced, reflex-based gameplay with educational historical trivia. As a key developer, my role involved implementing core gameplay mechanics, designing the user interface, and integrating the educational trivia elements."
-                                  data-modal-link-href="Assets/HISTORY-DASH/index.html"
-                                  data-modal-link-text="View Live Project"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper">
-                                      <img src="Assets/HISTORY-DASH/assets/HD Poster_20250917_213358_0000.png" alt="History Dash Game Poster" class="project-image"/>
-                                  </div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">History Dash (Game-Fest Champion)</h3>
-                                      <div class="tech-tags">
-                                          <span class="tech-tag">HypeHype</span><span class="tech-tag">Game Design</span><span class="tech-tag">Educational Tech</span>
-                                      </div>
-                                      <div class="project-links">
-                                          <button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <!-- Slide 2: Point of Sale System -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/POS.png"
-                                  data-modal-title="Point of Sale (POS) System"
-                                  data-modal-description="Created a comprehensive POS system for an IT Week event. The system managed sales and generated reports using VB.NET."
-                                  data-modal-link-href=""
-                                  data-modal-link-text=""
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper">
-                                      <img src="Assets/POS.png" alt="Point of Sale System" class="project-image"/>
-                                  </div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Point of Sale (POS) System</h3>
-                                      <div class="tech-tags">
-                                          <span class="tech-tag">VB.NET</span>
-                                      </div>
-                                      <div class="project-links">
-                                          <button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                                <div class="project-card glass-card hover-lift project-modal-trigger"
+                                    data-modal-image="Assets/mobilelegendspic.png"
+                                    data-modal-title="MLBB Draft & Ban Tool - Esports Tournament System"
+                                    data-modal-description="A professional Mobile Legends: Bang Bang draft and ban tool created for the IT Week Esports Tournament. This web-based application mimics the MPL-style pick/ban phase with a complete interface for both Blue and Red sides. Features include:
+         
+                                         Complete draft system with 5 picks and 3 bans per team
+                                         Hero search and filter functionality with all MLBB heroes
+                                         Real-time team name and logo upload
+                                         Win/loss tracking with visual indicators
+                                         Tournament name input and display
+                                         Timer system with phase management (Ban 1-3, Pick 1-5)
+                                         Team nickname management with switch and reset functions
+                                         Visual representation of picks and bans with hero images
+                                         Match information display showing current phase
+         
+                                    Built as a solo project for the college IT Week esports competition, this tool helped streamline the tournament's draft process and was successfully used during the event."
+                                    data-modal-link-href="Assets/MLBB ESPORTS SYSTEM V2/index.html"
+                                    data-modal-link-text="View Live Demo"
+                                    data-modal-github-href="https://github.com/yourusername/mlbb-draft-tool">
+                                    <div class="project-image-wrapper">
+                                        <img src="Assets/mlpic.jpg"
+                                            alt="MLBB Draft and Ban Tool Screenshot" class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">MLBB Draft & Ban Tool - IT Week Esports Tournament</h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HTML5</span>
+                                            <span class="tech-tag">CSS3</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">DOM Manipulation</span>
+                                            <span class="tech-tag">Event Handling</span>
+                                            <span class="tech-tag">File Upload API</span>
+                                            <span class="tech-tag">Timer Functions</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <button class="project-link project-modal-trigger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>
+                                                View Details
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                          <!-- Slide 3: Game Landing Page -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift" 
-                                  data-modal-image="Assets/WebsiteImage.png"
-                                  data-modal-title="Game Landing Page"
-                                  data-modal-description="Designed and developed a fully responsive landing page for a fictional video game. This project showcases modern front-end techniques using pure HTML and CSS, ensuring a seamless experience across all devices."
-                                  data-modal-link-href="Assets/UndeadSlayerWebsiteUpdated1/Main Page.html"
-                                  data-modal-link-text="View Live Project"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper"><img src="Assets/WebsiteImage.png" alt="Game Website Project Screenshot" class="project-image"/></div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Game Landing Page</h3>
-                                      <div class="tech-tags"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Responsive Design</span></div>
-                                      <div class="project-links"><button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button></div>
-                                  </div>
-                              </div>
-                          </div>
+                            <!-- Slide: Chrono's Royale E-commerce -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift" data-modal-image="Assets/loginbg.jpg"
+                                    data-modal-title="Chrono's Royale – Luxury E-commerce Watch Store"
+                                    data-modal-description="A high-end full-stack e-commerce platform for luxury timepieces. This project features a sophisticated mechanical-themed splash screen, secure PHP-based user authentication (Login/Register) with smart-focus error handling, and a responsive corporate-style landing page. It demonstrates my ability to integrate complex backend logic with a premium, user-centric frontend design."
+                                    data-modal-link-href="https://chronoroyale.great-site.net/"
+                                    data-modal-link-text="View Live Project" data-modal-github-href="#">
+                                    <div class="project-image-wrapper">
+                                        <!-- Ensure you save a screenshot of Chrono Royale as Assets/ChronoRoyale-SS.png -->
+                                        <img src="Assets/loginbg.jpg" alt="Chrono's Royale Watch Store Screenshot"
+                                            class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Chrono's Royale (E-commerce)</h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">PHP</span>
+                                            <span class="tech-tag">MySQL</span>
+                                            <span class="tech-tag">Bootstrap 5</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <button class="project-link project-modal-trigger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>
+                                                View Details
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                          <!-- Slide 4: CineFlix -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/MoviePic.jpg"
-                                  data-modal-title="CineFlix – Movie Discovery Platform"
-                                  data-modal-description="I designed and developed CineFlix as a modern, responsive web application for discovering movies and TV shows. I focused on creating a clean, immersive user experience using HTML, Tailwind CSS, and JavaScript. The site includes dynamic sections like trending titles, search functionality, trailers, and a stylish splash screen."
-                                  data-modal-link-href="Assets/YujinMovieApi/index.html"
-                                  data-modal-link-text="View Live Project"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper"><img src="Assets/MoviePic.jpg" alt="CineFlix Website Screenshot" class="project-image"/></div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">CineFlix Platform</h3>
-                                      <div class="tech-tags"><span class="tech-tag">HTML</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">JavaScript</span></div>
-                                      <div class="project-links"><button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button></div>
-                                  </div>
-                              </div>
-                          </div>
 
-                          <!-- Slide 5: Tourista Trails -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/TouristSpotWebsite/Assets/SnakeIslandElNido.jpg"
-                                  data-modal-title="Tourista Trails – A Palawan Travel Experience"
-                                  data-modal-description="A responsive and immersive website for discovering and booking tours in Palawan, Philippines. The project showcases stunning destinations through video backgrounds, an interactive map using Leaflet.js, and animated content sections. A key feature is the booking form, which is connected to EmailJS, allowing booking inquiries to be sent directly to my Gmail."
-                                  data-modal-link-href="Assets/TouristSpotWebsite/html/index.html"
-                                  data-modal-link-text="View Live Project"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper"><img src="Assets/TouristSpotWebsite/Assets/SnakeIslandElNido.jpg" alt="Tourista Trails Website Screenshot" class="project-image"/></div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Palawan Travel Site</h3>
-                                      <div class="tech-tags"><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">EmailJS</span></div>
-                                      <div class="project-links"><button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button></div>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <!-- Slide 6: School Clinic System -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/SCVRS-SS.png"
-                                  data-modal-title="School Clinic Visit Record System"
-                                  data-modal-description="As a System Analyst for this project, my role was to plan how the system would work. I designed the step-by-step process for everything, like how to add a student and how to record a clinic visit. The programmers then used my plan as a guide to build the website."
-                                  data-modal-link-href="assets/THESIS-SCRVS.pdf"
-                                  data-modal-link-text="View Documentation"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper"><img src="Assets/SCVRS-SS.png" alt="A conceptual image of a medical record system" class="project-image"/></div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">School Clinic System</h3>
-                                      <div class="tech-tags"><span class="tech-tag">System Design</span><span class="tech-tag">User Flow</span><span class="tech-tag">Data Modeling</span></div>
-                                      <div class="project-links"><button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button></div>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <!-- Slide 7: Student Information System -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/Sis-Project.jpg"
-                                  data-modal-title="Student Information System"
-                                  data-modal-description="A comprehensive desktop application developed in Visual Basic for my midterm project. It's designed to manage student records securely, featuring a login module, full CRUD (Create, Read, Update, Delete) operations, and automatic QR code generation for quick identification. This system replaces manual record-keeping with an efficient, organized, and reliable digital solution."
-                                  data-modal-link-href="assets/Student-Information-System-Doc.pdf"
-                                  data-modal-link-text="View Documentation"
-                                  data-modal-github-href="https://www.facebook.com/yujiiiiiiiiin05">
-                                  <div class="project-image-wrapper"><img src="Assets/Sis-Project.jpg" alt="Student Information System Screenshot" class="project-image"/></div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Student Information System</h3>
-                                      <div class="tech-tags"><span class="tech-tag">VB.NET</span><span class="tech-tag">SQL Database</span><span class="tech-tag">System Design</span></div>
-                                      <div class="project-links"><button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button></div>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <!-- Slide 8: Sales and Inventory System -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/Sales-and-inventory.jpg"
-                                  data-modal-title="Sales and Inventory System"
-                                  data-modal-description="A desktop app that makes sales and stock management easier. It has a secure login system where each user gets a unique QR code, so they can sign in quickly without a password. The app lets you add, edit, delete, and view products. It can also create barcodes and shows a dashboard with important information like stock levels and low-stock alerts."
-                                  data-modal-link-href="assets/Sales-and-Inventory-System-Doc.pdf"
-                                  data-modal-link-text="View Documentation"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper"><img src="Assets/Sales-and-inventory.jpg" alt="Sales and Inventory System Screenshot" class="project-image"/></div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Sales & Inventory System</h3>
-                                      <div class="tech-tags"><span class="tech-tag">VB.NET</span><span class="tech-tag">SQL Database</span><span class="tech-tag">Barcode</span><span class="tech-tag">QR Code</span></div>
-                                      <div class="project-links"><button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button></div>
-                                  </div>
-                              </div>
-                          </div>
+                            <!-- Slide 1: Game Development -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift"
+                                    data-modal-image="Assets/HISTORY-DASH/assets/HD Poster_20250917_213358_0000.png"
+                                    data-modal-title="History Dash - Game-Fest Champion"
+                                    data-modal-description="A mobile endless runner game developed on the HypeHype platform for our 3rd-year GAME-FEST project. I'm incredibly proud that our team's hard work paid off, as we won the CHAMPIONSHIP at the event. The game blends fast-paced, reflex-based gameplay with educational historical trivia. As a key developer, my role involved implementing core gameplay mechanics, designing the user interface, and integrating the educational trivia elements."
+                                    data-modal-link-href="Assets/HISTORY-DASH/index.html"
+                                    data-modal-link-text="View Live Project" data-modal-github-href="#">
+                                    <div class="project-image-wrapper">
+                                        <img src="Assets/HISTORY-DASH/assets/HD Poster_20250917_213358_0000.png"
+                                            alt="History Dash Game Poster" class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">History Dash (Game-Fest Champion)</h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HypeHype</span><span class="tech-tag">Game
+                                                Design</span><span class="tech-tag">Educational Tech</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <button class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                          <!-- Slide 9: Police Station Incident Case Record System -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/Police-Case.jpg"
-                                  data-modal-title="Police Station Incident Case Record System"
-                                  data-modal-description="A solo thesis project for software engineering, this desktop application improves how police stations manage records. Built with VB.NET and a SQL Server database, it replaces manual logbooks with a secure digital system. Key features include role-based access for Admin and Officers, management of blotter entries and official case files, evidence attachment handling, and a dashboard with useful statistics. The system increases the speed, accuracy, and security of case management."
-                                  data-modal-link-href="assets/Police-Incident-System-Doc.pdf"
-                                  data-modal-link-text="View Documentation"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper"><img src="Assets/Police-Case.jpg" alt="Police Station Incident Case Record System Screenshot" class="project-image"/></div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Police Station Record System</h3>
-                                      <div class="tech-tags"><span class="tech-tag">VB.NET</span><span class="tech-tag">SQL Server</span><span class="tech-tag">System Design</span><span class="tech-tag">Desktop App</span></div>
-                                      <div class="project-links"><button class="project-link project-modal-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>View Details</button></div>
-                                  </div>
-                              </div>
-                          </div>
+                            <!-- Slide 2: Point of Sale System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift" data-modal-image="Assets/POS.png"
+                                    data-modal-title="Point of Sale (POS) System"
+                                    data-modal-description="Created a comprehensive POS system for an IT Week event. The system managed sales and generated reports using VB.NET."
+                                    data-modal-link-href="" data-modal-link-text="" data-modal-github-href="#">
+                                    <div class="project-image-wrapper">
+                                        <img src="Assets/POS.png" alt="Point of Sale System" class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Point of Sale (POS) System</h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">VB.NET</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <button class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                          <!-- Slide 10: Automotive Rental Management System -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/Car-Rental.jpg"
-                                  data-modal-title="Car Rental Management System"
-                                  data-modal-description="A thesis project created to digitize and simplify the work of a vehicle rental business. As the Frontend Developer and a Quality Assurance tester in this group project, my main tasks were to design the user interface and make sure the system worked smoothly without errors. The application, built with VB.NET, includes features for managing vehicles and customers, handling bookings and returns, and automatically creating invoices. One helpful feature is the use of QR codes for both customers and vehicles to speed up the check-in and check-out process. All data is safely stored in a SQL Server database. This project highlights skills in UI design, system testing, and building a complete management system."
-                                  data-modal-link-href="assets/Car-Rental-Management-System-Doc.pdf"
-                                  data-modal-link-text="View Documentation"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper">
-                                      <img src="Assets/Car-Rental.jpg" alt="Car Rental Management System Screenshot" class="project-image"/>
-                                  </div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Automotive Rental System</h3>
-                                      <div class="tech-tags">
-                                          <span class="tech-tag">VB.NET</span>
-                                          <span class="tech-tag">SQL Server</span>
-                                          <span class="tech-tag">System Design</span>
-                                          <span class="tech-tag">QR Code</span>
-                                      </div>
-                                      <div class="project-links">
-                                           <button class="project-link project-modal-trigger">
-                                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                              View Details
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                            <!-- Slide 3: Game Landing Page -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift"
+                                    data-modal-image="Assets/WebsiteImage.png" data-modal-title="Game Landing Page"
+                                    data-modal-description="Designed and developed a fully responsive landing page for a fictional video game. This project showcases modern front-end techniques using pure HTML and CSS, ensuring a seamless experience across all devices."
+                                    data-modal-link-href="Assets/UndeadSlayerWebsiteUpdated1/Main Page.html"
+                                    data-modal-link-text="View Live Project" data-modal-github-href="#">
+                                    <div class="project-image-wrapper"><img src="Assets/WebsiteImage.png"
+                                            alt="Game Website Project Screenshot" class="project-image" /></div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Game Landing Page</h3>
+                                        <div class="tech-tags"><span class="tech-tag">HTML</span><span
+                                                class="tech-tag">CSS</span><span class="tech-tag">Responsive
+                                                Design</span></div>
+                                        <div class="project-links"><button
+                                                class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button></div>
+                                    </div>
+                                </div>
+                            </div>
 
-                          <!-- Slide 11: Pageant Tabulation System -->
-                          <div class="swiper-slide">
-                              <div class="project-card glass-card hover-lift"
-                                  data-modal-image="Assets/pageant-tabulation.jpg"
-                                  data-modal-title="Pageant Tabulation System"
-                                  data-modal-description="A flexible, Web LAN-based tabulation system developed for the school's Foundation Day. This critical application managed the real-time scoring for the event, featuring three distinct access levels: Superadmin, Admin, and Judge. As the Frontend Developer, I created a responsive and intuitive interface that allowed judges to input scores quickly and accurately. The system was highly successful, running continuously throughout the event with zero errors and ensuring instant, accurate results. This project highlights my ability to build reliable interfaces for high-stakes, live environments."
-                                  data-modal-link-href="#"
-                                  data-modal-link-text="Private LAN Project"
-                                  data-modal-github-href="#">
-                                  <div class="project-image-wrapper">
-                                      <img src="Assets/pageant-tabulation.jpg" alt="Pageant Tabulation System Interface" class="project-image"/>
-                                  </div>
-                                  <div class="p-6">
-                                      <h3 class="text-xl font-bold mb-3">Pageant Tabulation System</h3>
-                                      <div class="tech-tags">
-                                          <span class="tech-tag">Web Development</span>
-                                          <span class="tech-tag">LAN Based</span>
-                                          <span class="tech-tag">Frontend Dev</span>
-                                          <span class="tech-tag">Live Event</span>
-                                      </div>
-                                      <div class="project-links">
-                                           <button class="project-link project-modal-trigger">
-                                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                              View Details
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Swiper Navigation -->
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"></div>
-                  <div class="swiper-pagination"></div>
-              </div>
-          </div>
-      </section>
-     
-      
-      <!-- Contact Section -->
-      <section id="contact" class="section-padding bg-secondary-light">
-        <div class="contact-container">
-          <div class="scroll-animation">
-            <h2 class="section-title gradient-text">Let's Work Together</h2>
-            <p class="text-large text-muted mb-12 max-w-2xl mx-auto">
-              Have a project in mind? I'd love to hear about it. Let's create something amazing together.
-            </p>
-             <button id="contact-modal-trigger" class="btn btn-gradient">Start a Conversation</button>
-              </div>
+                            <!-- Slide 4: CineFlix -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift" data-modal-image="Assets/MoviePic.jpg"
+                                    data-modal-title="CineFlix – Movie Discovery Platform"
+                                    data-modal-description="I designed and developed CineFlix as a modern, responsive web application for discovering movies and TV shows. I focused on creating a clean, immersive user experience using HTML, Tailwind CSS, and JavaScript. The site includes dynamic sections like trending titles, search functionality, trailers, and a stylish splash screen."
+                                    data-modal-link-href="Assets/YujinMovieApi/index.html"
+                                    data-modal-link-text="View Live Project" data-modal-github-href="#">
+                                    <div class="project-image-wrapper"><img src="Assets/MoviePic.jpg"
+                                            alt="CineFlix Website Screenshot" class="project-image" /></div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">CineFlix Platform</h3>
+                                        <div class="tech-tags"><span class="tech-tag">HTML</span><span
+                                                class="tech-tag">Tailwind CSS</span><span
+                                                class="tech-tag">JavaScript</span></div>
+                                        <div class="project-links"><button
+                                                class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5: Tourista Trails -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift"
+                                    data-modal-image="Assets/TouristSpotWebsite/Assets/SnakeIslandElNido.jpg"
+                                    data-modal-title="Tourista Trails – A Palawan Travel Experience"
+                                    data-modal-description="A responsive and immersive website for discovering and booking tours in Palawan, Philippines. The project showcases stunning destinations through video backgrounds, an interactive map using Leaflet.js, and animated content sections. A key feature is the booking form, which is connected to EmailJS, allowing booking inquiries to be sent directly to my Gmail."
+                                    data-modal-link-href="Assets/TouristSpotWebsite/html/index.html"
+                                    data-modal-link-text="View Live Project" data-modal-github-href="#">
+                                    <div class="project-image-wrapper"><img
+                                            src="Assets/TouristSpotWebsite/Assets/SnakeIslandElNido.jpg"
+                                            alt="Tourista Trails Website Screenshot" class="project-image" /></div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Palawan Travel Site</h3>
+                                        <div class="tech-tags"><span class="tech-tag">JavaScript</span><span
+                                                class="tech-tag">Leaflet.js</span><span class="tech-tag">EmailJS</span>
+                                        </div>
+                                        <div class="project-links"><button
+                                                class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 6: School Clinic System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift" data-modal-image="Assets/SCVRS-SS.png"
+                                    data-modal-title="School Clinic Visit Record System"
+                                    data-modal-description="As a System Analyst for this project, my role was to plan how the system would work. I designed the step-by-step process for everything, like how to add a student and how to record a clinic visit. The programmers then used my plan as a guide to build the website."
+                                    data-modal-link-href="assets/THESIS-SCRVS.pdf"
+                                    data-modal-link-text="View Documentation" data-modal-github-href="#">
+                                    <div class="project-image-wrapper"><img src="Assets/SCVRS-SS.png"
+                                            alt="A conceptual image of a medical record system" class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">School Clinic System</h3>
+                                        <div class="tech-tags"><span class="tech-tag">System Design</span><span
+                                                class="tech-tag">User Flow</span><span class="tech-tag">Data
+                                                Modeling</span></div>
+                                        <div class="project-links"><button
+                                                class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 7: Student Information System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift"
+                                    data-modal-image="Assets/Sis-Project.jpg"
+                                    data-modal-title="Student Information System"
+                                    data-modal-description="A comprehensive desktop application developed in Visual Basic for my midterm project. It's designed to manage student records securely, featuring a login module, full CRUD (Create, Read, Update, Delete) operations, and automatic QR code generation for quick identification. This system replaces manual record-keeping with an efficient, organized, and reliable digital solution."
+                                    data-modal-link-href="assets/Student-Information-System-Doc.pdf"
+                                    data-modal-link-text="View Documentation"
+                                    data-modal-github-href="https://www.facebook.com/yujiiiiiiiiin05">
+                                    <div class="project-image-wrapper"><img src="Assets/Sis-Project.jpg"
+                                            alt="Student Information System Screenshot" class="project-image" /></div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Student Information System</h3>
+                                        <div class="tech-tags"><span class="tech-tag">VB.NET</span><span
+                                                class="tech-tag">SQL Database</span><span class="tech-tag">System
+                                                Design</span></div>
+                                        <div class="project-links"><button
+                                                class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 8: Sales and Inventory System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift"
+                                    data-modal-image="Assets/Sales-and-inventory.jpg"
+                                    data-modal-title="Sales and Inventory System"
+                                    data-modal-description="A desktop app that makes sales and stock management easier. It has a secure login system where each user gets a unique QR code, so they can sign in quickly without a password. The app lets you add, edit, delete, and view products. It can also create barcodes and shows a dashboard with important information like stock levels and low-stock alerts."
+                                    data-modal-link-href="assets/Sales-and-Inventory-System-Doc.pdf"
+                                    data-modal-link-text="View Documentation" data-modal-github-href="#">
+                                    <div class="project-image-wrapper"><img src="Assets/Sales-and-inventory.jpg"
+                                            alt="Sales and Inventory System Screenshot" class="project-image" /></div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Sales & Inventory System</h3>
+                                        <div class="tech-tags"><span class="tech-tag">VB.NET</span><span
+                                                class="tech-tag">SQL Database</span><span
+                                                class="tech-tag">Barcode</span><span class="tech-tag">QR Code</span>
+                                        </div>
+                                        <div class="project-links"><button
+                                                class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 9: Police Station Incident Case Record System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift"
+                                    data-modal-image="Assets/Police-Case.jpg"
+                                    data-modal-title="Police Station Incident Case Record System"
+                                    data-modal-description="A solo thesis project for software engineering, this desktop application improves how police stations manage records. Built with VB.NET and a SQL Server database, it replaces manual logbooks with a secure digital system. Key features include role-based access for Admin and Officers, management of blotter entries and official case files, evidence attachment handling, and a dashboard with useful statistics. The system increases the speed, accuracy, and security of case management."
+                                    data-modal-link-href="assets/Police-Incident-System-Doc.pdf"
+                                    data-modal-link-text="View Documentation" data-modal-github-href="#">
+                                    <div class="project-image-wrapper"><img src="Assets/Police-Case.jpg"
+                                            alt="Police Station Incident Case Record System Screenshot"
+                                            class="project-image" /></div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Police Station Record System</h3>
+                                        <div class="tech-tags"><span class="tech-tag">VB.NET</span><span
+                                                class="tech-tag">SQL Server</span><span class="tech-tag">System
+                                                Design</span><span class="tech-tag">Desktop App</span></div>
+                                        <div class="project-links"><button
+                                                class="project-link project-modal-trigger"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>View Details</button></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 10: Automotive Rental Management System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift" data-modal-image="Assets/Car-Rental.jpg"
+                                    data-modal-title="Car Rental Management System"
+                                    data-modal-description="A thesis project created to digitize and simplify the work of a vehicle rental business. As the Frontend Developer and a Quality Assurance tester in this group project, my main tasks were to design the user interface and make sure the system worked smoothly without errors. The application, built with VB.NET, includes features for managing vehicles and customers, handling bookings and returns, and automatically creating invoices. One helpful feature is the use of QR codes for both customers and vehicles to speed up the check-in and check-out process. All data is safely stored in a SQL Server database. This project highlights skills in UI design, system testing, and building a complete management system."
+                                    data-modal-link-href="assets/Car-Rental-Management-System-Doc.pdf"
+                                    data-modal-link-text="View Documentation" data-modal-github-href="#">
+                                    <div class="project-image-wrapper">
+                                        <img src="Assets/Car-Rental.jpg" alt="Car Rental Management System Screenshot"
+                                            class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Automotive Rental System</h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">VB.NET</span>
+                                            <span class="tech-tag">SQL Server</span>
+                                            <span class="tech-tag">System Design</span>
+                                            <span class="tech-tag">QR Code</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <button class="project-link project-modal-trigger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>
+                                                View Details
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 11: Pageant Tabulation System -->
+                            <div class="swiper-slide">
+                                <div class="project-card glass-card hover-lift"
+                                    data-modal-image="Assets/pageant-tabulation.jpg"
+                                    data-modal-title="Pageant Tabulation System"
+                                    data-modal-description="A flexible, Web LAN-based tabulation system developed for the school's Foundation Day. This critical application managed the real-time scoring for the event, featuring three distinct access levels: Superadmin, Admin, and Judge. As the Frontend Developer, I created a responsive and intuitive interface that allowed judges to input scores quickly and accurately. The system was highly successful, running continuously throughout the event with zero errors and ensuring instant, accurate results. This project highlights my ability to build reliable interfaces for high-stakes, live environments."
+                                    data-modal-link-href="#" data-modal-link-text="Private LAN Project"
+                                    data-modal-github-href="#">
+                                    <div class="project-image-wrapper">
+                                        <img src="Assets/pageant-tabulation.jpg"
+                                            alt="Pageant Tabulation System Interface" class="project-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold mb-3">Pageant Tabulation System</h3>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">Web Development</span>
+                                            <span class="tech-tag">LAN Based</span>
+                                            <span class="tech-tag">Frontend Dev</span>
+                                            <span class="tech-tag">Live Event</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <button class="project-link project-modal-trigger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>
+                                                View Details
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Swiper Navigation -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
-        
-          </div>
-        </div>
-      </section>
-      
-      <!-- Footer -->
-  <footer id="footer" class="site-footer">
-  <div class="container">
-    <div class="footer-landscape-container">
-      
-      <!-- Left Side: Brand and Copyright -->
-      <div class="footer-left">
-        <h4 class="footer-brand gradient-text">My Portfolio</h4>
-        <p class="text-muted text-sm">© 2025 Eugene Almira. All Rights Reserved.</p>
-      </div>
+        </section>
 
-      <!-- Right Side: Links and Socials -->
-      <div class="footer-right">
-        <!-- We've removed the "Quick Links" and now have a single row of links -->
-        <ul class="footer-nav-links">
-          <li><a href="Terms/terms.html" target="_blank">Terms</a></li>
-          <li><a href="FAQ/faq.html" target="_blank">FAQ</a></li>
-          <li><a href="PrivacyPolicy/privacy.html" target="_blank">Privacy Policy</a></li>
-          
-        </ul>
-        
-        <div class="footer-socials">
-          
-           <a href="https://www.linkedin.com/in/eugene-almira-3262203a6/" target="_blank" class="mobile-social-link">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/yujiin770" target="_blank" class="mobile-social-link">
-            <i class="fab fa-github"></i>
-        </a>
-          
-          <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" class="mobile-social-link">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>  
-      </div>
-       
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-secondary-light">
+            <div class="contact-container">
+                <div class="scroll-animation">
+                    <h2 class="section-title gradient-text">Let's Work Together</h2>
+                    <p class="text-large text-muted mb-12 max-w-2xl mx-auto">
+                        Have a project in mind? I'd love to hear about it. Let's create something amazing together.
+                    </p>
+                    <button id="contact-modal-trigger" class="btn btn-gradient">Start a Conversation</button>
+                </div>
+            </div>
+
     </div>
-  </div>
-</footer>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <div class="footer-landscape-container">
+
+                <!-- Left Side: Brand and Copyright -->
+                <div class="footer-left">
+                    <h4 class="footer-brand gradient-text">My Portfolio</h4>
+                    <p class="text-muted text-sm">© 2025 Eugene Almira. All Rights Reserved.</p>
+                </div>
+
+                <!-- Right Side: Links and Socials -->
+                <div class="footer-right">
+                    <!-- We've removed the "Quick Links" and now have a single row of links -->
+                    <ul class="footer-nav-links">
+                        <li><a href="Terms/terms.html" target="_blank">Terms</a></li>
+                        <li><a href="FAQ/faq.html" target="_blank">FAQ</a></li>
+                        <li><a href="PrivacyPolicy/privacy.html" target="_blank">Privacy Policy</a></li>
+
+                    </ul>
+
+                    <div class="footer-socials">
+
+                        <a href="https://www.linkedin.com/in/eugene-almira-3262203a6/" target="_blank"
+                            class="mobile-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/yujiin770" target="_blank" class="mobile-social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/yujiiiiiiiiin05" target="_blank" class="mobile-social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
     <!-- Video Modal -->
-     <div id="video-modal" class="video-modal-overlay">
+    <div id="video-modal" class="video-modal-overlay">
         <div class="video-modal-content">
-           <span class="close-modal-btn">×</span>
-                <video id="modal-video-player" width="100%" controls muted autoplay></video>
-          </div>
-      </div>
+            <span class="close-modal-btn">×</span>
+            <video id="modal-video-player" width="100%" controls muted autoplay></video>
+        </div>
+    </div>
 
     <!-- Contact Modal -->
-<div id="contact-modal" class="contact-modal-overlay">
-  <div class="contact-modal-content glass-card">
-    <span id="close-contact-modal-btn"></span>
-    <h2 class="section-title gradient-text mb-6 text-center">Contact Me</h2>
-    
-    <form id="contact-form">
-        <div class="input-box">
-            <input type="text" name="from_name" placeholder="Full Name" required>
-            <input type="email" name="from_email" placeholder="Email Address" required>
-        </div>
-        <div class="input-box">
-            <input type="number" name="from_phone" placeholder="Phone Number" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-        </div>
+    <div id="contact-modal" class="contact-modal-overlay">
+        <div class="contact-modal-content glass-card">
+            <span id="close-contact-modal-btn"></span>
+            <h2 class="section-title gradient-text mb-6 text-center">Contact Me</h2>
 
-        <textarea name="message" id="contact-message" cols="30" rows="8" placeholder="Your Message" required></textarea>
-        <input type="submit" value="Send Message" class="btn btn-primary" style="width: 100%; margin-top: 1rem; cursor: pointer;">
-    </form>
-  </div>
-</div>
+            <form id="contact-form">
+                <div class="input-box">
+                    <input type="text" name="from_name" placeholder="Full Name" required>
+                    <input type="email" name="from_email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="number" name="from_phone" placeholder="Phone Number" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+
+                <textarea name="message" id="contact-message" cols="30" rows="8" placeholder="Your Message"
+                    required></textarea>
+                <input type="submit" value="Send Message" class="btn btn-primary"
+                    style="width: 100%; margin-top: 1rem; cursor: pointer;">
+            </form>
+        </div>
+    </div>
 
     <!-- Confirmation Modal -->
     <div id="confirmation-modal" class="contact-modal-overlay">
-      <div class="contact-modal-content glass-card" style="text-align: center;">
-        <span id="close-confirmation-modal-btn"></span>
-        
-        <div class="confirmation-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-        </div>
+        <div class="contact-modal-content glass-card" style="text-align: center;">
+            <span id="close-confirmation-modal-btn"></span>
 
-        <h2 class="section-title gradient-text mb-3">Message Sent!</h2>
-        <p class="text-large text-muted mb-8">
-          Thank you for reaching out. I'll get back to you as soon as possible.
-        </p>
-        <button id="confirm-ok-btn" class="btn btn-primary" style="cursor: pointer;">OK</button>
-      </div>
+            <div class="confirmation-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+
+            <h2 class="section-title gradient-text mb-3">Message Sent!</h2>
+            <p class="text-large text-muted mb-8">
+                Thank you for reaching out. I'll get back to you as soon as possible.
+            </p>
+            <button id="confirm-ok-btn" class="btn btn-primary" style="cursor: pointer;">OK</button>
+        </div>
     </div>
-    
+
     <!-- === NEW: Project Details Modal === -->
     <div id="project-details-modal" class="project-modal-overlay">
         <div class="project-modal-content glass-card">
@@ -1015,69 +1222,72 @@
     </div>
 
 
-      <a href="#home" id="back-to-top-btn" class="back-to-top-btn" title="Go to top">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m18 15-6-6-6 6"/>
-      </svg>
+    <a href="#home" id="back-to-top-btn" class="back-to-top-btn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg>
     </a>
-    
+
     <!-- ADDED: Swiper JS Library -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 
     <button id="chatbot-toggle-btn" class="chatbot-toggle-btn" title="Open Chat">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-open">
-        <path
-            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
-        </path>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-close">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="12"></line>
-    </svg>
-</button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-open">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+            </path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-close">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="12"></line>
+        </svg>
+    </button>
 
-<!-- Chatbot Window -->
-<div id="chatbot-window" class="chatbot-window glass-card">
-    <div class="chatbot-header">
-        <div class="chatbot-avatar">
-            <img src="Assets/Webicon.png" alt="Chatbot Avatar">
+    <!-- Chatbot Window -->
+    <div id="chatbot-window" class="chatbot-window glass-card">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <img src="Assets/Webicon.png" alt="Chatbot Avatar">
+            </div>
+            <div class="chatbot-info">
+                <h3 class="chatbot-title">Yujin's Assistant</h3>
+                <p class="chatbot-status">Online</p>
+            </div>
         </div>
-        <div class="chatbot-info">
-            <h3 class="chatbot-title">Yujin's Assistant</h3>
-            <p class="chatbot-status">Online</p>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <!-- Messages will be added here by JavaScript -->
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask a question..."
+                autocomplete="off">
+            <button id="chatbot-send-btn" class="chatbot-send-btn" title="Send Message">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+        <div class="chatbot-footer">
+            Powered by <a href="https://deepmind.google/technologies/gemini/" target="_blank"
+                rel="noopener noreferrer">Gemini</a>
         </div>
     </div>
-    <div id="chatbot-messages" class="chatbot-messages">
-        <!-- Messages will be added here by JavaScript -->
-    </div>
-    <div class="chatbot-input-area">
-        <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask a question..." autocomplete="off">
-        <button id="chatbot-send-btn" class="chatbot-send-btn" title="Send Message">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-        </button>
-    </div>
-    <div class="chatbot-footer">
-        Powered by <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener noreferrer">Gemini</a>
-</div>
-</div>
 
-<div id="certificateModal" class="project-modal-overlay">
-    <div class="certificate-modal-content">
-        <button id="closeCertificateModalBtn" class="close-modal-btn">&times;</button>
-        <img id="certificateModalImage" src="" alt="Certificate Image">
+    <div id="certificateModal" class="project-modal-overlay">
+        <div class="certificate-modal-content">
+            <button id="closeCertificateModalBtn" class="close-modal-btn">&times;</button>
+            <img id="certificateModalImage" src="" alt="Certificate Image">
+        </div>
     </div>
-</div>
 
 
-    
+
 
 </body>
+
 </html>

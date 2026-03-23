@@ -1,0 +1,668 @@
+@font-face {
+    font-family: 'bebas neue';
+    src: url('Assets/Font/BebasNeue-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Menggunakan font di seluruh halaman */
+  body {
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: rgb(120, 179, 199);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("Assets/Other/tournamentlogo.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Adjust opacity here */
+    z-index: -1;
+}
+/*Display*/
+.ban {
+    display: flex;
+    margin-top:20px;
+    
+}
+
+.teamnameblue{
+    width: 518px;
+    height: 80px;
+    text-align: center;
+    line-height: 49px;
+    background-color: #1f3169;
+    border-radius: 12px;
+    margin: 1px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.teamnamered{
+    width: 518px;
+    height: 80px;
+    text-align: center;
+    line-height: 49px;
+    background-color: #720615;
+    border-radius: 12px;
+    margin: 1px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.ban1 {
+    width: 82px;
+    height: 80px;
+    background-color: aqua;
+    border-radius: 12px;
+    margin: 1px;
+    overflow: hidden;
+    background-image: url("Assets/Other/ban.png");
+    background-position: center;
+    background-size: 100%;
+    filter: grayscale(100%);
+   
+}
+
+.tournamentname {
+    width: 350px;   
+    height: 80px;
+    background-color:#9900ff;
+    background-image: url("Assets/Other/ITbg.png");
+    background-size: 105%;
+    background-position: center;
+    border-radius: 12px;
+    margin-top: 1.3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    
+
+}
+
+.tournamentnamemid{
+    font-size: 40px;
+    font-weight: normal ;
+    text-align: center;
+    align-items: center;
+    color: #1f3169;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    
+}
+
+.tournamentnamebox{
+    width: 200px;
+    height: 30px;
+    margin-top: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+}
+
+.tournamentinfo{
+    width: 350px;
+    height: 250px;
+    background-color: #9900ff;
+    background-image: url("Assets/Other/ITbg.png");
+    background-size: 110%;
+    border-radius: 12px;
+    background-position: center;    
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.tournamentlogo{
+    width: 150px;
+    height: 75px;
+    margin: auto;
+    display: flex;
+    margin-bottom: 20px;
+    overflow: hidden;
+    object-fit: contain;  
+    
+}
+
+.logoprop{
+    position: relative;
+    bottom: 40%;
+    right: 10%;
+    justify-content: space-around;
+    width: 500px; /* Lebar gambar */
+    height: 170px; /* Tinggi gambar */
+    object-fit: contain;
+   
+    
+}
+
+.bluevsred{
+    width: 310px;
+    height: 80px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.bluelogo{
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.vslogo{
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+
+}
+
+.phase {    
+    margin-top: 0px;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    display: flex;
+    color: #1f3169;
+ 
+   
+
+}
+.direction img {
+    width: 100px;
+    height: auto;
+    display: flex;
+    margin: auto;
+    margin-top: -5px;
+
+}
+.timer {
+    font-size: 50px;
+    color: black;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+   
+}
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.vsprop{
+    width: 83.33333333333333px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.redlogo{
+    width: 100px;
+    height: 100px;
+   
+    overflow: hidden;
+}
+
+.winlose{
+    width: 294px;
+    height: 10px;
+    margin: auto;
+    display: flex;
+}
+
+.w{
+    width: 27px;
+    height: 10px;
+    display: flex;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+.win1{
+    width: 83.33333px;
+    height: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+
+.midwin{
+    width: 130px;
+    height: 10px;
+
+}
+
+
+.nickname{
+    display: flex   ;
+}
+
+.pick{
+    display: flex;
+}
+
+.pick1{
+    width: 152.4px;
+    height: 220px;
+    background-color: blueviolet;
+    margin: 1px;
+    border-radius: 12px;
+  
+    overflow: hidden;
+    background-image: url("Assets/Other/Pickbg.jpg");
+    background-position: center;
+    background-size: 110%;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.bottom{
+    display: flex;
+}
+
+.infobottom{
+    width: 350px;
+    height: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+}
+
+
+.nameholder{
+
+    width: 152.4px ;
+    height: 30px ;
+    justify-content: center; 
+    display: flex;
+    align-items: center;
+    background-color: lightblue;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f3169;
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: -30px;
+    border-radius: 4px;
+}
+
+/*Control*/
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust this if needed */
+    width: 100%;
+    background-color: transparent; /* Optional: Background color */
+}
+
+
+.control {
+    margin-top: 20px;
+    display: flex;
+    margin-right: 25px;
+    
+}
+
+.controlbutton{
+    margin-top: 17px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 15px 15px 30px 15px;
+    height: 30px;
+    font-weight: bold;
+    
+}
+.allcontrol{
+    display: flex;
+}
+.allcontrol h2 {
+    position: relative;
+    left: 30%
+}
+.bluesidecontrol{
+    margin-right: 10px;
+}
+.bluesidecontrol #input1{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.bluesidecontrol #input2{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.bluesidecontrol #input3{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.bluesidecontrol #input4{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.bluesidecontrol #input5{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.bluesidepick{
+    margin-right: 10px;
+}
+.bluesidepick  #search-1{
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 2px;
+}
+.bluesidepick  #search-2{
+    border: 2px solid black;
+    border-radius: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 2px;
+}
+.bluesidepick  #search-3{
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 2px;
+}    
+.bluesidepick  #search-4{
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 2px;
+}
+.bluesidepick  #search-5{
+    border: 2px solid black;
+    border-radius: 8px;
+}
+.bluesideban{
+    margin-right: 100px; 
+}
+#dropdowns-container h2{
+    position: relative;
+    left: 40%;
+}
+.bluesideban .dropdown-container {
+    position: relative;
+    left: 30%;
+}
+
+.bluelast{
+    margin-left: 100px;
+}
+
+.redsidecontrol{
+    margin-right: 10px;
+}
+.redsidecontrol #input6{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.redsidecontrol #input7{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.redsidecontrol #input8{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.redsidecontrol #input9{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.redsidecontrol #input10{
+    margin-bottom: 10px;
+    padding: 6px 0px 10px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.redsidepick{
+    margin-right: 10px;
+}
+.redesideban .dropdown-container{
+    position: relative;
+    left: 30%;
+}
+.bluesideban{
+    margin-right: 100px; 
+}
+.redlast{
+    margin-left: 100px;
+}
+/* Dropdown */
+
+.dropdown-container {
+    position: relative;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.dropdown {
+    width: 100%;
+    padding: 8px;
+}
+
+.dropdown-items {
+    position: absolute;
+    width: 100%;
+    max-height: 100px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Animasi Fly-In dan Fly-Out */
+.fly-in {
+    animation: flyIn 1.5s ease-in-out;
+}
+
+.fly-out {
+    animation: flyOut 1.2s ease-in-out;
+}
+
+/* Keyframes untuk animasi */
+@keyframes flyIn {
+    0% {
+        opacity: 1;
+        transform: translateY(250px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flyOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(650px);
+    }
+}
+
+/* Style untuk gambar */
+.image-display img {
+    max-width: 100%;
+    height: auto;
+    
+    
+}
+
+/*aaa*/
+.container {
+    
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+.input-container, .image-container, .button-container, .checkbox-container {
+    
+    margin: auto;
+    
+    
+}
+.image-container img {
+    justify-content: space-around;
+    width: 83.3px; /* Lebar gambar */
+    height: 80px; /* Tinggi gambar */
+    margin: 7px;
+    object-fit: contain;
+}
+
+.wimg{
+    width: 27px;
+    height: 10px;
+    margin-top: -1px;
+    background-color: grey;
+    overflow: hidden;
+}
+
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+.team-name-display {
+    font-size: 50px;
+    font-weight: normal ;
+    text-align: center;
+    margin-top: 13px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    
+}
+.input-container input, .button-container button, .checkbox-container label {
+    padding: 8px;
+    font-size: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .ban, .bottom, .nickname, .pick, .allcontrol {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .teamnameblue, .teamnamered, .tournamentname, .tournamentinfo {
+        width: 90%;
+    }
+    .ban1, .vsprop, .pick1, .nameholder {
+        width: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .teamnameblue, .teamnamered {
+        height: 60px;
+        font-size: 18px;
+    }
+    .tournamentnamemid {
+        font-size: 30px;
+    }
+    .tournamentname, .tournamentinfo {
+        width: 100%;
+        height: auto;
+    }
+    .bluelogo, .redlogo {
+        width: 70px;
+        height: 70px;
+    }
+    .vslogo {
+        width: 90px;
+    }
+    .timer {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ban, .bluevsred, .winlose {
+        flex-direction: column;
+        align-items: center;
+    }
+    .teamnameblue, .teamnamered, .tournamentname, .tournamentinfo {
+        font-size: 16px;
+    }
+    .phase {
+        font-size: 20px;
+    }
+    .timer {
+        font-size: 30px;
+    }
+    .control, .allcontrol {
+        flex-direction: column;
+        align-items: center;
+    }
+    button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
